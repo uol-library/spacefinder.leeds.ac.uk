@@ -1,0 +1,17 @@
+{
+  "name": "spacefinder",
+  "version": "0.9",
+  "description": "Spacefinder",
+  "main": "index.js",
+  "scripts": {
+    "concat": "node _scripts/concat.js",
+    "crontab": "node _scripts/cron.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:uol-library/spacefinder.leeds.ac.uk.git"
+  },
+  "keywords": [],
+  "author": "Peter Edwards <p.l.edwards@leeds.ac.uk>",
+  "license": "Apache-2.0"
+}
