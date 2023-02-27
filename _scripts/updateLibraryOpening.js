@@ -20,7 +20,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-fs.readFile( path.resolve( __dirname, '../_data/leeds/opening-hours.json' ), (err, data) => {
+fs.readFile( path.resolve( __dirname, '../_data/leeds-opening-hours.json' ), (err, data) => {
     if (err) throw err;
     let openingJSON = JSON.parse( data );
     let opening = {};
