@@ -1,3 +1,4 @@
+remote_theme: uol-library/spacefinder
 title: Space Finder - University of Leeds
 email: p.l.edwards@leeds.ac.uk
 description: >-
@@ -36,5 +37,4 @@ sass:
   style: compressed
 plugins:
   - jekyll-feed
-  - jekyll-remote-theme
 

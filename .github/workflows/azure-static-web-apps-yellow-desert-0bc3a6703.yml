@@ -28,8 +28,6 @@ jobs:
         run: gem install bundler
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
-      - name: Install dependencies
-        run: bundle install jekyll-remote-theme
       - name: Jekyll build
         run: bundle exec jekyll build --config _config_prod.yml
       # end part from https://github.com/Azure/static-web-apps/issues/253
