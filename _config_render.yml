@@ -9,7 +9,7 @@ description: >-
   map.
 environment: production
 baseurl: ""
-url: "https://spacefinder.onrender.com"
+url: "https://dev.spacefinder.leeds.ac.uk"
 host: "localhost"
 google_analytics: "G-6LHKST5028"
 photo_dir: "/assets/photos/"
