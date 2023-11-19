@@ -6,7 +6,8 @@
   "scripts": {
     "concat": "node _scripts/concat.js",
     "crontab": "node _scripts/cron.js",
-    "updateOpening": "node _scripts/updateLibraryOpening.js"
+    "updateOpening": "node _scripts/updateLibraryOpening.js",
+    "libcal": "node _scripts/getOpeningHoursLibCal.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +15,8 @@
   },
   "keywords": [],
   "author": "Peter Edwards <p.l.edwards@leeds.ac.uk>",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "openid-client": "^5.6.1"
+  }
 }
