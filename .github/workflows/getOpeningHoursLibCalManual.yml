@@ -1,7 +1,5 @@
-name: cron-updates
-on:
-  schedule:
-    - cron: '10 4 * * *'
+name: get-library-opening-hours-manual
+on: workflow_dispatch
 jobs:
   keep_file_updated:
     runs-on: ubuntu-latest
