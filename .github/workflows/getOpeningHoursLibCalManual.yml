@@ -13,7 +13,7 @@ jobs:
           node-version: '18'
       - name: Update and commit
         env:
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
         run: | 
           cd main
           npm run libcal
