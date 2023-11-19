@@ -1,4 +1,4 @@
-name: get-library-opening-hours-from-libcal
+name: cron-updates
 on:
   schedule:
     - cron: '10 4 * * *'
