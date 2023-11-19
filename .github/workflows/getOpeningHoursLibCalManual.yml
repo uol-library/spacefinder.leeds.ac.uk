@@ -10,7 +10,7 @@ jobs:
           path: main
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
       - name: Update and commit
         env:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
