@@ -1,9 +1,11 @@
-name: get-library-opening-hours-manual
-on: workflow_dispatch
+name: update-hours-from-libcal-data
+on:
+  schedule:
+    - cron: '10 5 * * *'
 jobs:
-  keep_file_updated:
+  update-opening:
     runs-on: ubuntu-latest
-    name: Run daily update of opening hours
+    name: Run daily update of spaces from opening hours data
     steps:
       - uses: actions/checkout@v3
         with:
@@ -12,13 +14,11 @@ jobs:
         with:
           node-version: '18'
       - name: Update and commit
-        env:
-          CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
         run: | 
           cd main
-          npm run libcal
+          npm run updateHours
           npm run concat
           git config --global user.name 'peteredwards'
           git config --global user.email 'p.l.edwards@leeds.ac.uk'
           git add --all
-          git diff-index --quiet HEAD || (git commit -am "[bot] Updated space data using crontab" && git push)
+          git diff-index --quiet HEAD || (git commit -am "[bot] Library Opening Hours updated from LibCal data" && git push)
