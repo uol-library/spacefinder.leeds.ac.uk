@@ -9,7 +9,7 @@ const identityUrl = "https://leeds.libcal.com/1.1/oauth/token";
 const hoursUrl = "https://leeds.libcal.com/1.1/hours/";
 const libraryIDs = [7782,7784,7786,7783,7785,7790,7791];
 const clientId = "163";
-const clientSecret = process.env.CLIENT_SECRET;
+const clientSecret = '84075250789c846131be5e7de95e9e97';//process.env.CLIENT_SECRET;
 
 async function GetOpeningHours() {
     const response = await fetch( identityUrl, {

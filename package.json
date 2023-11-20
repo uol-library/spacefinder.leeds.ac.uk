@@ -7,6 +7,7 @@
     "concat": "node _scripts/concat.js",
     "crontab": "node _scripts/cron.js",
     "updateOpening": "node _scripts/updateLibraryOpening.js",
+    "updateHours": "node _scripts/updateOpeningHoursLibCal.js",
     "libcal": "node _scripts/getOpeningHoursLibCal.js"
   },
   "repository": {
