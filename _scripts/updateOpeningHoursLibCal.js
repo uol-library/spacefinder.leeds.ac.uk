@@ -50,7 +50,6 @@ if ( allHoursData.length ) {
             libCalOpening[ lib.building ][dates.day] = getOpeningHours( lib.dates, dates.datestring );
         });
     });
-    console.log( libCalOpening );
     fs.writeFileSync(path.resolve( __dirname, '../_data/libcal-opening-hours.json' ), JSON.stringify(allHoursData), err => {
         if (err) {
             console.error(err);
@@ -62,15 +61,11 @@ if ( allHoursData.length ) {
         if ( filename !== '.' && filename !== '..' ) {
             var spaceData = fs.readFileSync( path.resolve( __dirname, '../spaces/', filename ) );
             const spaceJSON = JSON.parse( spaceData );
-            if ( spaceJSON.space_type == 'Library' ) {
-                let update = false;
-                if ( libCalOpening.hasOwnProperty( spaceJSON.building ) ) {
-                    if ( openingHoursDiffer( spaceJSON.opening_hours, libCalOpening[ spaceJSON.building ] ) ) {
-
-                    }
-                } else {
-                    console.log(spaceJSON.building + ' does not have any hours defined');
-                    console.log(spaceJSON);
+            let update = false;
+            if ( spaceJSON.space_type == 'Library' && libCalOpening.hasOwnProperty( spaceJSON.building ) ) {
+                if ( openingHoursDiffer( spaceJSON.opening_hours, libCalOpening[ spaceJSON.building ] ) ) {
+                    spaceJSON.opening_hours = libCalOpening[ spaceJSON.building ];
+                    update = true;
                 }
                 // check the flag to see if an update has been performed
                 if ( update ) {
@@ -112,9 +107,9 @@ function getOpeningHours( data, datestr ) {
     for ( d in data ) {
         if ( d === datestr ) {
             if ( data[d].status == 'open' ) {
-                opening = { 'open': true, 'from': data[d].hours[0].from, 'to': data[d].hours[0].to };
+                opening = { 'open': true, 'from': normaliseTime( data[d].hours[0].from ), 'to': normaliseTime( data[d].hours[0].to ) };
             } else if ( data[d].status == "24hours" ) {
-                opening = { 'open': true, 'from': '0:00am', 'to': '24:00pm' };
+                opening = { 'open': true, 'from': '0:00', 'to': '24:00' };
             }
         }
     }
@@ -128,4 +123,23 @@ function openingHoursDiffer( o1, o2 ) {
         }
     });
     return differ;
+}
+function normaliseTime( libCalTime ) {
+    if ( libCalTime == "12:00am" ) {
+        return "24:00";
+    } else if ( libCalTime == "12:00pm" ) {
+        return "12:00";
+    } else {
+        let regex = /([0-9]+):([0-9]+)(am|pm)/i;
+        let hours = libCalTime.match( regex );
+        if ( hours !== null ) {
+            if ( hours[3])
+            if ( hours[3] == 'pm' ) {
+                return ( +hours[1] + 12 ) + ':' + hours[2];
+            } else {
+                return hours[1] + ':' + hours[2];
+            }
+        }
+    }
+    return "";
 }
