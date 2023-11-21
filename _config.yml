@@ -9,7 +9,7 @@ description: >-
   map.
 environment: production
 baseurl: ""
-url: "https://spacefinder.leeds.ac.uk"
+url: "https://yellow-desert-0bc3a6703.2.azurestaticapps.net"
 host: "localhost"
 google_analytics: "G-6LHKST5028"
 photo_dir: "/assets/photos/"
