@@ -167,11 +167,11 @@ function updateOccupancy() {
 			let so = {
 				"Edward Boyle": {
 					"spaces": [71,72,73,74],
-					"capacity": 500
+					"capacity": 1800
 				},
 				"Laidlaw": {
 				    "spaces": [78,79,80,81,82],
-					"capacity": 600
+					"capacity": 640
     			}
 			};
 			for( lib in so ) {
