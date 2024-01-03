@@ -155,7 +155,7 @@ function getClassList( space ) {
 }
 
 /**
- * Gets occupancy data for two spaces
+ * Gets occupancy data for two libraries
  */
 function updateOccupancy() {
     let options = {
@@ -163,6 +163,7 @@ function updateOccupancy() {
         key: "libraryOccupancy",
         expires: 0.015,
         callback: function( data ) {
+            console.log(data);
 			let so = {
 				"Edward Boyle": {
 					"spaces": [71,72,73,74],
@@ -182,6 +183,7 @@ function updateOccupancy() {
 							sdo.classList.add( 'occupancy', 'icon-user' );
 							document.querySelector( '#space' + id + ' .space-details' ).appendChild( sdo );
 						}
+                        console.log(sdo);
 						let pco = Math.floor( ( data[lib] / so[lib].capacity ) * 100 );
 						if ( pco > 100 ) {
 							pco = 100;
