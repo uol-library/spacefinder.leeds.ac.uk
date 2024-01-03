@@ -188,7 +188,7 @@ function updateOccupancy() {
 						if ( pco > 100 ) {
 							pco = 100;
                         }
-                        sdo.innerHTML = 'There are currently <strong>'+data[lib]+'</strong> users in the library which has a seating capacity of <strong>'+so[lib].capacity+'</strong>';
+                        sdo.innerHTML = 'There are currently <strong>'+data[lib]+'</strong> users in the library which has a seating capacity of approximately <strong>'+so[lib].capacity+'</strong>';
 					});
 				} else {
                     splog("No occupancy data for "+lib);
