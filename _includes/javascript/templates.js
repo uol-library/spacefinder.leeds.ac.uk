@@ -191,7 +191,9 @@ function updateOccupancy() {
                         }
                         sdo.innerHTML = 'There are currently <strong>'+data[lib]+'</strong> users in the library which has a seating capacity of <strong>'+so[lib].capacity+'</strong>';
 					});
-				}
+				} else {
+                    console.log("No data for "+lib);
+                }
 			}
         }
     }
