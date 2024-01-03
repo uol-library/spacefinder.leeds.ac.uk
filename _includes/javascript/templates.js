@@ -200,7 +200,6 @@ function updateOccupancy() {
 }
 document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'spacesloaded', () => {
-        updateOccupancy();
         setInterval( updateOccupancy, 5000 );
     });
 });
