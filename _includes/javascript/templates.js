@@ -176,6 +176,7 @@ function updateOccupancy() {
 			};
 			for( lib in so ) {
 				if ( data.hasOwnProperty( lib ) ) {
+                    console.log(data[lib]);
 					so[lib].spaces.forEach( id => {
 						let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
 						if ( sdo == null ) {
