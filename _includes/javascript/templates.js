@@ -1,7 +1,7 @@
 /**
  * Templates used to render spaces in the list.
  * 
- * Two fundtions should be defined in this file:
+ * Two functions should be defined in this file:
  * - getSpaceHTML - assembles HTML for the list view (short) and returns a HTML Element
  * - getAdditionalInfo - assembles HTML for expanded view and returns an HTML String
  */
@@ -153,3 +153,50 @@ function getClassList( space ) {
     }
     return classList;
 }
+
+/**
+ * Gets occupancy data for two spaces
+ */
+function updateOccupancy() {
+    let options = {
+        url: "https://resources.library.leeds.ac.uk/occupancy.json",
+        key: "libraryOccupancy",
+        expires: 0.015,
+        callback: function( data ) {
+			let so = {
+				"Edward Boyle": {
+					"spaces": [71,72,73,74],
+					"capacity": 500
+				},
+				"Laidlaw": {
+				    "spaces": [78,79,80,81,82],
+					"capacity": 600
+    			}
+			};
+			for( lib in so ) {
+				if ( data.hasOwnProperty( lib ) ) {
+					so[lib].spaces.forEach( id => {
+						let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
+						if ( sdo == null ) {
+							sdo = document.createElement( 'p' );
+							sdo.classList.add( 'occupancy', 'icon-user' );
+							document.querySelector( '#space' + id + ' .space-details' ).appendChild( sdo );
+						}
+						let pco = Math.floor( ( data[lib] / so[lib].capacity ) * 100 );
+						if ( pco > 100 ) {
+							pco = 100;
+                        }
+                        sdo.innerHTML = 'There are currently <strong>'+data[lib]+'</strong> users in the library which has a seating capacity of <strong>'+so[lib].capacity+'</strong>';
+					});
+				}
+			}
+        }
+    }
+    getJSON( options );
+}
+document.addEventListener( 'DOMContentLoaded', () => {
+    document.addEventListener( 'spacesloaded', () => {
+        updateOccupancy();
+        setInterval( updateOccupancy, 5000 );
+    });
+});
