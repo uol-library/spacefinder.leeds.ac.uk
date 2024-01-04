@@ -155,7 +155,23 @@ function getClassList( space ) {
 }
 
 /**
- * Gets occupancy data for two libraries
+ * Occupancy data for two libraries
+ */
+spacefinder.occupancyData = {
+    "Edward Boyle": {
+        "spaces": [71,72,73,74],
+        "capacity": 1800,
+        "occupancy": 0
+    },
+    "Laidlaw": {
+        "spaces": [78,79,80,81,82],
+        "capacity": 640,
+        "occupancy": 0
+    }
+};
+/**
+ * get occupancy data from remote JSON file and update 
+ * spacefinder.occupancyData
  */
 function updateOccupancy() {
     splog( 'updateOccupancy', 'templates.js' );
@@ -164,20 +180,11 @@ function updateOccupancy() {
         key: "libraryOccupancy",
         expires: 0.015,
         callback: function( data ) {
-			let so = {
-				"Edward Boyle": {
-					"spaces": [71,72,73,74],
-					"capacity": 1800
-				},
-				"Laidlaw": {
-				    "spaces": [78,79,80,81,82],
-					"capacity": 640
-    			}
-			};
-			for( lib in so ) {
+			for( lib in spacefinder.occupancyData ) {
 				if ( data.hasOwnProperty( lib ) ) {
                     splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib], 'templates.js' );
-					so[lib].spaces.forEach( id => {
+                    spacefinder.occupancyData[lib].occupancy = data[lib];
+					spacefinder.occupancyData[lib].spaces.forEach( id => {
 						let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
 						if ( sdo == null ) {
 							sdo = document.createElement( 'p' );
@@ -188,7 +195,7 @@ function updateOccupancy() {
 						if ( pco > 100 ) {
 							pco = 100;
                         }
-                        sdo.innerHTML = 'There are currently <strong>'+data[lib]+'</strong> users in the library which has a seating capacity of approximately <strong>'+so[lib].capacity+'</strong>';
+                        sdo.innerHTML = 'There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong>';
 					});
 				} else {
                     splog("No occupancy data for "+lib);
@@ -198,6 +205,21 @@ function updateOccupancy() {
     }
     getJSON( options );
 }
+/**
+ * Overwrite function for map infoWindows to display occupancy data
+ */
+var origGetSpaceInfoWindowContent = getSpaceInfoWindowContent;
+function getSpaceInfoWindowContent( space ) {
+    let content = origGetSpaceInfoWindowContent( space );
+    for( lib in spacefinder.occupancyData ) {
+        if ( spacefinder.occupancyData[lib].spaces.indexOf( space.id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
+            let occMsg = '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
+            content.replace('<button', occMsg+'<button');
+        }
+    }
+    return content;
+}
+
 document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'spacesloaded', () => {
         setInterval( updateOccupancy, 5000 );
