@@ -211,6 +211,7 @@ function updateOccupancy() {
 var origGetSpaceInfoWindowContent = getSpaceInfoWindowContent;
 function getSpaceInfoWindowContent( space ) {
     let content = origGetSpaceInfoWindowContent( space );
+    splog( spacefinder.occupancyData, 'templates.js' );
     for( lib in spacefinder.occupancyData ) {
         if ( spacefinder.occupancyData[lib].spaces.indexOf( space.id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
             let occMsg = '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
