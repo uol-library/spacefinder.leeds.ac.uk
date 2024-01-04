@@ -180,6 +180,7 @@ function updateOccupancy() {
         key: "libraryOccupancy",
         expires: 0.015,
         callback: function( data ) {
+            updateSpaceInfoWindowContent();
 			for( lib in spacefinder.occupancyData ) {
 				if ( data.hasOwnProperty( lib ) ) {
                     splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib], 'templates.js' );
@@ -206,21 +207,32 @@ function updateOccupancy() {
     getJSON( options );
 }
 /**
- * Overwrite function for map infoWindows to display occupancy data
+ * update popups to display occupancy data
  */
-var origGetSpaceInfoWindowContent = getSpaceInfoWindowContent;
-function getSpaceInfoWindowContent( space ) {
-    let content = origGetSpaceInfoWindowContent( space );
-    splog( spacefinder.occupancyData, 'templates.js' );
-    for( lib in spacefinder.occupancyData ) {
-        if ( spacefinder.occupancyData[lib].spaces.indexOf( space.id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
-            let occMsg = '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
-            content.replace('<button', occMsg+'<button');
+function updateSpaceInfoWindowContent() {
+    for ( let i = 0; i < spacefinder.spaces.length; i++ ) {
+        if ( spacefinder.spaces[i].lat && spacefinder.spaces[i].lng ) {
+            for( lib in spacefinder.occupancyData ) {
+                if ( spacefinder.occupancyData[lib].spaces.indexOf( spacefinder.spaces[i].id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
+                    let info = [];
+                    info.push( space.space_type );
+                    if ( space.floor !== '' ) {
+                        info.push( space.floor );
+                    }
+                    if ( space.building !== '' ) {
+                        info.push( space.building );
+                    }
+                    let content = '<div class="spaceInfoWindow"><h3>'+space.title+'</h3>';
+                    content += '<p class="info">' + info.join(', ') + '</p>';
+                    content += '<p class="description">' + space.description + '</p>';
+                    content += '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
+                    content += '<button class="show-list">More info&hellip;</button></div>';
+                    spacefinder.spaces[i].marker.setPopupContent( content );
+                }
+            }
         }
     }
-    return content;
 }
-
 document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'spacesloaded', () => {
         setInterval( updateOccupancy, 5000 );
