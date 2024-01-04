@@ -191,7 +191,7 @@ function updateOccupancy() {
 							sdo.classList.add( 'occupancy', 'icon-user' );
 							document.querySelector( '#space' + id + ' .space-details' ).appendChild( sdo );
 						}
-						let pco = Math.floor( ( data[lib] / so[lib].capacity ) * 100 );
+						let pco = Math.floor( ( spacefinder.occupancyData[lib].occupancy / spacefinder.occupancyData[lib].capacity ) * 100 );
 						if ( pco > 100 ) {
 							pco = 100;
                         }
