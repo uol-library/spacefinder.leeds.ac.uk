@@ -180,7 +180,6 @@ function updateOccupancy() {
         key: "libraryOccupancy",
         expires: 0.015,
         callback: function( data ) {
-            updateSpaceInfoWindowContent();
 			for( lib in spacefinder.occupancyData ) {
 				if ( data.hasOwnProperty( lib ) ) {
                     splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib], 'templates.js' );
@@ -202,6 +201,7 @@ function updateOccupancy() {
                     splog("No occupancy data for "+lib);
                 }
 			}
+            updateSpaceInfoWindowContent();
         }
     }
     getJSON( options );
