@@ -215,16 +215,16 @@ function updateSpaceInfoWindowContent() {
             for( lib in spacefinder.occupancyData ) {
                 if ( spacefinder.occupancyData[lib].spaces.indexOf( spacefinder.spaces[i].id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
                     let info = [];
-                    info.push( space.space_type );
-                    if ( space.floor !== '' ) {
-                        info.push( space.floor );
+                    info.push( spacefinder.spaces[i].space_type );
+                    if ( spacefinder.spaces[i].floor !== '' ) {
+                        info.push( spacefinder.spaces[i].floor );
                     }
-                    if ( space.building !== '' ) {
-                        info.push( space.building );
+                    if ( spacefinder.spaces[i].building !== '' ) {
+                        info.push( spacefinder.spaces[i].building );
                     }
-                    let content = '<div class="spaceInfoWindow"><h3>'+space.title+'</h3>';
+                    let content = '<div class="spaceInfoWindow"><h3>'+spacefinder.spaces[i].title+'</h3>';
                     content += '<p class="info">' + info.join(', ') + '</p>';
-                    content += '<p class="description">' + space.description + '</p>';
+                    content += '<p class="description">' + spacefinder.spaces[i].description + '</p>';
                     content += '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
                     content += '<button class="show-list">More info&hellip;</button></div>';
                     spacefinder.spaces[i].marker.setPopupContent( content );
