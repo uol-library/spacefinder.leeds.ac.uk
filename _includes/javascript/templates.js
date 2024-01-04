@@ -1,7 +1,7 @@
 /**
  * Templates used to render spaces in the list.
  * 
- * Two fundtions should be defined in this file:
+ * Two functions should be defined in this file:
  * - getSpaceHTML - assembles HTML for the list view (short) and returns a HTML Element
  * - getAdditionalInfo - assembles HTML for expanded view and returns an HTML String
  */
@@ -153,3 +153,88 @@ function getClassList( space ) {
     }
     return classList;
 }
+
+/**
+ * Occupancy data for two libraries
+ */
+spacefinder.occupancyData = {
+    "Edward Boyle": {
+        "spaces": [71,72,73,74],
+        "capacity": 1800,
+        "occupancy": 0
+    },
+    "Laidlaw": {
+        "spaces": [78,79,80,81,82],
+        "capacity": 640,
+        "occupancy": 0
+    }
+};
+/**
+ * get occupancy data from remote JSON file and update 
+ * spacefinder.occupancyData
+ */
+function updateOccupancy() {
+    splog( 'updateOccupancy', 'templates.js' );
+    let options = {
+        url: "https://resources.library.leeds.ac.uk/occupancy.json",
+        key: "libraryOccupancy",
+        expires: 0.015,
+        callback: function( data ) {
+			for( lib in spacefinder.occupancyData ) {
+				if ( data.hasOwnProperty( lib ) ) {
+                    splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib], 'templates.js' );
+                    spacefinder.occupancyData[lib].occupancy = data[lib];
+					spacefinder.occupancyData[lib].spaces.forEach( id => {
+						let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
+						if ( sdo == null ) {
+							sdo = document.createElement( 'p' );
+							sdo.classList.add( 'occupancy', 'icon-user' );
+							document.querySelector( '#space' + id + ' .space-details' ).appendChild( sdo );
+						}
+						let pco = Math.floor( ( spacefinder.occupancyData[lib].occupancy / spacefinder.occupancyData[lib].capacity ) * 100 );
+						if ( pco > 100 ) {
+							pco = 100;
+                        }
+                        sdo.innerHTML = 'There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong>';
+					});
+				} else {
+                    splog("No occupancy data for "+lib);
+                }
+			}
+            updateSpaceInfoWindowContent();
+        }
+    }
+    getJSON( options );
+}
+/**
+ * update popups to display occupancy data
+ */
+function updateSpaceInfoWindowContent() {
+    for ( let i = 0; i < spacefinder.spaces.length; i++ ) {
+        if ( spacefinder.spaces[i].lat && spacefinder.spaces[i].lng ) {
+            for( lib in spacefinder.occupancyData ) {
+                if ( spacefinder.occupancyData[lib].spaces.indexOf( spacefinder.spaces[i].id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
+                    let info = [];
+                    info.push( spacefinder.spaces[i].space_type );
+                    if ( spacefinder.spaces[i].floor !== '' ) {
+                        info.push( spacefinder.spaces[i].floor );
+                    }
+                    if ( spacefinder.spaces[i].building !== '' ) {
+                        info.push( spacefinder.spaces[i].building );
+                    }
+                    let content = '<div class="spaceInfoWindow"><h3>'+spacefinder.spaces[i].title+'</h3>';
+                    content += '<p class="info">' + info.join(', ') + '</p>';
+                    content += '<p class="description">' + spacefinder.spaces[i].description + '</p>';
+                    content += '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the library which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
+                    content += '<button class="show-list">More info&hellip;</button></div>';
+                    spacefinder.spaces[i].marker.setPopupContent( content );
+                }
+            }
+        }
+    }
+}
+document.addEventListener( 'DOMContentLoaded', () => {
+    document.addEventListener( 'spacesloaded', () => {
+        setInterval( updateOccupancy, 5000 );
+    });
+});
