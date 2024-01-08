@@ -176,14 +176,15 @@ spacefinder.occupancyData = {
 function updateOccupancy() {
     splog( 'updateOccupancy', 'templates.js' );
     let options = {
-        url: "https://resources.library.leeds.ac.uk/occupancy.json",
+        url: "https://resources.library.leeds.ac.uk/capacity.json",
         key: "libraryOccupancy",
         expires: 0.015,
         callback: function( data ) {
 			for( lib in spacefinder.occupancyData ) {
 				if ( data.hasOwnProperty( lib ) ) {
                     splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib], 'templates.js' );
-                    spacefinder.occupancyData[lib].occupancy = data[lib];
+                    spacefinder.occupancyData[lib].occupancy = parseInt(data[lib].occupancy);
+                    spacefinder.occupancyData[lib].capacity = parseInt(data[lib].capacity);
 					spacefinder.occupancyData[lib].spaces.forEach( id => {
 						let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
 						if ( sdo == null ) {
@@ -195,7 +196,9 @@ function updateOccupancy() {
 						if ( pco > 100 ) {
 							pco = 100;
                         }
-                        sdo.innerHTML = 'There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the <strong>'+lib+' library</strong>, which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong>';
+                        let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "less than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
+                        let capacityMsg = spacefinder.occupancyData[lib].capacity.toLocaleString('en');
+                        sdo.innerHTML = 'There are currently <strong>'+occupancyMsg+'</strong> people in the <strong>'+lib+' library</strong>, which has a seating capacity of approximately <strong>'+capacityMsg+'</strong>';
 					});
 				} else {
                     splog("No occupancy data for "+lib);
@@ -225,7 +228,9 @@ function updateSpaceInfoWindowContent() {
                     let content = '<div class="spaceInfoWindow"><h3>'+spacefinder.spaces[i].title+'</h3>';
                     content += '<p class="info">' + info.join(', ') + '</p>';
                     content += '<p class="description">' + spacefinder.spaces[i].description + '</p>';
-                    content += '<p class="occupancy icon-user">There are currently <strong>'+spacefinder.occupancyData[lib].occupancy+'</strong> people in the <strong>'+lib+' library</strong>, which has a seating capacity of approximately <strong>'+spacefinder.occupancyData[lib].capacity+'</strong></p>';
+                    let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "less than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
+                    let capacityMsg = spacefinder.occupancyData[lib].capacity.toLocaleString('en');
+                    content += '<p class="occupancy icon-user">There are currently <strong>'+occupancyMsg+'</strong> people in the <strong>'+lib+' library</strong>, which has a seating capacity of approximately <strong>'+capacityMsg+'</strong></p>';
                     content += '<button class="show-list">More info&hellip;</button></div>';
                     spacefinder.spaces[i].marker.setPopupContent( content );
                 }
