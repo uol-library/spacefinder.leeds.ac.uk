@@ -228,7 +228,7 @@ function updateSpaceInfoWindowContent() {
                     let content = '<div class="spaceInfoWindow"><h3>'+spacefinder.spaces[i].title+'</h3>';
                     content += '<p class="info">' + info.join(', ') + '</p>';
                     content += '<p class="description">' + spacefinder.spaces[i].description + '</p>';
-                    let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "less than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
+                    let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "fewer than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
                     let capacityMsg = spacefinder.occupancyData[lib].capacity.toLocaleString('en');
                     content += '<p class="occupancy icon-user">There are currently <strong>'+occupancyMsg+'</strong> people in the <strong>'+lib+' library</strong>, which has a seating capacity of approximately <strong>'+capacityMsg+'</strong></p>';
                     content += '<button class="show-list">More info&hellip;</button></div>';
