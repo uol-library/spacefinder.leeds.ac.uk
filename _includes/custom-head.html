@@ -3,3 +3,6 @@
 {% endcomment %}
 
     <meta name="msvalidate.01" content="4288880B3DD312CC564299CE947F000F">
+    {%- if site.environment == "development" -%}
+    <meta name="robots" content="noindex">
+    {%- endif -%}
