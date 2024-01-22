@@ -196,7 +196,7 @@ function updateOccupancy() {
 						if ( pco > 100 ) {
 							pco = 100;
                         }
-                        let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "less than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
+                        let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "fewer than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
                         let capacityMsg = spacefinder.occupancyData[lib].capacity.toLocaleString('en');
                         sdo.innerHTML = 'There are currently <strong>'+occupancyMsg+'</strong> people in the <strong>'+lib+' library</strong>, which has a seating capacity of approximately <strong>'+capacityMsg+'</strong>';
 					});
