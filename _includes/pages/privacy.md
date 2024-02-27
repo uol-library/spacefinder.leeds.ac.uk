@@ -50,7 +50,7 @@ We use cookies for the following purposes:
 * To increase the performance of the site between visits (performance)
 * To track how our website is used and help us make improvements (analytics)
 
-<button type="button" class="button" onclick="showCookieSettings()">Show cookie settings</button>
+<button type="button" class="button" data-cc="show-preferencesModal">Manage cookie preferences</button>
 
 ### Performance and analytics cookies
 

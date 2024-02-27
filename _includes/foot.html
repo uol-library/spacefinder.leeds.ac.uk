@@ -1,0 +1,42 @@
+<footer id="footer-bar">
+    <nav aria-label="footer navigation">
+        <ul>
+            <li><button type="button" class="modal-trigger icon-info-circled button-icon" data-dialoghash="about" data-dialogid="about-page" aria-label="About this site"><span class="button-text">About</span></button></li>
+            <li><button type="button" class="modal-trigger icon-universal-access button-icon" data-dialoghash="accessibility" data-dialogid="accessibility-page" aria-label="Accessibility page"><span class="button-text">Accessibility</span></button></li>
+            <li><button type="button" class="modal-trigger" data-dialoghash="privacy" data-dialogid="privacy-page" aria-label="Privacy page">Privacy</button></li>
+            {%- if site.terms.url != "" and site.terms.text != "" -%}
+                {%- if site.terms.shorttext != "" -%}
+                    {%- capture termstext -%}<span class="hide-med">{{ site.terms.text }}</span><span class="show-med">{{ site.terms.shorttext }}</span>{%- endcapture -%}
+                {%- else -%}
+                    {%- assign termstext = site.terms.text -%}
+                {%- endif -%}
+            <li><a target="external" href="{{ site.terms.url }}">{{ termstext }}</a></li>
+            {%- endif -%}
+            {%- if site.foi.url != "" and site.foi.text != "" -%}
+                {%- if site.foi.shorttext != "" -%}
+                    {%- capture foitext -%}<span class="hide-med">{{ site.foi.text }}</span><span class="show-med">{{ site.foi.shorttext }}</span>{%- endcapture -%}
+                {%- else -%}
+                    {%- assign foitext = site.foitext -%}
+                {%- endif -%}
+            <li><a target="external" href="{{ site.foi.url }}">{{ foitext }}</a></li>
+            {%- endif -%}
+	        {%- if site.copyright != "" -%}
+            <li><button type="button" class="modal-trigger" data-dialoghash="about" data-dialogid="about-page" aria-label="Copyright {{ 'now' | date: '%Y' }} {{ site.copyright }}">&copy;<span class="hide-med"> {{ "now" | date: "%Y" }}</span><span class="hide-small"> {{ site.copyright }}</span></button></li>
+	        {%- endif -%}
+        </ul>
+    </nav>
+</footer>
+
+{% include modal-includes.html %}
+
+<script defer src="https://cdn.jsdelivr.net/npm/a11y-dialog@8.0.4/dist/a11y-dialog.min.js" integrity="sha256-En/lHlOk4a8VWRh6g2f+xqHuUzY8DQGEUoBiip9CFMo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js" integrity="sha256-IiteC4nuuzd3zjZQ47SsGlYz/xnQXvN9KnYcW0EhTsk=" crossorigin="anonymous"></script>
+<script defer src="{{ "/assets/scripts/cookieconsent.js" | absolute_url }}"></script>
+
+{% include custom-foot.html %}
+
+{%- if site.environment == "development" -%}
+<script src="{{ "/assets/scripts/bundle.js" | absolute_url }}"></script>
+{%- else -%}
+<script src="{{ "/assets/scripts/bundle.min.js" | absolute_url }}"></script>
+{%- endif -%}
