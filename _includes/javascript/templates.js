@@ -164,7 +164,7 @@ spacefinder.occupancyData = {
         "occupancy": 0
     },
     "Laidlaw": {
-        "spaces": [78,79,80,81,82],
+        "spaces": [78,79,80,81,82,92],
         "capacity": 640,
         "occupancy": 0
     }
