@@ -24,38 +24,38 @@
     "opening_hours": {
         "monday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "tuesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "wednesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "thursday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "friday": {
             "open": true,
-            "from": "9:00",
-            "to": "17:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         }
     },
     "slug": "e-c-stoner-building-661",
@@ -64,7 +64,7 @@
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17406",
     "published": false,
     "imagealt": "E C Stoner Building - 6.61",
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4D77",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1DE5",
     "campusmap_ref": "73",
     "work": [
         "private",
@@ -83,7 +83,7 @@
     "restricted": true,
     "id": 51,
     "image": "",
-    "description": "Large cluster with multiple computers and comfortable chairs. 40 seat caapcity.",
-    "url_text": "View timetable for E C Stoner Building - 6.61",
+    "description": "Large cluster with multiple computers and comfortable chairs. 40 seat caapcity. Between approx 8am-8pm weekdays you can also access from Level 10 of EC Stoner building (where the IT Service Desk is) following the Red Route to lift 48 (next to staircase 4) and take the lift down to level 6. The entrance to the cluster is on your right. Please note this lift is switched off between approx 8pm-8am weekdays and all day at weekends.",
+    "url_text": "View timetable for E C Stoner 6.61",
     "phone_text": ""
 }

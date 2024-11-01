@@ -8,6 +8,7 @@
         "sockets",
         "signal",
         "whiteboards",
+        "printers_copiers",
         "projector",
         "toilets",
         "bike_racks",
@@ -23,38 +24,38 @@
     "opening_hours": {
         "monday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "tuesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "wednesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "thursday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "friday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         }
     },
     "slug": "clothworkers-building-link-140-richard-hughes",
@@ -63,7 +64,7 @@
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17389",
     "published": true,
     "imagealt": "Clothworkers' Building Link - 140 (Richard Hughes)",
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4E60",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1EAE",
     "campusmap_ref": "34",
     "work": [
         "private",
@@ -82,7 +83,7 @@
     "restricted": true,
     "id": 49,
     "image": "",
-    "description": "Large area with no drinks or food allowed. 42 seat capacity.",
+    "description": "Large area with no drinks or food allowed. 42 seat capacity. This room can only be accessed via stairs.",
     "url_text": "View timetable for Clothworkers' Building Link - 140 (Richard Hughes)",
     "phone_text": ""
 }

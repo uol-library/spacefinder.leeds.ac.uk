@@ -21,6 +21,7 @@
         "laptops_allowed",
         "sockets",
         "printers_copiers",
+        "projector",
         "toilets",
         "bike_racks",
         "gender_neutral_toilets",
@@ -36,7 +37,7 @@
     "restricted": true,
     "restriction": "",
     "disabled_access": true,
-    "url": "",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1F0E",
     "phone_number": "",
     "twitter_screen_name": "",
     "facebook_url": "",
@@ -47,27 +48,27 @@
         "monday": {
             "open": true,
             "from": "9:00",
-            "to": "18:00"
+            "to": "17:00"
         },
         "tuesday": {
             "open": true,
             "from": "9:00",
-            "to": "18:00"
+            "to": "17:00"
         },
         "wednesday": {
             "open": true,
             "from": "9:00",
-            "to": "18:00"
+            "to": "17:00"
         },
         "thursday": {
             "open": true,
             "from": "9:00",
-            "to": "18:00"
+            "to": "17:00"
         },
         "friday": {
             "open": true,
             "from": "9:00",
-            "to": "18:00"
+            "to": "17:00"
         },
         "saturday": {
             "open": false,
@@ -84,6 +85,6 @@
     "imagealt": "Chemistry and Chemistry West Block - 1.44A",
     "slug": "chemistry-and-chemistry-west-block-144a",
     "published": true,
-    "url_text": "",
+    "url_text": "View timetable for Chemistry 1.44A",
     "phone_text": ""
 }

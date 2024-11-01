@@ -1,5 +1,6 @@
 {
     "facilities": [
+        "adjustable_furniture",
         "daylight",
         "views",
         "large_desks",
@@ -25,44 +26,44 @@
         "monday": {
             "open": true,
             "from": "9:00",
-            "to": "20:30"
+            "to": "18:00"
         },
         "tuesday": {
             "open": true,
             "from": "9:00",
-            "to": "20:30"
+            "to": "18:00"
         },
         "wednesday": {
             "open": true,
             "from": "9:00",
-            "to": "20:30"
+            "to": "18:00"
         },
         "thursday": {
             "open": true,
             "from": "9:00",
-            "to": "20:30"
+            "to": "18:00"
         },
         "friday": {
             "open": true,
             "from": "9:00",
-            "to": "19:00"
+            "to": "18:00"
         },
         "saturday": {
-            "open": true,
-            "from": "10:00",
-            "to": "17:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "sunday": {
-            "open": true,
-            "from": "10:00",
-            "to": "17:00"
+            "open": false,
+            "from": "",
+            "to": ""
         }
     },
     "slug": "parkinson-building-b32-woolhouse",
     "floor": "Basement",
     "restriction": "",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17525",
-    "published": false,
+    "published": true,
     "imagealt": "Parkinson Building - B.32 (Woolhouse)",
     "url": "",
     "campusmap_ref": "55",
@@ -83,7 +84,7 @@
     "restricted": true,
     "id": 61,
     "image": "",
-    "description": "Cluster room with a variety of desks for individual or group study.",
+    "description": "Cluster room with a variety of desks for individual or group study - height adjustable desks available. 57 seat capacity. From Parkinson Court use the stairs at the opposite end from the Café and go down to the basement. Go through the doors under the display screen. The entrance to the cluster is on your left.",
     "url_text": "",
     "phone_text": ""
 }

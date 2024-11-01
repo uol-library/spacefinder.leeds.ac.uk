@@ -14,7 +14,7 @@
     "restricted": true,
     "restriction": "Follow timetable link to check when room is free",
     "disabled_access": true,
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4DA1",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1E0A",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17591",
     "campusmap_ref": "95",
     "booking_url": "",
