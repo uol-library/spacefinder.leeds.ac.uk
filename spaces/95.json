@@ -1,53 +1,48 @@
 {
-    "id": 57,
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5548974249272625,53.80446980623904]}",
+    "id": 95,
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5202717573148097,53.80800506777025]}",
     "work": [
         "private",
         "close"
     ],
     "atmosphere": [
         "disciplined",
-        "modern",
-        "inspiring",
-        "social",
-        "friendly"
+        "historic",
+        "social"
     ],
     "facilities": [
-        "daylight",
-        "views",
         "large_desks",
         "free_wifi",
         "computers",
         "laptops_allowed",
         "sockets",
         "signal",
+        "printers_copiers",
+        "whiteboards",
         "projector",
         "toilets",
-        "refreshments",
         "break",
         "bike_racks",
         "gender_neutral_toilets",
-        "wheelchair_accessible",
-        "blue_badge_parking",
-        "accessible_toilets"
+        "wheelchair_accessible"
     ],
-    "title": "Irene Manton North - 7.96",
-    "description": "Modern large IT cluster with plenty of large windows facing a beautiful side of the University campus. 40 seat capacity. From the Sustainable Garden outside Roger Stevens cross the bridge from the Garstang building to the Irene Manton building and turn right. The entrance to the cluster is the first door on the left.",
+    "title": "Tim de Dombal - Room 4.17b Clinical Sciences Building",
+    "description": "Traditional cluster with rows of desks in a relaxed environment. 28 seat capacity",
     "access": "University Staff and Students",
     "space_type": "IT Cluster",
-    "address": "University of Leeds, LS2 9JT",
-    "building": "Irene Manton Building",
-    "floor": "Level 7",
+    "address": "St James's University Hospital, Beckett St, Harehills, Leeds LS9 7LN",
+    "building": "Clinical Sciences Building",
+    "floor": "Ground floor",
     "restricted": true,
     "restriction": "",
     "disabled_access": true,
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1F50",
+    "url": "",
     "phone_number": "",
     "twitter_screen_name": "",
     "facebook_url": "",
-    "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17462",
-    "campusmap_ref": "91",
-    "noise": "Strictly silent",
+    "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17354",
+    "campusmap_ref": null,
+    "noise": "Whispers",
     "tags": [],
     "opening_hours": {
         "monday": {
@@ -86,10 +81,10 @@
             "to": "24:00"
         }
     },
-    "image": "/assets/photos/cluster-manton-796.jpg",
-    "imagealt": "Irene Manton North - 7.96",
-    "slug": "irene-manton-north-796",
+    "image": "",
+    "imagealt": "",
+    "slug": "tim-de-dombal",
     "published": true,
-    "url_text": "View timetable for Irene Manton North - 7.96",
+    "url_text": "View timetable for Tim de Dombal - Room 4.17b",
     "phone_text": ""
 }

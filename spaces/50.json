@@ -1,5 +1,6 @@
 {
     "facilities": [
+        "adjustable_furniture",
         "daylight",
         "large_desks",
         "free_wifi",
@@ -57,13 +58,13 @@
             "to": ""
         }
     },
-    "slug": "clothworkers-building-link-g34",
+    "slug": "textiles-cluster-g34",
     "floor": "Ground floor",
     "restriction": "",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17389",
     "published": true,
-    "imagealt": "Clothworkers' Building Link - G.34",
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4F6C",
+    "imagealt": "Textiles Cluster - G.34",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1F5B",
     "campusmap_ref": "34",
     "work": [
         "private",
@@ -75,14 +76,14 @@
     "address": "University of Leeds, LS2 9JT",
     "location": "{\"type\":\"Point\",\"coordinates\":[-1.5566380459933304,53.80748904996728]}",
     "facebook_url": "",
-    "title": "Clothworkers' Building Link - G.34",
+    "title": "Textiles Cluster - G.34",
     "tags": [],
     "noise": "Strictly silent",
     "phone_number": "",
     "restricted": true,
     "id": 50,
-    "image": "",
-    "description": "Cluster room with a variety of desks for individual or group study. 12 seat capacity.",
-    "url_text": "View timetable for Clothworkers' Building Link - G.34",
+    "image": "/assets/photos/cluster-clothworkers-link.jpg",
+    "description": "Cluster room with a variety of desks for individual or group study. 12 seat capacity - height adjustable desks available.",
+    "url_text": "View timetable for Textiles Cluster - G.34",
     "phone_text": ""
 }

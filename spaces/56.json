@@ -31,47 +31,47 @@
     "opening_hours": {
         "monday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "tuesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "wednesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "thursday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "friday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         }
     },
-    "slug": "irene-manton-building-790",
+    "slug": "irene-manton-south-790",
     "floor": "Level 7",
     "restriction": "",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17462",
     "published": true,
-    "imagealt": "Irene Manton Building - 7.90",
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4F62",
+    "imagealt": "Irene Manton South - 7.90",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1F51",
     "campusmap_ref": "91",
     "work": [
         "private",
@@ -82,16 +82,16 @@
     "space_type": "IT Cluster",
     "building": "Irene Manton Building",
     "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5548974249272625,53.80446980623904]}",
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5548974249272625,53.80431536943481]}",
     "facebook_url": "",
-    "title": "Irene Manton Building - 7.90",
+    "title": "Irene Manton South - 7.90",
     "tags": [],
     "noise": "Whispers",
     "phone_number": "",
     "restricted": true,
     "id": 56,
-    "image": "",
-    "description": "Rows of desks with a full left side of windows that are facing a beautiful side of campus allowing plenty of natural light into the study area. 41 seat capacity.",
-    "url_text": "View timetable for Irene Manton Building - 7.90",
+    "image": "/assets/photos/cluster-manton-790.jpg",
+    "description": "Rows of desks with a full left side of windows that are facing a beautiful side of campus allowing plenty of natural light into the study area. 41 seat capacity. From the Sustainable Garden outside Roger Stevens cross the bridge from the Garstang building to the Irene Manton building and turn right. The entrance to the cluster is the first door on the left.",
+    "url_text": "View timetable for Irene Manton South - 7.90",
     "phone_text": ""
 }

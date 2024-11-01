@@ -26,8 +26,8 @@
         "gender_neutral_toilets",
         "wheelchair_accessible"
     ],
-    "title": "Fine Art, History of Art and Cultural Studies - B16 (West Teaching Labs)",
-    "description": "Traditional cluster with rows of desks. Relaxed environment for 24 hours study. 33 seat capacity",
+    "title": "Fine Art, History of Art and Cultural Studies - B16 (West Teaching Lab Lower)",
+    "description": "Traditional cluster with rows of desks in a relaxed environment. 33 seat capacity",
     "access": "University Staff and Students",
     "space_type": "IT Cluster",
     "address": "University of Leeds, LS2 9JT",
@@ -36,7 +36,7 @@
     "restricted": true,
     "restriction": "",
     "disabled_access": true,
-    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202223!location!6856E1BEE4EE6ABF22261FF5840C4F6E",
+    "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1F5D",
     "phone_number": "0113 343 5260",
     "twitter_screen_name": "",
     "facebook_url": "",
@@ -81,10 +81,10 @@
             "to": ""
         }
     },
-    "image": "",
-    "imagealt": "Fine Art, History of Art and Cultural Studies - B16 (West Teaching Labs)",
-    "slug": "fine-art-history-of-art-and-cultural-studies-b16-west-teaching-labs",
+    "image": "/assets/photos/cluster-west-teaching-lab.jpg",
+    "imagealt": "Fine Art, History of Art and Cultural Studies - B16 (West Teaching Lab Lower)",
+    "slug": "b16-west-teaching-lab-lower",
     "published": true,
-    "url_text": "View timetable for Fine Art, History of Art and Cultural Studies - B16 (West Teaching Labs)",
+    "url_text": "View timetable for B16 (West Teaching Lab Lower)",
     "phone_text": "Contact the School of Fine Art, History of Art and Cultural Studies"
 }
