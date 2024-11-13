@@ -47,38 +47,38 @@
     "opening_hours": {
         "monday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "tuesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "wednesday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "thursday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "friday": {
             "open": true,
-            "from": "9:00",
-            "to": "18:00"
+            "from": "0:00",
+            "to": "24:00"
         },
         "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         }
     },
     "image": "/assets/photos/cluster-west-teaching-lab-upper.jpg",
