@@ -13,14 +13,13 @@
         "toilets",
         "bike_racks",
         "gender_neutral_toilets",
-        "wheelchair_accessible"
     ],
     "atmosphere": [
         "disciplined",
         "modern"
     ],
     "access": "University Staff and Students",
-    "disabled_access": true,
+    "disabled_access": false,
     "opening_hours": {
         "monday": {
             "open": true,
@@ -74,7 +73,7 @@
     "space_type": "IT Cluster",
     "building": "Clothworkers' Building Central and Link",
     "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5565787554980246,53.80764075812936]}",
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5564257808398265,53.807824227050745]}",
     "facebook_url": "",
     "title": "Clothworkers' Building Link - 140 (Richard Hughes)",
     "tags": [],
@@ -82,8 +81,8 @@
     "phone_number": "",
     "restricted": true,
     "id": 49,
-    "image": "",
-    "description": "Large area with no drinks or food allowed. 42 seat capacity. This room can only be accessed via stairs.",
+    "image": "/assets/photos/cluster-clothworkers-link.jpg",
+    "description": "Large area with no drinks or food allowed. 42 seat capacity. From the Great Hall, travel away from the Parkinson down University Road, and turn right straight after you pass under the Clothworkers' Link Building. Use the entrance on the right then turn left and use the stairs.",
     "url_text": "View timetable for Clothworkers' Building Link - 140 (Richard Hughes)",
     "phone_text": ""
 }

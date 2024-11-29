@@ -74,7 +74,7 @@
     "space_type": "IT Cluster",
     "building": "Clothworkers' Building Central and Link",
     "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5566674686643005,53.8074545861044]}",
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5565491624470094,53.80777354438881]}",
     "facebook_url": "",
     "title": "Textiles Cluster - G.34",
     "tags": [],
@@ -82,8 +82,8 @@
     "phone_number": "",
     "restricted": true,
     "id": 50,
-    "image": "/assets/photos/cluster-clothworkers-link.jpg",
-    "description": "Cluster room with a variety of desks for individual or group study. 12 seat capacity - height adjustable desks available.",
+    "image": "/assets/photos/richard-hughes-entrance.jpg",
+    "description": "Cluster room with a variety of desks for individual or group study. 12 seat capacity - height adjustable desks available. From the Great Hall, travel away from the Parkinson down University Road, and turn right straight after you pass under the Clothworkers' Link Building. The entrance is on the right.",
     "url_text": "View timetable for Textiles Cluster - G.34",
     "phone_text": ""
 }
