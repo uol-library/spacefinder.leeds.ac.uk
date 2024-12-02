@@ -28,7 +28,7 @@
         "wheelchair_accessible"
     ],
     "title": "Chemistry and Chemistry West Block - 1.44A",
-    "description": "11 seat capacity.",
+    "description": "11 seat capacity. Go through the Clothworkers Arch and through the small arch at the back of the courtyard. Follow the path at the back of the Brotherton Library round to the right, and enter the Chemistry building. Take the stairs or lift up one floor and enter Ingold. Cross the cluster towards the other set of double doors - the entrance to Chemistry 1.44a is just before you exit Ingold.",
     "access": "University Staff and Students",
     "space_type": "IT Cluster",
     "address": "University of Leeds, LS2 9JT",
@@ -81,8 +81,8 @@
             "to": ""
         }
     },
-    "image": "",
-    "imagealt": "Chemistry and Chemistry West Block - 1.44A",
+    "image": "/assets/photos/cluster-chem-144.jpg",
+    "imagealt": "Photo showing the entrance to Chemistry 1.44 via the arch at the back of Clothworker's courtyard by the Great Hall",
     "slug": "chemistry-and-chemistry-west-block-144a",
     "published": true,
     "url_text": "View timetable for Chemistry 1.44A",

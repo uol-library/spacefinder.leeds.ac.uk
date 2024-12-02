@@ -33,7 +33,7 @@
         "accessible_toilets"
     ],
     "title": "Psychology (37 and 41 University Road) - 1.45",
-    "description": "Rows of IT clusters in a theatre style. 58 seat capacity.  Enter the Psychology building using the door in the far corner of the Psychology courtyard. Turn left and go down the corridor, following signage to a set of stairs and lift at the corner of the building. Go up to the first floor, and the two clusters are off the landing.",
+    "description": "Rows of IT clusters in a theatre style. 58 seat capacity.  Enter the Psychology building using the door in the far corner of the Psychology courtyard. Take the stairs or lift up to the top floor, the entrance to the cluster is just off the landing.",
     "access": "University Staff and Students",
     "space_type": "IT Cluster",
     "address": "University of Leeds, LS2 9JT",
@@ -87,7 +87,7 @@
             "to": "24:00"
         }
     },
-    "image": "",
+    "image": "/assets/photos/cluster-psychology-entrance.jpg",
     "imagealt": "Psychology (37 and 41 University Road) - 1.45",
     "slug": "psychology-145",
     "published": true,
