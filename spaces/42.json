@@ -64,7 +64,7 @@
     },
     "slug": "chemical-and-process-engineering-g06",
     "floor": "Ground floor",
-    "restriction": "",
+    "restriction": "Access to the cluster is via an <a href=\"https://it.leeds.ac.uk/it?id=clusters\" target=\"_it\">entrance code available on the IT website</a>",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17380",
     "published": true,
     "imagealt": "Entrance to G06 at the corner of Woodhouse Lane and Clarendon Road (wheelchair access is available from the Engineering foyer via a lift)",
@@ -80,7 +80,7 @@
     "space_type": "IT Cluster",
     "building": "Chemical and Process Engineering",
     "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.55714428,53.81015521]}",
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5563105415915899,53.810493169467485]}",
     "facebook_url": "",
     "title": "Chemical and Process Engineering - G06",
     "tags": [],
@@ -89,7 +89,7 @@
     "restricted": true,
     "id": 42,
     "image": "/assets/photos/cluster-cape-g06.jpg",
-    "description": "24 hour cluster with rows of desks. Perfect for day or night social studying with access to water fountain. 83 seat capacity. There are steps at the entrance to the cluster (from Woodhouse Lane) and entry requires a <a href=\"https://leeds.service-now.com/it?id=clusters\">cluster code</a>. There is a wheelchair lift from the Engineering entrance foyer, but this can only be operated under supervision of reception staff who are available Monday - Friday, 8.45am - 5pm.",
+    "description": "24 hour cluster with rows of desks. Perfect for day or night social studying with access to water fountain. 83 seat capacity. There are steps at the entrance to the cluster (from Woodhouse Lane). There is a wheelchair lift from the Engineering entrance foyer, but this can only be operated under supervision of reception staff who are available Monday - Friday, 8.45am - 5pm.",
     "url_text": "View timetable for Chemical and Process Engineering - G06",
     "phone_text": "Contact the School of Chemical and Process Engineering"
 }

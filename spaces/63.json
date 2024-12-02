@@ -1,6 +1,6 @@
 {
     "id": 63,
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.557350387109787,53.807542178366845]}",
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5568979206681979,53.80730177399727]}",
     "work": [
         "private",
         "close"
@@ -32,15 +32,15 @@
         "wheelchair_accessible",
         "accessible_toilets"
     ],
-    "title": "Psychology - 1.45",
-    "description": "Rows of IT clusters in a theatre style. 58 seat capacity.",
+    "title": "Psychology (37 and 41 University Road) - 1.45",
+    "description": "Rows of IT clusters in a theatre style. 58 seat capacity.  Enter the Psychology building using the door in the far corner of the Psychology courtyard. Turn left and go down the corridor, following signage to a set of stairs and lift at the corner of the building. Go up to the first floor, and the two clusters are off the landing.",
     "access": "University Staff and Students",
     "space_type": "IT Cluster",
     "address": "University of Leeds, LS2 9JT",
     "building": "Psychology (37 and 41 University Road)",
     "floor": "First floor",
     "restricted": true,
-    "restriction": "",
+    "restriction": "Access to the cluster is via an <a href=\"https://it.leeds.ac.uk/it?id=clusters\" target=\"_it\">entrance code available on the IT website</a>",
     "disabled_access": true,
     "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1FB6",
     "phone_number": "",
@@ -89,7 +89,7 @@
     },
     "image": "",
     "imagealt": "Psychology (37 and 41 University Road) - 1.45",
-    "slug": "psychology-37-and-41-university-road-145",
+    "slug": "psychology-145",
     "published": true,
     "url_text": "View timetable for Psychology (37 and 41 University Road) - 1.45",
     "phone_text": ""

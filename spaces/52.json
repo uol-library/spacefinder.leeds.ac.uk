@@ -64,7 +64,7 @@
     "restriction": "",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17406",
     "published": true,
-    "imagealt": "E C Stoner Building - 6.68",
+    "imagealt": "E C Stoner Building - 6.68 - entrance",
     "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202425!location!5216C608F8794D77F15FA9D195AB1DE6",
     "campusmap_ref": "73",
     "work": [
@@ -83,7 +83,7 @@
     "phone_number": "",
     "restricted": true,
     "id": 52,
-    "image": "",
+    "image": "/assets/photos/ecstoner-entrance.jpg",
     "description": "Large cluster with multiple computers and comfortable chairs. 47 seat capacity. This room is flat with level access from the ground floor or via the lift and there are height adjustable desks available.",
     "url_text": "View timetable for E C Stoner 6.68",
     "phone_text": ""

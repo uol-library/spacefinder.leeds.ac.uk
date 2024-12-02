@@ -12,7 +12,7 @@
         "projector",
         "toilets",
         "bike_racks",
-        "gender_neutral_toilets",
+        "gender_neutral_toilets"
     ],
     "atmosphere": [
         "disciplined",
@@ -59,7 +59,7 @@
     },
     "slug": "clothworkers-building-link-140-richard-hughes",
     "floor": "First Floor",
-    "restriction": "",
+    "restriction": "Access to the cluster is via an <a href=\"https://it.leeds.ac.uk/it?id=clusters\" target=\"_it\">entrance code available on the IT website</a>",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17389",
     "published": true,
     "imagealt": "Clothworkers' Building Link - 140 (Richard Hughes)",
@@ -73,7 +73,7 @@
     "space_type": "IT Cluster",
     "building": "Clothworkers' Building Central and Link",
     "address": "University of Leeds, LS2 9JT",
-    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5564257808398265,53.807824227050745]}",
+    "location": "{\"type\":\"Point\",\"coordinates\":[-1.5564445563099445,53.80780363723696]}",
     "facebook_url": "",
     "title": "Clothworkers' Building Link - 140 (Richard Hughes)",
     "tags": [],
