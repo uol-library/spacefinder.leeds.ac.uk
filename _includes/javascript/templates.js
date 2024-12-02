@@ -186,15 +186,15 @@ function updateOccupancy() {
                     spacefinder.occupancyData[lib].occupancy = parseInt(data[lib].occupancy);
                     spacefinder.occupancyData[lib].capacity = parseInt(data[lib].capacity);
 					spacefinder.occupancyData[lib].spaces.forEach( id => {
-						let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
-						if ( sdo == null ) {
-							sdo = document.createElement( 'p' );
-							sdo.classList.add( 'occupancy', 'icon-user' );
-							document.querySelector( '#space' + id + ' .space-details' ).appendChild( sdo );
-						}
-						let pco = Math.floor( ( spacefinder.occupancyData[lib].occupancy / spacefinder.occupancyData[lib].capacity ) * 100 );
-						if ( pco > 100 ) {
-							pco = 100;
+                        let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
+                        if ( sdo == null ) {
+                            sdo = document.createElement( 'p' );
+                            sdo.classList.add( 'occupancy', 'icon-user' );
+                            document.querySelector( '#space' + id + ' .space-details' ).appendChild( sdo );
+                        }
+                        let pco = Math.floor( ( spacefinder.occupancyData[lib].occupancy / spacefinder.occupancyData[lib].capacity ) * 100 );
+                        if ( pco > 100 ) {
+                            pco = 100;
                         }
                         let occupancyMsg = spacefinder.occupancyData[lib].occupancy < 50? "fewer than 50": spacefinder.occupancyData[lib].occupancy.toLocaleString('en');
                         let capacityMsg = spacefinder.occupancyData[lib].capacity.toLocaleString('en');
@@ -240,7 +240,7 @@ function updateSpaceInfoWindowContent() {
 }
 document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'spacesloaded', () => {
-        updateOccupancy();
+        //updateOccupancy();
         setInterval( updateOccupancy, 30000 );
     });
 });

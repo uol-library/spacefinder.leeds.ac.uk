@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const spacefiles = fs.readdirSync( path.resolve( __dirname, '../spaces' ), { encoding: 'utf8' } );
 const allSpaces = [];
+//const clusterURLs = {};
 spacefiles.forEach( filename => {
     if ( filename !== '.' && filename !== '..' ) {
         var data = fs.readFileSync( path.resolve( __dirname, '../spaces/', filename ) );
@@ -20,9 +21,13 @@ spacefiles.forEach( filename => {
                 jsondata.lng = '';
             }
             allSpaces.push( jsondata );
+            //if ( jsondata.space_type == "IT Cluster" ) {
+            //    clusterURLs[jsondata.title] = "https://spacefinder.leeds.ac.uk/#/space/"+jsondata.slug;
+            //}
         }
     }
 });
+//console.log(clusterURLs);
 fs.writeFileSync( path.resolve( __dirname, '../spaces.json' ), JSON.stringify( allSpaces ) );
 
 
