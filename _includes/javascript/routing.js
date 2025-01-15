@@ -16,6 +16,7 @@ function checkInitialPageLoad() {
 }
 
 function on_hash_change( event ) {
+    console.log('hash has changed to '+window.location.hash);
     if ( window.location.hash ) {
         let hp = window.location.hash.split( '/' );
         if ( hp.length === 3 ) {
