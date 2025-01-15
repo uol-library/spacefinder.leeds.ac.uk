@@ -37,4 +37,5 @@ function on_hash_change( event ) {
             }
         }
     }
+    return true;
 }
