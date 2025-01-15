@@ -7,7 +7,7 @@ description: >-
   includes detailed descriptions of each space, filters
   based on space characteristics, and  navigation via a
   map.
-environment: production
+environment: development
 baseurl: ""
 url: "https://spacefinder.leeds.ac.uk"
 host: "localhost"
