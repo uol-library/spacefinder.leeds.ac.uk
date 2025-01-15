@@ -10,7 +10,7 @@ function checkInitialPageLoad() {
     document.addEventListener( 'sfmapready', event => {
         on_hash_change( event );
     });
-    document.addEventListener( 'hashchange', event => {
+    window.addEventListener( 'hashchange', event => {
         on_hash_change( event );
     });
 }
