@@ -8,7 +8,6 @@
         "sockets",
         "signal",
         "whiteboards",
-        "projector",
         "toilets",
         "bike_racks",
         "gender_neutral_toilets",
@@ -62,7 +61,7 @@
     "floor": "Level 6",
     "restriction": "Access to the cluster is via an <a href=\"https://it.leeds.ac.uk/it?id=clusters\" target=\"_it\">entrance code available on the IT website</a>",
     "campusmap_url": "https://www.leeds.ac.uk/campusmap?location=17406",
-    "published": false,
+    "published": true,
     "imagealt": "E C Stoner Building - 6.62",
     "url": "",
     "campusmap_ref": "73",
@@ -83,7 +82,7 @@
     "restricted": true,
     "id": 97,
     "image": "",
-    "description": "Large cluster with multiple computers and comfortable chairs. 40 seat caapcity. Between approx 8am-8pm weekdays you can also access from Level 10 of EC Stoner building (where the IT Service Desk is) following the Red Route to lift 48 (next to staircase 4) and take the lift down to level 6. The entrance to the cluster is on your right. Please note this lift is switched off between approx 8pm-8am weekdays and all day at weekends.",
-    "url_text": "View timetable for E C Stoner 6.62",
+    "description": "Small cluster - 9 seat caapcity. This room is flat with level access from the ground floor or via the lift.",
+    "url_text": "",
     "phone_text": ""
 }
