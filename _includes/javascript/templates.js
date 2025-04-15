@@ -240,7 +240,7 @@ function updateSpaceInfoWindowContent() {
 }
 document.addEventListener( 'DOMContentLoaded', () => {
     document.addEventListener( 'spacesloaded', () => {
-        //updateOccupancy();
+        setTimeout( updateOccupancy, 1000 );
         setInterval( updateOccupancy, 30000 );
     });
 });
