@@ -176,7 +176,7 @@ spacefinder.occupancyData = {
 function updateOccupancy() {
     splog( 'updateOccupancy', 'templates.js' );
     let options = {
-        url: "https://resources.library.leeds.ac.uk/capacity.json",
+        url: "https://floorplans.library.leeds.ac.uk/capacity.json",
         key: "libraryOccupancy",
         expires: 0.015,
         callback: function( data ) {
