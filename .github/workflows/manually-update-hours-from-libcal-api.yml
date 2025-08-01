@@ -1,0 +1,25 @@
+name: manually-update-hours-from-libcal-api
+on: workflow_dispatch
+jobs:
+  manually-update-hours-data:
+    runs-on: ubuntu-latest
+    name: Manually update opening hours data
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: main
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Update and commit
+        env:
+          CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
+        run: | 
+          cd main
+          npm run getHours
+          npm run updateHours
+          npm run concat
+          git config --global user.name 'peteredwards'
+          git config --global user.email 'p.l.edwards@leeds.ac.uk'
+          git add --all
+          git diff-index --quiet HEAD || (git commit -am "[bot] Library Opening Hours updated from LibCal API" && git push)
