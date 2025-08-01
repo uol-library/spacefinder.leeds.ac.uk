@@ -30,7 +30,7 @@ async function GetOpeningHours() {
     let today = new Date();
     for (let i  = 0; i < 6; i++ ) {
         let params = new URLSearchParams({
-            from: getDateStr( new Date( today.getFullYear(), ( today.getMonth() - 1 + i ), 1 ) ),
+            from: getDateStr( new Date( today.getFullYear(), ( today.getMonth() + i ), 1 ) ),
             to: getDateStr ( new Date( today.getFullYear(), ( today.getMonth() + i + 1 ), 0 ) )
         });
         let url = hoursUrl + libraryIDs.join( ',' ) + '?' + params.toString();
