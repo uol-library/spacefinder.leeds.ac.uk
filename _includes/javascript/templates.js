@@ -149,16 +149,29 @@ function getClassList( space ) {
  */
 spacefinder.occupancyData = {
     "Edward Boyle": {
-        "spaces": [71,72,73,74],
+        "spaces": getSpaceIDsForBuilding( "Edward Boyle library" ),
         "capacity": 1800,
         "occupancy": 0
     },
     "Laidlaw": {
-        "spaces": [78,79,80,81,82,92],
+        "spaces": getSpaceIDsForBuilding( "Laidlaw library" ),
         "capacity": 640,
         "occupancy": 0
     }
 };
+/**
+ * Get space ids for buildings
+ */
+function getSpaceIDsForBuilding( building ) {
+    splog( 'getSpaceIDsForBuilding', 'templates.js' );
+    let ids = [];
+    for ( let i = 0; i < spacefinder.spaces.length; i++ ) {
+        if ( spacefinder.spaces[i].building === building ) {
+            ids.push( spacefinder.spaces[i].id );
+        }
+    }
+    return ids;
+}
 /**
  * get occupancy data from remote JSON file and update 
  * spacefinder.occupancyData
