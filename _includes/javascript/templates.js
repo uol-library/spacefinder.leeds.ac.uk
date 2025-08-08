@@ -149,12 +149,12 @@ function getClassList( space ) {
  */
 spacefinder.occupancyData = {
     "Edward Boyle": {
-        "spaces": getSpaceIDsForBuilding( "Edward Boyle library" ),
+        "building": 'Edward Boyle library',
         "capacity": 1800,
         "occupancy": 0
     },
     "Laidlaw": {
-        "spaces": getSpaceIDsForBuilding( "Laidlaw library" ),
+        "building": 'Laidlaw library',
         "capacity": 640,
         "occupancy": 0
     }
@@ -184,10 +184,10 @@ function updateOccupancy() {
         callback: function( data ) {
 			for( lib in spacefinder.occupancyData ) {
 				if ( data.hasOwnProperty( lib ) ) {
-                    splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib], 'templates.js' );
+                    splog( 'Updating occupancy for spaces in '+lib+' to '+data[lib].occupancy, 'templates.js' );
                     spacefinder.occupancyData[lib].occupancy = parseInt(data[lib].occupancy);
                     spacefinder.occupancyData[lib].capacity = parseInt(data[lib].capacity);
-					spacefinder.occupancyData[lib].spaces.forEach( id => {
+					getSpaceIDsForBuilding(spacefinder.occupancyData[lib].building).forEach( id => {
                         let sdo = document.querySelector( '#space' + id + ' .space-details p.occupancy' );
                         if ( sdo == null ) {
                             sdo = document.createElement( 'p' );
