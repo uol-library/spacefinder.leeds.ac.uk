@@ -32,8 +32,8 @@ function getSpaceHTML( space ) {
     }
     spaceHTML += '<span class="address">' + loc + '</span></p>';
     spaceHTML += '<div class="space-details">';
-    if ( space.image != '' ) {
-        spaceHTML += '<img src="' + spacefinder.imageBaseURL + space.image + '" class="space-image" loading="lazy" alt="' + space.imagealt + '">';
+    if ( space.images.length ) {
+        spaceHTML += '<img src="' + spacefinder.imageBaseURL + space.images[0].url + '" class="space-image" loading="lazy" alt="' + space.images[0].alt + '">';
     }
     spaceHTML += '<p class="description">' + space.description + '</p></div></div>';
     spaceHTML += '<div class="additionalInfo" id="additionalInfo' + space.id + '"></div>';
@@ -66,12 +66,10 @@ function getAdditionalInfo( space ) {
     }
     loc += ' (<a target="googlemaps" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + space.lat + '%2c' + space.lng + '&amp;travelmode=walking">get directions</a>)';
     spaceHTML += '<li class="icon-address">' + loc + '</li>';
-    if ( space.url !== "" && space.url_text !== '' ) {
-        spaceHTML += '<li class="icon-link"><a target="spaceurl" href="' + space.url + '">' + space.url_text + '</a></li>';
-    }
-    if ( space.campusmap_url != '' ) {
-        let campusmap_ref = space.campusmap_ref !== '' ? ' (map reference ' + space.campusmap_ref + ')': '';
-        spaceHTML += '<li class="icon-uol-logo-mark"><a target="campusmap" href="' + space.campusmap_url + '">View on the University campus map</a>' + campusmap_ref + '<li>';
+    if ( space.links && space.links.length ) {
+        for ( let i = 0; i < space.links.length; i++ ) {
+            spaceHTML += `<li class="${space.links[i].class}"><a href="${space.links[i].url}">${space.links[i].link_text}</a></li>`;
+        }
     }
     if ( space.restricted ) {
         spaceHTML += '<li class="icon-public">Open to ' + space.access;
@@ -98,20 +96,12 @@ function getAdditionalInfo( space ) {
         }
     });
     spaceHTML += '</ul></section>';
-    if ( space.phone_number !== '' || space.twitter_screen_name !== '' || space.facebook_url !== '' ) {
+    if ( space.contacts.length ) {
         spaceHTML += '<section class="section-contact"><h4>Contact</h4><ul class="bulleticons">';
-        if ( space.phone_number !== '' ) {
-            let phoneattr = space.phone_number.replace( /[^0-9]+/g, '' ).replace( /^0/, '+44' );
-            spaceHTML += '<li class="icon-phone"><a href="tel:' + phoneattr + '">' +space.phone_text + ' on ' + space.phone_number + '</a></li>';
+        for ( let i = 0; i < space.contacts.length; i++ ) {
+            spaceHTML += `<li class="${space.contacts[i].class}"><a href="${space.contacts[i].url}">${space.contacts[i].link_text}</a></li>`;
         }
-        if ( space.twitter_screen_name !== '' ) {
-            spaceHTML += '<li class="icon-twitter"><a href="https://twitter.com/' + space.twitter_screen_name + '">Follow ' + space.twitter_screen_name + ' on twitter</a></li>';
-        }
-        if ( space.facebook_url !== '' ) {
-            let facebookName = space.facebook_url.replace( 'https://www.facebook.com/', '' );
-            spaceHTML += '<li class="icon-facebook-squared"><a href="' + space.facebook_url + '">Follow ' + facebookName + ' on facebook</a></li>';
-        }
-        spaceHTML += '</ul></section>'
+        spaceHTML += '</ul></section>';
     }
 
     if ( space.facilities.length ) {

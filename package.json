@@ -6,6 +6,8 @@
   "scripts": {
     "concat": "node _scripts/concat.js",
     "crontab": "node _scripts/cron.js",
+    "bulkUpdate": "node _scripts/bulkUpdateSpaces.js",
+    "nextID": "node _scripts/nextID.js",
     "updateHours": "node _scripts/updateOpeningHoursLibCal.js",
     "getHours": "node _scripts/getOpeningHoursLibCal.js"
   },

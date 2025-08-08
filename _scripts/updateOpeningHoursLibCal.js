@@ -69,7 +69,7 @@ if ( allHoursData.length ) {
                 }
                 // check the flag to see if an update has been performed
                 if ( update ) {
-                    fs.writeFileSync(path.resolve( __dirname, '../spaces/', filename ), JSON.stringify(spaceJSON), err => {
+                    fs.writeFileSync(path.resolve( __dirname, '../spaces/', filename ), JSON.stringify(spaceJSON, null, 4 ), err => {
                         if (err) {
                             console.error(err);
                             return;

@@ -38,3 +38,16 @@ sass:
   style: compressed
 plugins:
   - jekyll-feed
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/*
+  - .gitignore
+  - .github
+  - .vscode
+  - spaces/*
+  - package.json
+  - package-lock.json
+  - staticwebapp.config.json
