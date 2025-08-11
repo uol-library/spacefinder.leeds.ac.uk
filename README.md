@@ -39,4 +39,9 @@ Other files included in this repository cover things like:
 
 * Icons - using icons in `assets/favicons` and the file `_includes/favicons.html`
 * Photos for spaces in `assets/photos`
+* Utilities - scripts to perform tasks such as:
+  * Updating opening times using a remote JSON feed
+  * Performing bulk updates on space data
+  * Performing scheduled bulk updates on space data
+  * Finding the next available ID for new spaces
 
