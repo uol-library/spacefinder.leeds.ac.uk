@@ -51,7 +51,7 @@ cronJSON.jobs.forEach( job => {
                             }
                         }
                         /* write changes back to filesystem */
-                        fs.writeFile( path.resolve( __dirname, '../spaces/'+spaceJSON.id+'.json' ), JSON.stringify( spaceJSON, null, '    ' ), err => {
+                        fs.writeFile( path.resolve( __dirname, '../spaces/', filename ), JSON.stringify( spaceJSON, null, '    ' ), err => {
                             if (err) {
                                 console.error( err );
                                 return;
