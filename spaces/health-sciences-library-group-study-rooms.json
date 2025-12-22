@@ -36,29 +36,29 @@
             "to": "20:00"
         },
         "wednesday": {
-            "open": true,
-            "from": "8:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "thursday": {
-            "open": true,
-            "from": "8:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "friday": {
-            "open": true,
-            "from": "8:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "saturday": {
-            "open": true,
-            "from": "10:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "sunday": {
-            "open": true,
-            "from": "10:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         }
     },
     "slug": "health-sciences-library-group-study-rooms",
