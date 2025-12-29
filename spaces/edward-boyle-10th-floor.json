@@ -29,14 +29,14 @@
     "disabled_access": true,
     "opening_hours": {
         "monday": {
-            "open": true,
-            "from": "0:00",
-            "to": "24:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "tuesday": {
-            "open": true,
-            "from": "24:00",
-            "to": "24:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "wednesday": {
             "open": false,
