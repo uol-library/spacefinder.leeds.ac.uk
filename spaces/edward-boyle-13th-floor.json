@@ -25,39 +25,39 @@
     "disabled_access": true,
     "opening_hours": {
         "monday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "tuesday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "wednesday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "thursday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "friday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "saturday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         },
         "sunday": {
-            "open": false,
-            "from": "",
-            "to": ""
+            "open": true,
+            "from": "0:00",
+            "to": "24:00"
         }
     },
     "slug": "edward-boyle-13th-floor",
