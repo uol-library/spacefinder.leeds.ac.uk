@@ -218,7 +218,8 @@ function updateSpaceInfoWindowContent() {
     for ( let i = 0; i < spacefinder.spaces.length; i++ ) {
         if ( spacefinder.spaces[i].lat && spacefinder.spaces[i].lng ) {
             for( lib in spacefinder.occupancyData ) {
-                if ( spacefinder.occupancyData[lib].spaces.indexOf( spacefinder.spaces[i].id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
+                let spaceids = getSpaceIDsForBuilding(spacefinder.occupancyData[lib].building)
+                if ( spaceids.indexOf( spacefinder.spaces[i].id ) !== -1 && spacefinder.occupancyData[lib].occupancy > 0 ) {
                     let info = [];
                     info.push( spacefinder.spaces[i].space_type );
                     if ( spacefinder.spaces[i].floor !== '' ) {
