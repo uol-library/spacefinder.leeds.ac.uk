@@ -37,9 +37,9 @@
             "to": "20:00"
         },
         "tuesday": {
-            "open": true,
-            "from": "8:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "wednesday": {
             "open": true,
