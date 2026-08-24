@@ -52,14 +52,14 @@
             "to": "20:00"
         },
         "saturday": {
-            "open": true,
-            "from": "10:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         },
         "sunday": {
-            "open": true,
-            "from": "10:00",
-            "to": "20:00"
+            "open": false,
+            "from": "",
+            "to": ""
         }
     },
     "slug": "health-sciences-library",
