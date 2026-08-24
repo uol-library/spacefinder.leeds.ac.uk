@@ -59,7 +59,7 @@
     "slug": "st-james-hospital-library",
     "floor": "Level 3",
     "restriction": "Library Card needed",
-    "published": true,
+    "published": false,
     "work": [
         "in_a_library",
         "private",
