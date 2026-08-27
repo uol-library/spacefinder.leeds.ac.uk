@@ -63,8 +63,8 @@
         },
         "sunday": {
             "open": true,
-            "from": "0:00",
-            "to": "24:00"
+            "from": "24:00",
+            "to": "22:59"
         }
     },
     "slug": "edward-boyle-8th-floor",
