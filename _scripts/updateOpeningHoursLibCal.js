@@ -1,6 +1,8 @@
 /**
- * Processes LibCal opening hours by updating spaces and dumping monthly / weekly
- * opening hours in the hours folder
+ * Processes LibCal opening hours (from the monthly files in _data/hours) and
+ * updates the openingHoursSpecification of library spaces in
+ * assets/data/spaces/data with the hours for the current week (Monday to
+ * Sunday). Run npm run concat afterwards to rebuild data.json.
  */
 const fs = require('fs');
 const path = require('path');
@@ -28,7 +30,7 @@ libcalfiles.forEach( filename => {
         hoursJSON.forEach( h => {
             allHoursData.forEach( ( lib, index, allHoursData ) => {
                 if ( lib.lid == h.lid ) {
-                    for ( d in h.dates ) {
+                    for ( const d in h.dates ) {
                         allHoursData[index].dates[d] = h.dates[d];
                     }
                 }
@@ -47,34 +49,25 @@ if ( allHoursData.length ) {
         allHoursData[index].dates = orderedDates;
         let weekdates = getWeekDates();
         weekdates.forEach( dates => {
-            libCalOpening[ lib.building ][dates.day] = getOpeningHours( lib.dates, dates.datestring );
+            libCalOpening[ lib.building ][dates.day] = getOpeningHours( lib.dates, dates );
         });
     });
-    fs.writeFileSync(path.resolve( __dirname, '../_data/libcal-opening-hours.json' ), JSON.stringify(allHoursData), err => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-    });
-    const spacefiles = fs.readdirSync( path.resolve( __dirname, '../spaces' ), { encoding: 'utf8' } );
-    spacefiles.forEach( filename => {
-        if ( filename !== '.' && filename !== '..' ) {
-            var spaceData = fs.readFileSync( path.resolve( __dirname, '../spaces/', filename ) );
+    fs.writeFileSync( path.resolve( __dirname, '../_data/libcal-opening-hours.json' ), JSON.stringify( allHoursData ) );
+    const dataDir = path.resolve( __dirname, '../assets/data/spaces/data' );
+    const datafiles = fs.readdirSync( dataDir, { encoding: 'utf8' } );
+    datafiles.forEach( filename => {
+        if ( filename.match( /\.json$/ ) ) {
+            const spaceData = fs.readFileSync( path.resolve( dataDir, filename ) );
             const spaceJSON = JSON.parse( spaceData );
-            let update = false;
-            if ( spaceJSON.space_type == 'Library' && libCalOpening.hasOwnProperty( spaceJSON.building ) ) {
-                if ( openingHoursDiffer( spaceJSON.opening_hours, libCalOpening[ spaceJSON.building ] ) ) {
-                    spaceJSON.opening_hours = libCalOpening[ spaceJSON.building ];
-                    update = true;
-                }
-                // check the flag to see if an update has been performed
-                if ( update ) {
-                    fs.writeFileSync(path.resolve( __dirname, '../spaces/', filename ), JSON.stringify(spaceJSON, null, 4 ), err => {
-                        if (err) {
-                            console.error(err);
-                            return;
-                        }
-                    });
+            const ld = spaceJSON.mainEntity;
+            /* libraries whose address ends with the building name, e.g. "Level 10, Edward Boyle library" */
+            const lib = allHoursData.find( l => ld.additionalType === 'Library' && ld.address.streetAddress.toLowerCase().endsWith( l.building.toLowerCase() ) );
+            if ( lib ) {
+                const newHours = Object.values( libCalOpening[ lib.building ] );
+                if ( openingHoursDiffer( ld.openingHoursSpecification, newHours ) ) {
+                    ld.openingHoursSpecification = newHours;
+                    fs.writeFileSync( path.resolve( dataDir, filename ), JSON.stringify( spaceJSON, null, 4 ) );
+                    console.log( 'Updated opening hours for ' + filename );
                 }
             }
         }
@@ -92,7 +85,7 @@ if ( allHoursData.length ) {
 function getWeekDates() {
     let weekdates = [];
     let d = new Date();
-    let days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+    let days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
     /* set date to previous monday */
     d.setDate( d.getDate() - ( ( d.getDay() + 6 ) % 7 ) );
     for ( let i = 0; i < 7; i++ ) {
@@ -102,44 +95,70 @@ function getWeekDates() {
     }
     return weekdates;
 }
-function getOpeningHours( data, datestr ) {
-    let opening = { 'open': false, 'from': '', 'to': '' };
-    for ( d in data ) {
-        if ( d === datestr ) {
+
+/**
+ * Gets the opening hours for a specific date from the provided data.
+ * @param {Object} data - the LibCal opening hours data for a specific library (keyed by date)
+ * @param {Object} dates - an object with day and datestring properties to map a date to a weekday
+ * @returns {Object} an object containing the opening hours for the specified date as an OpeningHoursSpecification
+ */
+function getOpeningHours( data, dates ) {
+    let opening = {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "https://schema.org/" + dates.day
+    };
+    for ( const d in data ) {
+        if ( d === dates.datestring ) {
             if ( data[d].status == 'open' ) {
-                opening = { 'open': true, 'from': normaliseTime( data[d].hours[0].from ), 'to': normaliseTime( data[d].hours[0].to ) };
+                opening = { 
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "https://schema.org/" + dates.day,
+                    "opens": normaliseTime( data[d].hours[0].from ),
+                    "closes": normaliseTime( data[d].hours[0].to )
+                };
             } else if ( data[d].status == "24hours" ) {
-                opening = { 'open': true, 'from': '0:00', 'to': '24:00' };
+                opening = { 
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "https://schema.org/" + dates.day,
+                    "opens": "00:00:00",
+                    "closes": "24:00:00"
+                };
             }
         }
     }
     return opening;
 }
+
+/**
+ * Determines if two arrays of opening hours differ.
+ * Both are OpeningHoursSpecification arrays in the same order (Monday to
+ * Sunday) with their properties in the same order, so they can be compared
+ * as JSON.
+ * @param {Array} o1 - OpeningHoursSpecification objects from the space JSON file
+ * @param {Array} o2 - OpeningHoursSpecification objects made from LibCal data
+ * @returns {boolean} - True if the opening hours differ, false otherwise
+ */
 function openingHoursDiffer( o1, o2 ) {
-    let differ = false;
-    ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'].forEach( day => {
-        if ( o1[day].open != o2[day].open || o1[day].from != o2[day].from || o1[day].to != o2[day].to ) {
-            differ = true;
-        }
-    });
-    return differ;
+    return JSON.stringify( o1 ) !== JSON.stringify( o2 );
 }
+
+/**
+ * Normalises the time format from LibCal (e.g. 9:30am) to HH:MM:SS.
+ * Midnight (12:00am) is 24:00:00, as LibCal uses it for closing times.
+ * @param {string} libCalTime - The time string from LibCal
+ * @returns {string} - The normalised time string in HH:MM:SS format
+ */
 function normaliseTime( libCalTime ) {
-    if ( libCalTime == "12:00am" ) {
-        return "24:00";
-    } else if ( libCalTime == "12:00pm" ) {
-        return "12:00";
-    } else {
-        let regex = /([0-9]+):([0-9]+)(am|pm)/i;
-        let hours = libCalTime.match( regex );
-        if ( hours !== null ) {
-            if ( hours[3])
-            if ( hours[3] == 'pm' ) {
-                return ( +hours[1] + 12 ) + ':' + hours[2];
-            } else {
-                return hours[1] + ':' + hours[2];
-            }
-        }
+    const m = libCalTime.match( /([0-9]+):([0-9]+)\s*(am|pm)/i );
+    if ( m === null ) {
+        return '';
     }
-    return "";
+    let h = +m[1] % 12;
+    if ( m[3].toLowerCase() === 'pm' ) {
+        h += 12;
+    }
+    if ( h === 0 && m[2] === '00' ) {
+        h = 24;
+    }
+    return String( h ).padStart( 2, '0' ) + ':' + m[2] + ':00';
 }

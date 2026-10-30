@@ -1,4 +1,4 @@
-remote_theme: uol-library/spacefinder@develop
+remote_theme: uol-library/spacefinder
 title: Space Finder - University of Leeds
 email: p.l.edwards@leeds.ac.uk
 description: >-
@@ -7,9 +7,9 @@ description: >-
   includes detailed descriptions of each space, filters
   based on space characteristics, and  navigation via a
   map.
-environment: development
+environment: production
 baseurl: ""
-url: "https://dev-spacefinder.leeds.ac.uk"
+url: "https://spacefinder.leeds.ac.uk"
 host: "localhost"
 google_analytics: ""
 photo_dir: "/assets/photos/"
@@ -47,7 +47,5 @@ exclude:
   - .gitignore
   - .github
   - .vscode
-  - spaces/*
   - package.json
   - package-lock.json
-  - staticwebapp.config.json

@@ -1,0 +1,5 @@
+# Settings for the development server, which override those in _config.yml.
+# Build with both files: npm run dev:build
+remote_theme: uol-library/spacefinder@develop
+environment: development
+url: "https://dev-spacefinder.leeds.ac.uk"
