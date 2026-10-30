@@ -1,0 +1,42 @@
+# Builds the site with Jekyll and pushes the result to a branch the servers
+# copy from: main builds to "build", develop builds to "build-dev" (with
+# _config_dev.yml). Each build replaces the branch with a single commit.
+#
+# The data workflows push with GITHUB_TOKEN, which doesn't start other
+# workflows, so this also runs when one of them finishes. Changes to the
+# theme don't start a build: run this workflow by hand after pushing one.
+name: build-site
+on:
+  push:
+    branches: [main, develop]
+  workflow_run:
+    workflows: [cron-updates, update-hours-from-libcal-data, get-hours-from-libcal-api, manually-update-hours-from-libcal-api, concat-spacefinder-data]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: build-${{ github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+      - name: Build
+        run: |
+          if [ "$GITHUB_REF_NAME" = develop ]; then CONFIG=_config.yml,_config_dev.yml; else CONFIG=_config.yml; fi
+          bundle exec jekyll build --config $CONFIG
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: ${{ github.ref_name == 'develop' && 'build-dev' || 'build' }}
+          force_orphan: true
+          enable_jekyll: true
+          commit_message: Build
