@@ -10,14 +10,21 @@ map:
 #
 # How places and pages are shown in URLs:
 #   history: URLs like /spaces/1915 (uses the History API). Direct visits
-#            to these URLs need the server to send the site's index page;
-#            if it can't, 404.html redirects to the site and the URL is
-#            restored. On Azure Static Web Apps, add a navigationFallback
-#            to staticwebapp.config.json to avoid the redirect.
+#            to these URLs need the server to send the site's index page,
+#            which the rewrite rules in .htaccess do on Apache. If it
+#            can't, 404.html redirects to the site and the URL is restored.
 #   hash:    URLs like /#/spaces/1915. Works on any static host, such as
 #            GitHub Pages, with no server configuration.
 ##########################################################################
 routing: "history"
+##########################################################################
+# Route aliases
+#
+# Old first parts of routes, and what replaces them. The first version of
+# the site used /#/space/1915 for spaces.
+##########################################################################
+routeAliases:
+  space: spaces
 ##########################################################################
 # Datasets
 #

@@ -19,7 +19,7 @@
  * i.e. spacefinder.data.buildings.getPlaceHTML( building ) will call the getPlaceHTML function in this module.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { splog, escapeHTML as esc, getDirectionsLink, createPlaceElement, getInfoWindowHTML } from '../../js/modules/utilities.mjs';
+import { splog, escapeHTML as esc, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities, getPropertyValue as propertyValue, getFeatureValue as featureValue, getFeatureKeys } from '../../js/modules/jsonld.mjs';
 
 export const namespace = 'buildings';
@@ -105,7 +105,7 @@ export function getPlaceHTML( building ) {
     let ld = building.ld;
     let details = '';
     if ( ld.image ) {
-        details += '<img src="' + ld.image.contentUrl + '" class="place-image" loading="lazy" alt="' + esc( ld.image.description ) + '">';
+        details += '<img src="' + getSiteURL( ld.image.contentUrl ) + '" class="place-image" loading="lazy" alt="' + esc( ld.image.description ) + '">';
     }
     /* list what's in the building: search only looks at the summary, so this lets a search for a department find the building (and shows why it matched) */
     let contents = building.contents.map( p => esc( p.name ) );

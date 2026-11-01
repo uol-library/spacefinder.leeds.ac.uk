@@ -22,7 +22,7 @@
  * i.e. spacefinder.data.art.getPlaceHTML( artwork ) will call the getPlaceHTML function in this module.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { splog, decodeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML } from '../../js/modules/utilities.mjs';
+import { splog, decodeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities } from '../../js/modules/jsonld.mjs';
 
 export const namespace = 'art';
@@ -95,7 +95,7 @@ export function getPlaceHTML( artwork ) {
     let ld = artwork.ld;
     let details = '';
     if ( artwork.images.length ) {
-        details += '<img src="' + artwork.images[0].contentUrl + '" class="place-image" loading="lazy" alt="' + artwork.images[0].description + '">';
+        details += '<img src="' + getSiteURL( artwork.images[0].contentUrl ) + '" class="place-image" loading="lazy" alt="' + artwork.images[0].description + '">';
     }
     details += '<p class="description">' + getArtist( ld.creator ) + ', ' + ld.dateCreated + '</p>';
     return createPlaceElement( artwork, {
@@ -141,7 +141,7 @@ export function getAdditionalInfo( artwork ) {
     if ( artwork.images.length > 1 ) {
         html += '<section class="section-images"><h4>Images</h4>';
         artwork.images.forEach( image => {
-            html += '<figure><img src="' + image.contentUrl + '" loading="lazy" alt="' + image.description + '"><figcaption>' + image.description + '</figcaption></figure>';
+            html += '<figure><img src="' + getSiteURL( image.contentUrl ) + '" loading="lazy" alt="' + image.description + '"><figcaption>' + image.description + '</figcaption></figure>';
         });
         html += '</section>';
     }

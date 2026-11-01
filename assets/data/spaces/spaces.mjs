@@ -16,7 +16,7 @@
  * All the above are mandatory for dynamically loaded modules, apart from the onunloadPlaceData function, which is optional.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { getPlaceNodeById, getFilterData, splog, escapeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML } from '../../js/modules/utilities.mjs';
+import { getPlaceNodeById, getFilterData, splog, escapeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities, getPropertyValue, getFeatureKeys } from '../../js/modules/jsonld.mjs';
 
 export const namespace = 'spaces';
@@ -218,7 +218,7 @@ function getSpaceFromJSONLD( ld ) {
         ld: ld
     };
     if ( ld.image && ld.image.contentUrl ) {
-        space.images.push( { url: ld.image.contentUrl, alt: ld.image.description } );
+        space.images.push( { url: getSiteURL( ld.image.contentUrl ), alt: ld.image.description } );
     }
     if ( ld.url ) {
         let linkText = ld.url.indexOf( 'mytimetable' ) !== -1 ? 'View timetable for ' + ld.name: 'Visit the ' + ld.name + ' web site';
