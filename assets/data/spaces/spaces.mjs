@@ -9,11 +9,12 @@
  * - onloadPlaceData - called when the data is loaded, can be used to set up any additional data structures or intervals
  * - onrenderPlaceData - called when the data is rendered, can be used to set up any additional data structures or intervals
  * - onunloadPlaceData - called when the data is unloaded, can be used to clear any intervals or event listeners
+ * - matchFilter - matches the "open" filter, which depends on the time rather than a CSS class
  * 
  * These are called using the module namespace object, which is added to the spacefinder.data object when this module is loaded.
  * i.e. spacefinder.data.spaces.getPlaceHTML( space ) will call the getPlaceHTML function in this module.
  * 
- * All the above are mandatory for dynamically loaded modules, apart from the onunloadPlaceData function, which is optional.
+ * All the above are mandatory for dynamically loaded modules, apart from the onunloadPlaceData and matchFilter functions, which are optional.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
 import { getPlaceNodeById, getFilterData, splog, escapeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
@@ -324,6 +325,7 @@ export function onloadPlaceData( data ) {
                 }
             }
             document.querySelector( '[data-id="' + space.id + '"]' ).setAttribute( 'data-openmsg', openmsg );
+            space.openclass = openclass;
             document.querySelector( '[data-id="' + space.id + '"]' ).setAttribute( 'data-openclass', openclass );
             /* change message in any spaces showing additional info */
             if ( document.querySelector( '[data-openmsg-id="' + space.id + '"]' ) != null ) {
@@ -355,5 +357,17 @@ export function onunloadPlaceData( ) {
     clearInterval( spacefinder.data[namespace].openingHoursInterval );
 }
 
-
-
+/**
+ * Matches filters that CSS classes can't express. The "open" filter uses the
+ * opening status set by checkOpeningHours; other filters return undefined
+ * and are matched by class.
+ * @param {Object} space
+ * @param {String} key the filter key
+ * @param {Array} values the checked option keys
+ * @return {boolean|undefined}
+ */
+export function matchFilter( space, key, values ) {
+    if ( key === 'open' ) {
+        return space.openclass === 'open';
+    }
+}
