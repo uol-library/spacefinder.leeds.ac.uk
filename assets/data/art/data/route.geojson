@@ -9,11 +9,9 @@
         "length_m": 4555,
         "walking_speed_mps": 1,
         "walking_time_min": 76,
-        "elevation_min_m": 67,
-        "elevation_max_m": 89,
-        "ascent_m": 49,
-        "descent_m": 49,
-        "elevation_source": "EU-DEM 25 m (OpenTopoData)"
+        "artwork_count": 22,
+        "minutes_per_artwork": 2,
+        "total_time_min": 120
       },
       "geometry": {
         "type": "LineString",

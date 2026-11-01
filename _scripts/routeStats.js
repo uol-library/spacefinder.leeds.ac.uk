@@ -1,17 +1,15 @@
 /**
  * Works out statistics for the art trail routes and stores them as properties
- * of each route's LineString feature: length, estimated walking time,
- * elevation range and total ascent and descent.
+ * of each route's LineString feature: length, the number of artworks on the
+ * route and the estimated time to walk it.
  *
- * Elevations come from the EU-DEM (25 m grid) via the OpenTopoData API, sampled
- * every 10 m along the route and smoothed over 50 m. The grid is too coarse to
- * show short slopes such as ramps, so the elevation figures describe the route
- * as a whole, not individual gradients.
+ * An artwork counts as on the route if its coordinates are within
+ * ARTWORK_DISTANCE metres of the line. The time allows for walking at
+ * WALKING_SPEED plus MINUTES_PER_ARTWORK at each artwork.
  *
- * Coordinates are left as they are; only the properties change. If the
- * elevation lookup fails, nothing is written.
+ * Coordinates are left as they are; only the properties change.
  *
- * Run from any directory, after editing a route:
+ * Run from any directory, after editing a route or the artworks:
  *   node spacefinder/_scripts/routeStats.js [route files...]
  * With no arguments it updates route.geojson and shortroute.geojson in
  * assets/data/art/data.
@@ -22,17 +20,12 @@
 const fs   = require('fs');
 const path = require('path');
 
-const ROUTE_DIR      = path.resolve(__dirname, '../assets/data/art/data');
-const DEFAULT_ROUTES = ['route.geojson', 'shortroute.geojson'];
-const ELEVATION_URL  = 'https://api.opentopodata.org/v1/eudem25m';
-const ELEVATION_NAME = 'EU-DEM 25 m (OpenTopoData)';
-const USER_AGENT     = 'spacefinder (https://github.com/uol-library/spacefinder)';
-const WALKING_SPEED  = 1;    // m/s
-const SAMPLE_SPACING = 10;   // m between elevation samples
-const SMOOTHING      = 5;    // samples in the moving average (5 x 10 m = 50 m)
-const BATCH_SIZE     = 100;  // OpenTopoData's limit per request
-const BATCH_DELAY    = 1100; // ms; the public API allows one request a second
-const EARTH_RADIUS   = 6371008.8;
+const ROUTE_DIR           = path.resolve(__dirname, '../assets/data/art/data');
+const DEFAULT_ROUTES      = ['route.geojson', 'shortroute.geojson'];
+const WALKING_SPEED       = 1;  // m/s
+const MINUTES_PER_ARTWORK = 2;
+const ARTWORK_DISTANCE    = 50; // m from the route
+const EARTH_RADIUS        = 6371008.8;
 
 /**
  * Distance in metres between two [lon, lat] points (haversine)
@@ -46,107 +39,69 @@ function distance( a, b ) {
 }
 
 /**
- * Points every SAMPLE_SPACING metres along a line, including both ends
+ * Distance in metres from a [lon, lat] point to the nearest point of a line,
+ * using a flat projection centred on the point (fine over a campus)
  */
-function samplePoints( coords ) {
-    const points = [ coords[0] ];
-    let carried = 0;
+function distanceToLine( point, coords ) {
+    const kx = Math.PI / 180 * EARTH_RADIUS * Math.cos( point[1] * Math.PI / 180 );
+    const ky = Math.PI / 180 * EARTH_RADIUS;
+    const xy = c => [ ( c[0] - point[0] ) * kx, ( c[1] - point[1] ) * ky ];
+    let nearest = Infinity;
     for ( let i = 1; i < coords.length; i++ ) {
-        const a = coords[i - 1], b = coords[i];
-        const length = distance( a, b );
-        let along = SAMPLE_SPACING - carried;
-        while ( along < length ) {
-            const t = along / length;
-            points.push( [ a[0] + t * ( b[0] - a[0] ), a[1] + t * ( b[1] - a[1] ) ] );
-            along += SAMPLE_SPACING;
-        }
-        carried = length - ( along - SAMPLE_SPACING );
+        const [ ax, ay ] = xy( coords[i - 1] ), [ bx, by ] = xy( coords[i] );
+        const dx = bx - ax, dy = by - ay;
+        const t = Math.max( 0, Math.min( 1, -( ax * dx + ay * dy ) / ( dx * dx + dy * dy || 1 ) ) );
+        nearest = Math.min( nearest, Math.hypot( ax + t * dx, ay + t * dy ) );
     }
-    points.push( coords[ coords.length - 1 ] );
-    return points;
+    return nearest;
 }
 
 /**
- * Looks up elevations (m) for [lon, lat] points
+ * [lon, lat] of each artwork in the art data files
  */
-async function elevations( points ) {
-    const result = [];
-    for ( let i = 0; i < points.length; i += BATCH_SIZE ) {
-        if ( i > 0 ) {
-            await new Promise( resolve => setTimeout( resolve, BATCH_DELAY ) );
-        }
-        const locations = points.slice( i, i + BATCH_SIZE ).map( p => p[1].toFixed( 6 ) + ',' + p[0].toFixed( 6 ) ).join( '|' );
-        const response = await fetch( ELEVATION_URL + '?locations=' + locations, { headers: { 'User-Agent': USER_AGENT } } );
-        if ( ! response.ok ) {
-            throw new Error( `elevation lookup failed: HTTP ${response.status}` );
-        }
-        const json = await response.json();
-        if ( json.status !== 'OK' || json.results.some( r => r.elevation === null ) ) {
-            throw new Error( 'elevation lookup failed: ' + ( json.error || 'missing values' ) );
-        }
-        result.push( ...json.results.map( r => r.elevation ) );
-    }
-    return result;
-}
-
-/**
- * Centred moving average, shrinking the window at the ends
- */
-function smooth( values ) {
-    const half = Math.floor( SMOOTHING / 2 );
-    return values.map( ( v, i ) => {
-        const window = values.slice( Math.max( 0, i - half ), i + half + 1 );
-        return window.reduce( ( a, b ) => a + b, 0 ) / window.length;
+function artworks() {
+    return fs.readdirSync( ROUTE_DIR ).filter( f => f.endsWith( '.json' ) ).map( f => {
+        const geo = JSON.parse( fs.readFileSync( path.join( ROUTE_DIR, f ), 'utf8' ) ).mainEntity.spatial.geo;
+        return [ parseFloat( geo.longitude ), parseFloat( geo.latitude ) ];
     });
 }
 
 /**
  * Statistics for one LineString
  */
-async function routeStats( coords ) {
+function routeStats( coords, art ) {
     let length = 0;
     for ( let i = 1; i < coords.length; i++ ) {
         length += distance( coords[i - 1], coords[i] );
     }
-    const heights = smooth( await elevations( samplePoints( coords ) ) );
-    let ascent = 0, descent = 0;
-    for ( let i = 1; i < heights.length; i++ ) {
-        const change = heights[i] - heights[i - 1];
-        if ( change > 0 ) {
-            ascent += change;
-        } else {
-            descent -= change;
-        }
-    }
+    const count = art.filter( a => distanceToLine( a, coords ) <= ARTWORK_DISTANCE ).length;
+    const walking = length / WALKING_SPEED / 60;
     return {
         length_m: Math.round( length ),
+        artwork_count: count,
         walking_speed_mps: WALKING_SPEED,
-        walking_time_min: Math.round( length / WALKING_SPEED / 60 ),
-        elevation_min_m: Math.round( Math.min( ...heights ) ),
-        elevation_max_m: Math.round( Math.max( ...heights ) ),
-        ascent_m: Math.round( ascent ),
-        descent_m: Math.round( descent ),
-        elevation_source: ELEVATION_NAME,
+        walking_time_min: Math.round( walking ),
+        minutes_per_artwork: MINUTES_PER_ARTWORK,
+        total_time_min: Math.round( walking + count * MINUTES_PER_ARTWORK ),
     };
 }
 
-async function main() {
+function main() {
     const files = process.argv.length > 2 ? process.argv.slice( 2 ).map( f => path.resolve( f ) ) : DEFAULT_ROUTES.map( f => path.join( ROUTE_DIR, f ) );
+    const art = artworks();
     for ( const file of files ) {
         const geojson = JSON.parse( fs.readFileSync( file, 'utf8' ) );
         for ( const feature of geojson.features ) {
             if ( feature.geometry.type !== 'LineString' ) {
                 continue;
             }
-            const stats = await routeStats( feature.geometry.coordinates );
-            feature.properties = { ...feature.properties, ...stats };
+            const { elevation_min_m, elevation_max_m, ascent_m, descent_m, elevation_source, ...properties } = feature.properties;
+            const stats = routeStats( feature.geometry.coordinates, art );
+            feature.properties = { ...properties, ...stats };
             console.log( path.basename( file ), stats );
         }
         fs.writeFileSync( file, JSON.stringify( geojson, null, 2 ) + '\n' );
     }
 }
 
-main().catch( err => {
-    console.error( err.message );
-    process.exit( 1 );
-});
+main();
