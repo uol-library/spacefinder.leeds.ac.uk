@@ -6,3 +6,15 @@
     {%- if site.environment == "development" -%}
     <meta name="robots" content="noindex">
     {%- endif -%}
+    <style>
+        /* the University of Leeds logo in the top bar (_includes/site-logo.html) */
+        #top-bar nav > ul li.site-logo {
+            flex: 0 0 40px;
+            a { color: var(--topbar-color); }
+            #uol-logo { display: block; width: 40px; height: 40px; }
+            @media screen and (min-width: 1000px) {
+                flex-basis: 286px;
+                #uol-logo { width: 286px; }
+            }
+        }
+    </style>
