@@ -1,7 +1,8 @@
 /**
  * Scans each subfolder of assets/data that contains a data/ directory,
  * reads all JSON files from it, and writes them as a JSON array to
- * assets/data/{subfolder}/data.json.
+ * assets/data/{subfolder}/data.json. Only JSON-LD records (with a mainEntity)
+ * are included, so files such as template.json are left out.
  *
  * Run from any directory:
  *   node spacefinder/_scripts/concat.js
@@ -25,7 +26,8 @@ subfolders.forEach(subfolder => {
     const items = fs.readdirSync(dataDir, { encoding: 'utf8' })
         .filter(f => f.endsWith('.json') && f !== '.gitkeep')
         .sort()
-        .map(filename => JSON.parse(fs.readFileSync(path.join(dataDir, filename))));
+        .map(filename => JSON.parse(fs.readFileSync(path.join(dataDir, filename))))
+        .filter(item => item.mainEntity);
 
     const outPath = path.join(ASSETS_DATA, subfolder, 'data.json');
     fs.writeFileSync(outPath, JSON.stringify(items, null, 4));

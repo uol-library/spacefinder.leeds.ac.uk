@@ -20,7 +20,7 @@
             "birthDate": "1939"
         },
         "contributor": {
-            "@type": "Organisation",
+            "@type": "Organization",
             "name": "Neon Circus",
             "description": "Fabricated by Neon Circus"
         },

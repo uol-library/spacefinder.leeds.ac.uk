@@ -206,7 +206,7 @@
                 "birthDate": "1939"
             },
             "contributor": {
-                "@type": "Organisation",
+                "@type": "Organization",
                 "name": "Neon Circus",
                 "description": "Fabricated by Neon Circus"
             },
@@ -290,7 +290,7 @@
                 "deathDate": "1975"
             },
             "contributor": {
-                "@type": "Organisation",
+                "@type": "Organization",
                 "name": "Leeds Art Fund",
                 "description": "Lent by Leeds Art Fund (Leeds Museums &amp; Galleries)"
             },
@@ -814,7 +814,7 @@
                 "deathDate": "1986"
             },
             "contributor": {
-                "@type": "Organisation",
+                "@type": "Organization",
                 "name": "Leeds Art Fund",
                 "description": "Lent by Leeds Art Fund (Leeds Museums &amp; Galleries)"
             },

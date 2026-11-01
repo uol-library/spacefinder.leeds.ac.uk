@@ -21,7 +21,7 @@
             "deathDate": "1975"
         },
         "contributor": {
-            "@type": "Organisation",
+            "@type": "Organization",
             "name": "Leeds Art Fund",
             "description": "Lent by Leeds Art Fund (Leeds Museums &amp; Galleries)"
         },
