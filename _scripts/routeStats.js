@@ -104,4 +104,8 @@ function main() {
     }
 }
 
-main();
+if ( require.main === module ) {
+    main();
+}
+
+module.exports = { ROUTE_DIR, DEFAULT_ROUTES, ARTWORK_DISTANCE, distanceToLine, routeStats };

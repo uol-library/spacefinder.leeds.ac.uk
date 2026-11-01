@@ -13,6 +13,7 @@
     "osm": "node _scripts/osm.js",
     "buildings": "node _scripts/buildings.js",
     "routeStats": "node _scripts/routeStats.js",
+    "routeExport": "node _scripts/routeExport.js",
     "build": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve --config _config.yml",
     "dev:build": "bundle exec jekyll build --config _config.yml,_config_dev.yml",
