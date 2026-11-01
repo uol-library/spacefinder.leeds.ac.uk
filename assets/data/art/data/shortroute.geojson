@@ -5,7 +5,15 @@
       "type": "Feature",
       "properties": {
         "id": 198,
-        "shape": "Line"
+        "shape": "Line",
+        "length_m": 2767,
+        "walking_speed_mps": 1,
+        "walking_time_min": 46,
+        "elevation_min_m": 67,
+        "elevation_max_m": 88,
+        "ascent_m": 38,
+        "descent_m": 38,
+        "elevation_source": "EU-DEM 25 m (OpenTopoData)"
       },
       "geometry": {
         "type": "LineString",
