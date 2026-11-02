@@ -41,7 +41,8 @@ branch for the Apache servers to copy.
   gets near it, or as clickable pins beside the route. The route stays
   separate from the artwork pins. Hermes can't go on the route because it's
   on a wall above a pond.
-- Show the routes in the app, with links to download the GPX and KML files.
+- The routes are drawn on the art map (colours in `_includes/custom-head.html`)
+  and listed above the artworks, with GPX and KML downloads (`art.mjs`).
 
 ## The theme
 
