@@ -6,11 +6,18 @@
         "@type": "VisualArtwork",
         "name": "A Celebration of Engineering Sciences",
         "description": "<p>Allan Johnson was an architect at Lanchester & Lodge, a London practice with a long association with the University of Leeds. During the 1950s he worked on the Man-Made Fibres building, taking the lead on commissioning Mitzi Cunliffe&rsquo;s sculpture.</p><p>Johnson&rsquo;s proposal for a huge sculptural relief for the front of the Mechanical Engineering building was received enthusiastically by the University&rsquo;s Vice-Chancellor. Suggesting the interaction of man and machine, its dynamic shapes are inspired by link mechanisms in mechanical engineering. Constructing it from lightweight glass fibre reinforced polyester (GFRP), rather than much heavier traditional stone, enabled it to be installed in its raised location relatively easily.</p><p>In 2016 the sculpture was listed Grade II by Historic England as &lsquo; a vigorous, bold design&hellip; successfully connecting to the internal dynamics and meaning of the building&rsquo;.</p>",
-        "image": {
-            "@type": "ImageObject",
-            "contentUrl": "/assets/data/art/images/a-celebration-of-engineering-sciences.jpg",
-            "description": "DP168902: Exterior view of the university building from the north-east, showing the relief sculpture 'A Celebration of ngineering Sciences' over the entrance. 20th April 2015, <a href=\"http://archive.historicengland.org.uk/\">Historic England Archive</a>."
-        },
+        "image": [
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/a-celebration-of-engineering-sciences1.jpg",
+                "description": "DP168902: Exterior view of the relief sculpture 'A Celebration of Engineering Sciences', 20th April 2015, <a href='http://archive.historicengland.org.uk/'>Historic England Archive</a>."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/a-celebration-of-engineering-sciences-2.jpg",
+                "description": "Exterior view from across Woodhouse Lane, showing the relief sculpture 'A Celebration of Engineering Sciences' over the building entrance. 25th July 2025."
+            }
+        ],
         "artform": "Sculpture",
         "artMedium": "Glass fibre reinforced polyester (GFRP)",
         "dateCreated": "1962-1963",

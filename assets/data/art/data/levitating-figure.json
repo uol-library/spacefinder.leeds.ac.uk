@@ -10,12 +10,12 @@
             {
                 "@type": "ImageObject",
                 "contentUrl": "/assets/data/art/images/the-dreamer1.jpg",
-                "description": "Levitating Figure, known as &lsquo;The Dreamer&rsquo; by Quentin Bell"
+                "description": "Levitating Figure, known as &lsquo;The Dreamer&rsquo; by Quentin Bell."
             },
             {
                 "@type": "ImageObject",
                 "contentUrl": "/assets/data/art/images/the-dreamer2.jpg",
-                "description": "Levitating Figure, known as &lsquo;The Dreamer&rsquo; by Quentin Bell"
+                "description": "Levitating Figure, known as &lsquo;The Dreamer&rsquo; by Quentin Bell shown from the rear, with the Great Hall in the background."
             }
         ],
         "artform": "Sculpture",

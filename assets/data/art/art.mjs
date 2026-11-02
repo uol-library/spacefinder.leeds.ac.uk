@@ -139,7 +139,7 @@ export function getAdditionalInfo( artwork ) {
     if ( artwork.images.length > 1 ) {
         html += '<section class="section-images"><h4>Images</h4>';
         artwork.images.forEach( image => {
-            html += '<figure><img src="' + getSiteURL( image.contentUrl ) + '" loading="lazy" alt="' + image.description + '"><figcaption>' + image.description + '</figcaption></figure>';
+            html += '<figure><img src="' + getSiteURL( image.contentUrl ) + '" loading="lazy" class="place-image" alt="' + image.description + '"><figcaption>' + image.description + '</figcaption></figure>';
         });
         html += '</section>';
     }

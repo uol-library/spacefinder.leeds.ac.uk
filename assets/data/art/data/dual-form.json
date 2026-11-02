@@ -6,11 +6,19 @@
         "@type": "VisualArtwork",
         "name": "Dual Form",
         "description": "<p>Born in Wakefield in 1903, Barbara Hepworth enjoyed a career spanning more than 50 years and is regarded as a pre-eminent British sculptor, along with her peer and fellow Yorkshire native, Henry Moore. In 1965, the year that she produced <strong>Dual Form</strong>, she was made Dame Commander of the British Empire (DBE) and was also made the first female trustee of the Tate Gallery, a position she held until 1972.</p><p><strong>Dual Form</strong> is one of an edition of seven bronzes, a medium that Hepworth began working in towards the late 1950s. With its simple form and pierced hollows, it recalls Hepworth&rsquo;s earlier work in wood. The sculpture was acquired by the Leeds Art Fund in 1967 and is on loan from Leeds Art Gallery.</p>",
-        "image": {
-            "@type": "ImageObject",
-            "contentUrl": "/assets/data/art/images/dual-form.jpg",
-            "description": ""
-        },
+        "image": 
+        [
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/dual-form1.jpg",
+                "description": "Dual Form by Barbara Hepworth, 1965. View of the sculpture on campus."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/dual-form2.jpg",
+                "description": "Dual Form by Barbara Hepworth, 1965. View of the sculpture on campus."
+            }
+        ],
         "artform": "Sculpture",
         "artMedium": "Bronze",
         "dateCreated": "1965",

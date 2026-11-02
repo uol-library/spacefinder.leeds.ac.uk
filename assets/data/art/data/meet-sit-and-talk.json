@@ -6,11 +6,28 @@
         "@type": "VisualArtwork",
         "name": "Meet, Sit and Talk",
         "description": "<p>Lorna Green is a sculptor and environmental artist based in Cheshire, who works in both urban and rural environments nationally and internationally. Her public art installations can be permanent or temporary and are often interactive. She did her MPhil at the University of Leeds and was a visiting lecturer in the School of Fine Art, History of Art and Cultural Studies from 1990 to 1997. In 1995 she was commissioned to create a site-specific sculpture for Chancellor&rsquo;s Court.</p><p><strong>Meet, Sit and Talk</strong> is made up of three stone circles, each stone bearing a rectangle of polished granite reflecting the sky and surroundings. Green explains the sculpture &lsquo;is intended to be used &ndash; for sitting, for meeting at and to create a socially interactive space&rsquo;, and it is a popular meeting place on sunny days, when students can be seen lunching and revising among the stones. Green redesigned the whole area with landscape architect Allan R. Ruff, who created a path recalling the flow of a river, the planting changing shape and colour with the seasons.</p>",
-        "image": {
-            "@type": "ImageObject",
-            "contentUrl": "/assets/data/art/images/meet-sit-talk.jpg",
-            "description": ""
-        },
+        "image": [
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/meet-sit-talk1.jpg",
+                "description": "Aerial view of Meet, Sit and Talk by Lorna Green, 1995, showing the stones and surrounding landscaping."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/meet-sit-talk2.jpg",
+                "description": "Meet, Sit and Talk by Lorna Green, 1995, showing the stones on the south side of Chancellor&rsquo;s Court."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/meet-sit-talk3.jpg",
+                "description": "Meet, Sit and Talk by Lorna Green, 1995, showing the stones on the south side of Chancellor&rsquo;s Court."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/meet-sit-talk4.jpg",
+                "description": "Meet, Sit and Talk by Lorna Green, 1995, showing people sitting on the stones on the north side, with the Priestley building in the background."
+            }
+        ],
         "artform": "Sculpture",
         "artMedium": "Sandstone and gravel",
         "dateCreated": "1995",
