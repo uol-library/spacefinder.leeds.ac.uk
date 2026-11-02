@@ -281,7 +281,7 @@ export function onloadPlaceData( data ) {
         let timenow = ( today.getHours() * 60 ) + today.getMinutes();
         spacefinder.data[namespace].places.forEach( space => {
             let openmsg = '';
-            let openclass = 'currently-closed';
+            let openclass = 'closed';
             let currentClass = document.querySelector( '[data-id="' + space.id + '"]' ).getAttribute( 'data-openclass' );
             if ( space.opening_hours ) {
                 /* a day with no opening and closing times is closed all day */
@@ -289,19 +289,16 @@ export function onloadPlaceData( data ) {
                     let open_from = spacefinder.data[namespace].getTimeFromString( space.opening_hours[ todaysday ].from );
                     let open_to = spacefinder.data[namespace].getTimeFromString( space.opening_hours[ todaysday ].to );
                     if ( open_from > timenow ) {
-                        let openingin = '';
+                        let openingin = [];
                         let openinmins = ( open_from - timenow ) % 60;
                         let openinhrs = Math.floor( ( ( open_from - timenow ) / 60 ) );
-                        let pl = '';
                         if ( openinhrs > 0 ) {
-                            pl = ( openinhrs == 1 )? '': 's';
-                            openingin += openinhrs + 'hr' + pl + ' ';
+                            openingin.push( openinhrs + ( openinhrs == 1 ? ' hr': ' hrs' ) );
                         }
-                        pl = ( openinmins == 1 ) ? '': 's';
                         if ( openinmins > 0 ) {
-                            openingin += openinmins + 'min' + pl;
+                            openingin.push( openinmins + ( openinmins == 1 ? ' min': ' mins' ) );
                         }
-                        openmsg = 'Currently closed (opens in ' + openingin + ')';
+                        openmsg = 'Currently closed (opens in ' + openingin.join( ' ' ) + ')';
                         openclass = 'opening-later';
                     } else if ( open_to <= timenow ) {
                         openclass = 'closed';
