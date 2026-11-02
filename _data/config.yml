@@ -52,6 +52,6 @@ datasources:
     label: "Buildings"
     icon: "icon-marker"
   - key: "art"
-    label: "Public art"
+    label: "Public Art Trail"
     icon: "icon-views"
     filters: false

@@ -18,45 +18,34 @@
  * - onrenderPlaceData - called when the data is rendered, can be used to set up any additional data structures or intervals
  * - onunloadPlaceData - called when the data is unloaded, can be used to clear any intervals or event listeners
  *
+ * The art trail routes (route.geojson and shortroute.geojson in data/, made
+ * with the route scripts in _scripts) are drawn on the map, and listed above
+ * the artworks with links to download them as GPX and KML. Their colours are
+ * set in _includes/custom-head.html.
+ *
  * These are called using the module namespace object, which is added to the spacefinder.data object when this module is loaded.
  * i.e. spacefinder.data.art.getPlaceHTML( artwork ) will call the getPlaceHTML function in this module.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { decodeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
+import { decodeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL, getLogger } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities } from '../../js/modules/jsonld.mjs';
+import { GeoJSON } from 'leaflet';
 
 export const namespace = 'art';
 
-/* Materials (filter keys in filters.json) matched against artMedium */
-const MATERIALS = {
-    'bronze': /bronze/i,
-    'stone': /stone|granite|limestone/i,
-    'metal': /steel|alumin|lead/i,
-    'modern': /fibre|jesmonite|polyurethane|polyester|resin/i,
-    'wood': /wood/i
-};
+const log = getLogger( 'art' );
 
-/**
- * Gets the period (filter key in filters.json) for a dateCreated value such as 1958 or 1962-1963
- * @param {String} dateCreated
- * @return {String} period key, or empty string if there is no year
- */
-function getPeriod( dateCreated ) {
-    let year = parseInt( ( dateCreated || '' ).match( /\d{4}/ ) );
-    if ( isNaN( year ) ) {
-        return '';
-    }
-    if ( year < 1960 ) {
-        return 'before_1960';
-    }
-    if ( year < 1990 ) {
-        return '1960_1989';
-    }
-    if ( year < 2010 ) {
-        return '1990_2009';
-    }
-    return 'since_2010';
-}
+/* The art trail routes, in the order they are listed */
+const ROUTES = [
+    { key: 'route', title: 'Full route' }, /* shown when the art dataset loads */
+    { key: 'shortroute', title: 'Short route' }
+];
+
+/* the routes' map layers (route key: GeoJSON layer) */
+let routeLayers = {};
+
+/* counts route loads, so a load for a dataset that has been unloaded is ignored */
+let routeLoad = 0;
 
 /**
  * Makes a URL slug from a plain text title
@@ -96,10 +85,10 @@ export function getPlaceHTML( artwork ) {
     if ( artwork.images.length ) {
         details += '<img src="' + getSiteURL( artwork.images[0].contentUrl ) + '" class="place-image" loading="lazy" alt="' + artwork.images[0].description + '">';
     }
-    details += '<p class="description">' + getArtist( ld.creator ) + ', ' + ld.dateCreated + '</p>';
+    details += '<p class="description">' + artwork.images[0].description + '</p>';
     return createPlaceElement( artwork, {
-        classList: getClassList( artwork ),
-        typeLabel: ld.artform,
+        classList: 'artwork',
+        typeLabel: getArtist( ld.creator ),
         typeClass: ld.artform,
         address: ld.spatial.address.streetAddress,
         details: details
@@ -156,22 +145,6 @@ export function getInfoWindowContent( artwork ) {
 }
 
 /**
- * Gets a list of classes for an artwork container to facilitate filtering
- * @param {Object} artwork artwork data
- * @return {String} classList Space separated list of classnames
- */
-function getClassList( artwork ) {
-    let classList = 'place_type_' + artwork.ld.artform.replace( /[^0-9a-zA-Z]/g, '' ).toLowerCase();
-    artwork.materials.forEach( material => {
-        classList += ' material_' + material;
-    });
-    if ( artwork.period ) {
-        classList += ' period_' + artwork.period;
-    }
-    return classList;
-}
-
-/**
  * Function called when the data is loaded
  * Turns the JSON-LD into the place objects used by the core modules
  * @param {*} data - JSON-LD data for the artworks
@@ -186,21 +159,111 @@ export function onloadPlaceData( data ) {
             lat: Number( ld.spatial.geo.latitude ),
             lng: Number( ld.spatial.geo.longitude ),
             images: Array.isArray( ld.image ) ? ld.image: ( ld.image ? [ ld.image ]: [] ),
-            materials: Object.keys( MATERIALS ).filter( key => MATERIALS[ key ].test( ld.artMedium ) ),
-            period: getPeriod( ld.dateCreated ),
             ld: ld
         };
     });
 }
 
 /**
+ * Gets a route's length, number of artworks and time, e.g. 4.6 km, 22 artworks, about 2 hours
+ * @param {Object} stats the properties of the route's LineString (from routeStats.js)
+ * @return {String}
+ */
+function getRouteStats( stats ) {
+    let hours = Math.round( stats.total_time_min / 30 ) / 2;
+    let time = stats.total_time_min < 60 ? stats.total_time_min + ' minutes': hours + ( hours === 1 ? ' hour': ' hours' );
+    return ( stats.length_m / 1000 ).toFixed( 1 ) + ' km, ' + stats.artwork_count + ' artworks, about ' + time;
+}
+
+/**
+ * Lists the routes above the artworks
+ * @param {Array} routes objects from ROUTES, each with its GeoJSON in geojson
+ */
+function renderRoutes( routes ) {
+    let html = '<h3>Public Art Trail</h3><p>Two step-free walks around the artworks. Download a route to follow it in a mapping or walking app.</p><ul>';
+    routes.forEach( route => {
+        let file = getSiteURL( '/assets/data/art/data/' + route.key );
+        html += '<li class="art-route art-route-' + route.key + '">';
+        html += '<button class="art-route-toggle" data-route="' + route.key + '" aria-pressed="false" title="Show this route on the map">' + route.title + '</button> ';
+        html += '<span class="art-route-stats">' + getRouteStats( route.geojson.features[0].properties ) + '</span>';
+        html += '<span class="art-route-links"><a href="' + file + '.gpx" download>GPX</a> <a href="' + file + '.kml" download>KML</a></span></li>';
+    });
+    html += '</ul>';
+    let section = document.createElement( 'section' );
+    section.id = 'art-routes';
+    section.innerHTML = html;
+    section.addEventListener( 'click', event => {
+        let button = event.target.closest( '.art-route-toggle' );
+        if ( button ) {
+            showRoute( button.getAttribute( 'data-route' ) );
+        }
+    });
+    document.getElementById( 'listcontent' ).prepend( section );
+}
+
+/**
+ * Shows one route on the map, and hides the others
+ * @param {String} key route key
+ */
+function showRoute( key ) {
+    if ( ! routeLayers[ key ] ) {
+        return;
+    }
+    Object.entries( routeLayers ).forEach( ( [ k, layer ] ) => {
+        if ( k === key ) {
+            layer.addTo( spacefinder.map );
+        } else {
+            layer.remove();
+        }
+    });
+    document.querySelectorAll( '#art-routes .art-route-toggle' ).forEach( button => {
+        button.setAttribute( 'aria-pressed', button.getAttribute( 'data-route' ) === key );
+    });
+}
+
+/**
+ * Loads the routes, draws them on the map and lists them
+ */
+async function loadRoutes() {
+    let load = ++routeLoad;
+    let routes;
+    try {
+        routes = await Promise.all( ROUTES.map( async route => {
+            let response = await fetch( getSiteURL( '/assets/data/art/data/' + route.key + '.geojson' ) );
+            return { ...route, geojson: await response.json() };
+        }) );
+    } catch ( error ) {
+        log.error( 'Could not load the art trail routes', error );
+        return;
+    }
+    /* the art dataset has been unloaded */
+    if ( load !== routeLoad ) {
+        return;
+    }
+    /* only one route is shown at a time: the first, until another is chosen */
+    routes.forEach( route => {
+        routeLayers[ route.key ] = new GeoJSON( route.geojson, {
+            className: 'art-route-line art-route-' + route.key,
+            weight: 8
+        }).bindTooltip( route.title, { sticky: true } );
+    });
+    renderRoutes( routes );
+    showRoute( routes[0].key );
+    log( 'Drew ' + routes.length + ' routes' );
+}
+
+/**
  * Function called after the data is rendered
  */
 export function onrenderPlaceData() {
+    loadRoutes();
 }
 
 /**
  * Function called when the data is unloaded
  */
 export function onunloadPlaceData() {
+    routeLoad++;
+    Object.values( routeLayers ).forEach( layer => layer.remove() );
+    routeLayers = {};
 }

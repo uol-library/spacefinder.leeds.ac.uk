@@ -15,12 +15,16 @@
  * - onrenderPlaceData - called when the data is rendered, can be used to set up any additional data structures or intervals
  * - onunloadPlaceData - called when the data is unloaded, can be used to clear any intervals or event listeners
  *
+ * The selected building's outline (from OpenStreetMap, in geo.polygon) is
+ * drawn on the map. Its colours are set in _includes/custom-head.html.
+ *
  * These are called using the module namespace object, which is added to the spacefinder.data object when this module is loaded.
  * i.e. spacefinder.data.buildings.getPlaceHTML( building ) will call the getPlaceHTML function in this module.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { escapeHTML as esc, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
+import { escapeHTML as esc, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL, getPlaceById } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities, getPropertyValue as propertyValue, getFeatureValue as featureValue, getFeatureKeys } from '../../js/modules/jsonld.mjs';
+import { Polygon } from 'leaflet';
 
 export const namespace = 'buildings';
 
@@ -44,6 +48,62 @@ const FILTER_KEYS = {
 };
 
 const ENTRANCE_TYPE = 'https://wiki.openstreetmap.org/wiki/Key:entrance';
+
+/* the outline of the selected building on the map */
+let outline = null;
+
+/**
+ * Gets a building's outline from its schema.org GeoShape, whose polygon is
+ * a string of "lat lng" pairs separated by spaces
+ * @param {Object} geo JSON-LD GeoShape
+ * @return {Array} [ lat, lng ] points, empty if there is no outline
+ */
+function getOutline( geo ) {
+    let polygon = geo && geo.polygon ? [].concat( geo.polygon )[0]: '';
+    let numbers = polygon.trim().split( /\s+/ ).map( Number );
+    let points = [];
+    for ( let i = 0; i + 1 < numbers.length; i += 2 ) {
+        points.push( [ numbers[i], numbers[i + 1] ] );
+    }
+    return points.length > 2 ? points: [];
+}
+
+/**
+ * Draws the outline of a building on the map, in place of any other
+ * @param {String} id the building's ID
+ */
+function showOutline( id ) {
+    hideOutline();
+    let building = getPlaceById( id );
+    if ( building && building.outline.length ) {
+        outline = new Polygon( building.outline, {
+            className: 'building-outline',
+            interactive: false
+        }).addTo( spacefinder.map );
+    }
+}
+
+/**
+ * Removes the building outline from the map
+ */
+function hideOutline() {
+    if ( outline ) {
+        outline.remove();
+        outline = null;
+    }
+}
+
+/* outline the selected building */
+document.addEventListener( 'sfplaceselect', event => {
+    if ( event.detail.dataSource === namespace ) {
+        showOutline( event.detail.id );
+    }
+});
+document.addEventListener( 'sfplacedeselect', event => {
+    if ( event.detail.dataSource === namespace ) {
+        hideOutline();
+    }
+});
 
 /**
  * Gets a single line address for a building
@@ -103,9 +163,6 @@ function getEntranceDetails( entrance ) {
 export function getPlaceHTML( building ) {
     let ld = building.ld;
     let details = '';
-    if ( ld.image ) {
-        details += '<img src="' + getSiteURL( ld.image.contentUrl ) + '" class="place-image" loading="lazy" alt="' + esc( ld.image.description ) + '">';
-    }
     /* list what's in the building: search only looks at the summary, so this lets a search for a department find the building (and shows why it matched) */
     let contents = building.contents.map( p => esc( p.name ) );
     if ( contents.length ) {
@@ -181,8 +238,7 @@ export function getAdditionalInfo( building ) {
     }
 
     if ( ld.image ) {
-        html += '<section class="section-credits"><h4>Photo</h4><p>' + esc( ld.image.creditText );
-        html += ' (<a target="placeurl" href="' + ld.image.acquireLicensePage + '">details</a>)</p></section>';
+        html += '<section class="section-credits"><h4>Photo</h4><figure><img src="' + getSiteURL( ld.image.contentUrl ) + '" class="place-image" loading="lazy" alt="' + esc( ld.image.description ) + '"><figcaption><p>' + esc( ld.image.creditText ) + ' (<a target="placeurl" href="' + ld.image.acquireLicensePage + '">details</a>)</p></figcaption></figure></section>';
     }
     html += '<section class="section-credits"><p>Building outline and entrances &copy; <a target="placeurl" href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></p></section>';
     return html;
@@ -228,6 +284,7 @@ export function onloadPlaceData( data ) {
             lng: ld.longitude,
             entrances: contained.filter( p => p.additionalType === ENTRANCE_TYPE ),
             contents: contained.filter( p => p.additionalType !== ENTRANCE_TYPE ),
+            outline: getOutline( ld.geo ),
             ld: ld
         };
     });
@@ -243,4 +300,5 @@ export function onrenderPlaceData() {
  * Function called when the data is unloaded
  */
 export function onunloadPlaceData() {
+    hideOutline();
 }
