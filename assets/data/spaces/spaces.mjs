@@ -99,7 +99,7 @@ export function getAdditionalInfo( space ) {
         let today = new Date().getDay();
         let todayidx = ( ( idx + 1 ) < 7 ) ? ( idx + 1 ): 0;
         let istodayclass = ( todayidx === today ) ? ' class="today"': '';
-        if ( space.opening_hours[day].open ) {
+        if ( space.opening_hours[ day ].from && space.opening_hours[ day ].to ) {
             spaceHTML += '<li' + istodayclass + '><span class="dayname">' + day.charAt(0).toUpperCase() + day.slice(1) + '</span> <span class="opening">' + space.opening_hours[ day ].from + ' - ' + space.opening_hours[ day ].to +'</span></li>';
         } else {
             spaceHTML += '<li' + istodayclass + '><span class="dayname">' + day.charAt(0).toUpperCase() + day.slice(1) + '</span> <span class="opening">Closed</span></li>';
@@ -249,12 +249,12 @@ function getSpaceFromJSONLD( ld ) {
         }
     });
     [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ].forEach( day => {
-        space.opening_hours[ day ] = { open: false, from: '', to: '' };
+        space.opening_hours[ day ] = { from: '', to: '' };
     });
     ( ld.openingHoursSpecification || [] ).forEach( spec => {
         let day = spec.dayOfWeek.replace( /^https?:\/\/schema.org\//, '' ).toLowerCase();
         if ( spec.opens && spec.closes ) {
-            space.opening_hours[ day ] = { open: true, from: spec.opens.slice( 0, 5 ), to: spec.closes.slice( 0, 5 ) };
+            space.opening_hours[ day ] = { from: spec.opens.slice( 0, 5 ), to: spec.closes.slice( 0, 5 ) };
         }
     });
     return space;
@@ -284,7 +284,8 @@ export function onloadPlaceData( data ) {
             let openclass = 'currently-closed';
             let currentClass = document.querySelector( '[data-id="' + space.id + '"]' ).getAttribute( 'data-openclass' );
             if ( space.opening_hours ) {
-                if ( space.opening_hours[ todaysday ].open ) {
+                /* a day with no opening and closing times is closed all day */
+                if ( space.opening_hours[ todaysday ].from && space.opening_hours[ todaysday ].to ) {
                     let open_from = spacefinder.data[namespace].getTimeFromString( space.opening_hours[ todaysday ].from );
                     let open_to = spacefinder.data[namespace].getTimeFromString( space.opening_hours[ todaysday ].to );
                     if ( open_from > timenow ) {
@@ -302,18 +303,16 @@ export function onloadPlaceData( data ) {
                         }
                         openmsg = 'Currently closed (opens in ' + openingin + ')';
                         openclass = 'opening-later';
-                    } else if ( open_to < ( timenow + 60 ) ) {
-                        let closingin = '';
-                        let closinginmins = ( open_to - timenow ) % 60;
-                        let pl = ( closinginmins == 1 ) ? '': 's';
-                        if ( closinginmins > 0 ) {
-                            closingin += closinginmins + ' min' + pl;
-                        }
-                        openmsg = 'Currently open (closes in ' + closingin + ')';
-                        openclass = 'open';
-                    } else if ( open_to < timenow ) {
+                    } else if ( open_to <= timenow ) {
                         openclass = 'closed';
                         openmsg = 'Currently closed';
+                    } else if ( open_to < ( timenow + 60 ) ) {
+                        let closingin = '';
+                        let closinginmins = open_to - timenow;
+                        let pl = ( closinginmins == 1 ) ? '': 's';
+                        closingin += closinginmins + ' min' + pl;
+                        openmsg = 'Currently open (closes in ' + closingin + ')';
+                        openclass = 'open';
                     } else {
                         openclass = 'open';
                         openmsg = 'Currently open';
