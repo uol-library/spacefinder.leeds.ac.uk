@@ -48,5 +48,6 @@ exclude:
   - .gitignore
   - .github
   - .vscode
+  - vendor
   - package.json
   - package-lock.json
