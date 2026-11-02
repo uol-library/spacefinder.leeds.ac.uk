@@ -54,3 +54,4 @@ datasources:
   - key: "art"
     label: "Public art"
     icon: "icon-views"
+    filters: false
