@@ -19,7 +19,7 @@
  * i.e. spacefinder.data.buildings.getPlaceHTML( building ) will call the getPlaceHTML function in this module.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { splog, escapeHTML as esc, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
+import { escapeHTML as esc, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities, getPropertyValue as propertyValue, getFeatureValue as featureValue, getFeatureKeys } from '../../js/modules/jsonld.mjs';
 
 export const namespace = 'buildings';
@@ -101,7 +101,6 @@ function getEntranceDetails( entrance ) {
  * @return {Element} HTML element
  */
 export function getPlaceHTML( building ) {
-    splog( 'getPlaceHTML (buildings module)' );
     let ld = building.ld;
     let details = '';
     if ( ld.image ) {
@@ -127,7 +126,6 @@ export function getPlaceHTML( building ) {
  * @return {String} HTML
  */
 export function getAdditionalInfo( building ) {
-    splog( 'getAdditionalInfo (buildings module)' );
     let ld = building.ld;
     let html = '<section class="section-facts"><h4>Key Facts</h4><ul class="bulleticons"><li class="icon-marker switch-view"><a class="show-map" href="#">Show on map</a></li>';
     let address = getAddress( ld );
@@ -220,7 +218,6 @@ function getClassList( building ) {
  * @param {*} data - JSON-LD data for the buildings
  */
 export function onloadPlaceData( data ) {
-    splog( 'onloadPlaceData (buildings module)' );
     spacefinder.data[namespace].places = getPublishedEntities( data ).map( ld => {
         let contained = ld.containsPlace || [];
         return {
@@ -240,12 +237,10 @@ export function onloadPlaceData( data ) {
  * Function called after the data is rendered
  */
 export function onrenderPlaceData() {
-    splog( 'onrenderPlaceData (buildings module)' );
 }
 
 /**
  * Function called when the data is unloaded
  */
 export function onunloadPlaceData() {
-    splog( 'onunloadPlaceData (buildings module)' );
 }

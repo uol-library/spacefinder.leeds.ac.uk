@@ -17,8 +17,10 @@
  * All the above are mandatory for dynamically loaded modules, apart from the onunloadPlaceData and matchFilter functions, which are optional.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { getPlaceNodeById, getFilterData, splog, escapeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
+import { getPlaceNodeById, getFilterData, getLogger, escapeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities, getPropertyValue, getFeatureKeys } from '../../js/modules/jsonld.mjs';
+
+const log = getLogger( 'spaces' );
 
 export const namespace = 'spaces';
 
@@ -28,7 +30,6 @@ export const namespace = 'spaces';
  * @return {Element} HTML element
  */
 export function getPlaceHTML( space ) {
-    splog( 'getPlaceHTML (spaces module)' );
     let loc = '';
     if ( space.floor !== '' ) {
         loc += '<span class="address-floor">' + escapeHTML( space.floor ) + '</span>, ';
@@ -60,7 +61,6 @@ export function getPlaceHTML( space ) {
  * @return {String} HTML
  */
 export function getAdditionalInfo( space ) {
-    splog( 'getAdditionalInfo (spaces module)' );
     let spaceHTML = '';
     let spacenode = getPlaceNodeById( space.id );
     spaceHTML += '<section class="section-facts"><h4>Key Facts</h4><ul class="bulleticons"><li class="icon-marker switch-view"><a class="show-map" href="#">Show on map</a></li>';
@@ -266,14 +266,12 @@ function getSpaceFromJSONLD( ld ) {
  * @param {*} data - JSON-LD data for the spaces
  */
 export function onloadPlaceData( data ) {
-    splog( 'onloadPlaceData (spaces module)' );
     spacefinder.data[namespace].places = getPublishedEntities( data ).map( getSpaceFromJSONLD );
     spacefinder.data[namespace].getTimeFromString = function( str ) {
         let parts = str.split( ':' );
         return ( parseInt( parts[0] ) * 60 ) + parseInt( parts[1] );
     };
     spacefinder.data[namespace].checkOpeningHours = function() {
-        splog( 'checkOpeningHours (spaces module)' );
         if ( ! spacefinder.data[namespace].places.length ) {
             return;
         }
@@ -335,6 +333,7 @@ export function onloadPlaceData( data ) {
                 
             }
         });
+        log( 'Checked opening hours: ' + spacefinder.data[namespace].places.filter( space => space.openclass === 'open' ).length + ' of ' + spacefinder.data[namespace].places.length + ' spaces are open' );
     };
 }
 
@@ -343,7 +342,6 @@ export function onloadPlaceData( data ) {
  * Can be used to set up any additional data structures or intervals
  */
 export function onrenderPlaceData() {
-    splog( 'onrenderPlaceData (spaces module)' );
     spacefinder.data[namespace].checkOpeningHours();
     spacefinder.data[namespace].openingHoursInterval = setInterval( spacefinder.data[namespace].checkOpeningHours, (30*1000) );
 }
@@ -353,7 +351,7 @@ export function onrenderPlaceData() {
  * Can be used to clear any intervals or event listeners
  */
 export function onunloadPlaceData( ) {
-    splog( 'onunloadPlaceData (spaces module)' );
+    log( 'Stopped checking opening hours' );
     clearInterval( spacefinder.data[namespace].openingHoursInterval );
 }
 

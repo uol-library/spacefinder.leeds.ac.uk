@@ -22,7 +22,7 @@
  * i.e. spacefinder.data.art.getPlaceHTML( artwork ) will call the getPlaceHTML function in this module.
  */
 import { spacefinder } from '../../js/modules/config.mjs';
-import { splog, decodeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
+import { decodeHTML, getDirectionsLink, createPlaceElement, getInfoWindowHTML, getSiteURL } from '../../js/modules/utilities.mjs';
 import { getPublishedEntities } from '../../js/modules/jsonld.mjs';
 
 export const namespace = 'art';
@@ -91,7 +91,6 @@ function getArtist( creator ) {
  * @return {Element} HTML element
  */
 export function getPlaceHTML( artwork ) {
-    splog( 'getPlaceHTML (art module)' );
     let ld = artwork.ld;
     let details = '';
     if ( artwork.images.length ) {
@@ -113,7 +112,6 @@ export function getPlaceHTML( artwork ) {
  * @return {String} HTML
  */
 export function getAdditionalInfo( artwork ) {
-    splog( 'getAdditionalInfo (art module)' );
     let ld = artwork.ld;
     let html = '<section class="section-facts"><h4>Key Facts</h4><ul class="bulleticons">';
     if ( artwork.lat && artwork.lng ) {
@@ -179,7 +177,6 @@ function getClassList( artwork ) {
  * @param {*} data - JSON-LD data for the artworks
  */
 export function onloadPlaceData( data ) {
-    splog( 'onloadPlaceData (art module)' );
     spacefinder.data[namespace].places = getPublishedEntities( data ).map( ld => {
         let title = decodeHTML( ld.name );
         return {
@@ -200,12 +197,10 @@ export function onloadPlaceData( data ) {
  * Function called after the data is rendered
  */
 export function onrenderPlaceData() {
-    splog( 'onrenderPlaceData (art module)' );
 }
 
 /**
  * Function called when the data is unloaded
  */
 export function onunloadPlaceData() {
-    splog( 'onunloadPlaceData (art module)' );
 }
