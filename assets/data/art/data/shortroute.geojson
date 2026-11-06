@@ -1,5 +1,26 @@
 {
   "type": "FeatureCollection",
+  "title": "Short route",
+  "downloads": [
+    {
+      "label": "GPX",
+      "href": "shortroute.gpx"
+    },
+    {
+      "label": "KML",
+      "href": "shortroute.kml"
+    }
+  ],
+  "style": {
+    "color": "#1062c4",
+    "weight": 8,
+    "opacity": 0.9,
+    "dashArray": "0 16",
+    "lineCap": "round"
+  },
+  "visible": false,
+  "group": "routes",
+  "description": "2.8 km, 17 artworks, about 1.5 hours",
   "features": [
     {
       "type": "Feature",

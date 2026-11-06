@@ -7,7 +7,11 @@
  * ARTWORK_DISTANCE metres of the line. The time allows for walking at
  * WALKING_SPEED plus MINUTES_PER_ARTWORK at each artwork.
  *
- * Coordinates are left as they are; only the properties change.
+ * Coordinates are left as they are; only the properties change. The
+ * FeatureCollection's description (shown with the route in Spacefinder, see
+ * overlays.mjs in the theme) is set to a summary, e.g. "4.6 km, 22 artworks,
+ * about 2 hours". Its other members (title, downloads, style, visible and
+ * group) are kept as they are.
  *
  * Run from any directory, after editing a route or the artworks:
  *   node spacefinder/_scripts/routeStats.js [route files...]
@@ -86,20 +90,33 @@ function routeStats( coords, art ) {
     };
 }
 
+/**
+ * A route's length, number of artworks and time, e.g. 4.6 km, 22 artworks, about 2 hours
+ */
+function summary( stats ) {
+    const hours = Math.round( stats.total_time_min / 30 ) / 2;
+    const time = stats.total_time_min < 60 ? `${stats.total_time_min} minutes` : `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+    return `${( stats.length_m / 1000 ).toFixed( 1 )} km, ${stats.artwork_count} artworks, about ${time}`;
+}
+
 function main() {
     const files = process.argv.length > 2 ? process.argv.slice( 2 ).map( f => path.resolve( f ) ) : DEFAULT_ROUTES.map( f => path.join( ROUTE_DIR, f ) );
     const art = artworks();
     for ( const file of files ) {
-        const geojson = JSON.parse( fs.readFileSync( file, 'utf8' ) );
-        for ( const feature of geojson.features ) {
+        const { type, features, ...members } = JSON.parse( fs.readFileSync( file, 'utf8' ) );
+        let description = members.description;
+        for ( const feature of features ) {
             if ( feature.geometry.type !== 'LineString' ) {
                 continue;
             }
             const { elevation_min_m, elevation_max_m, ascent_m, descent_m, elevation_source, ...properties } = feature.properties;
             const stats = routeStats( feature.geometry.coordinates, art );
             feature.properties = { ...properties, ...stats };
+            description = summary( stats );
             console.log( path.basename( file ), stats );
         }
+        /* the descriptive members before the features, so they are easy to find and edit */
+        const geojson = { type, ...members, description, features };
         fs.writeFileSync( file, JSON.stringify( geojson, null, 2 ) + '\n' );
     }
 }

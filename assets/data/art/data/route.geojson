@@ -1,5 +1,26 @@
 {
   "type": "FeatureCollection",
+  "title": "Full route",
+  "downloads": [
+    {
+      "label": "GPX",
+      "href": "route.gpx"
+    },
+    {
+      "label": "KML",
+      "href": "route.kml"
+    }
+  ],
+  "style": {
+    "color": "#b0127a",
+    "weight": 8,
+    "opacity": 0.9,
+    "dashArray": "0 16",
+    "lineCap": "round"
+  },
+  "visible": true,
+  "group": "routes",
+  "description": "4.6 km, 22 artworks, about 2 hours",
   "features": [
     {
       "type": "Feature",

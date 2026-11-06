@@ -55,3 +55,7 @@ datasources:
     label: "Public Art Trail"
     icon: "icon-views"
     filters: false
+    # the routes (data/*.geojson) are listed above the artworks with this heading
+    overlays:
+      title: "Public Art Trail"
+      description: "Two step-free walks around the artworks. Download a route to follow it in a mapping or walking app."
