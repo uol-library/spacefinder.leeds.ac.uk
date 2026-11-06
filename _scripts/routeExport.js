@@ -5,7 +5,9 @@
  * Each file holds the route line and a waypoint for each artwork on the
  * route (within ARTWORK_DISTANCE metres of it, as in routeStats.js), in the
  * order they are visited. Waypoints carry the artwork's name, creator, date,
- * medium and description: as plain text in GPX, and as HTML in KML.
+ * medium and description: as plain text in GPX, and as HTML in KML. Links
+ * to the artwork's audio trail tracks (its audio property) are added as GPX
+ * <link> elements and in the description, and as links in KML.
  *
  * Run from any directory, after editing a route or the artworks:
  *   node spacefinder/_scripts/routeExport.js [route files...]
@@ -77,6 +79,7 @@ function artworks() {
             location: work.spatial.address && work.spatial.address.streetAddress || '',
             html: decodeEntities( work.description || '' ),
             coords: [ parseFloat( geo.longitude ), parseFloat( geo.latitude ) ],
+            audio: [].concat( work.audio || [] ).map( a => ( { name: plainText( a.name ), url: a.url, type: a.encodingFormat } ) ),
         };
     });
 }
@@ -108,14 +111,38 @@ function routeDescription( stats ) {
         + `allowing ${stats.minutes_per_artwork} minutes at each artwork. Step-free; starts and finishes at Walking Figure in the Parkinson Building.`;
 }
 
+/**
+ * The audio trail tracks as plain text, one per line (for GPX descriptions)
+ */
+function audioText( audio ) {
+    return audio.length ? 'Audio Trail:\n' + audio.map( a => `${a.name}: ${a.url}` ).join( '\n' ): '';
+}
+
+/**
+ * GPX link elements for the audio trail tracks (type is the MIME type of a media file)
+ */
+function audioLinks( audio ) {
+    return audio.map( a => `    <link href="${xml( a.url )}">
+      <text>${xml( a.name )}</text>
+${a.type ? `      <type>${xml( a.type )}</type>\n`: ''}    </link>
+` ).join( '' );
+}
+
+/**
+ * HTML links to the audio trail tracks (for KML descriptions)
+ */
+function audioHTML( audio ) {
+    return audio.length ? '<p><strong>Audio Trail</strong></p><ul>' + audio.map( a => `<li><a href="${xml( a.url )}">${xml( a.name )}</a></li>` ).join( '' ) + '</ul>': '';
+}
+
 const lonlat = c => `lat="${c[1].toFixed( 6 )}" lon="${c[0].toFixed( 6 )}"`;
 
 function gpx( title, description, coords, works ) {
     const waypoints = works.map( ( w, i ) => `  <wpt ${lonlat( w.coords )}>
     <name>${xml( `${i + 1}. ${w.name}` )}</name>
     <cmt>${xml( [ w.summary, w.location ].filter( Boolean ).join( '. ' ) )}</cmt>
-    <desc>${xml( [ w.summary, w.location, plainText( w.html ) ].filter( Boolean ).join( '\n\n' ) )}</desc>
-    <type>Artwork</type>
+    <desc>${xml( [ w.summary, w.location, plainText( w.html ), audioText( w.audio ) ].filter( Boolean ).join( '\n\n' ) )}</desc>
+${audioLinks( w.audio )}    <type>Artwork</type>
   </wpt>
 ` ).join( '' );
     const points = coords.map( c => `      <trkpt ${lonlat( c )}/>\n` ).join( '' );
@@ -139,7 +166,7 @@ function kml( title, description, coords, works ) {
     const placemarks = works.map( ( w, i ) => `    <Placemark>
       <name>${xml( `${i + 1}. ${w.name}` )}</name>
       <styleUrl>#artwork</styleUrl>
-      <description><![CDATA[${[ w.summary, w.location ].filter( Boolean ).map( t => `<p><strong>${xml( t )}</strong></p>` ).join( '' )}${w.html}]]></description>
+      <description><![CDATA[${[ w.summary, w.location ].filter( Boolean ).map( t => `<p><strong>${xml( t )}</strong></p>` ).join( '' )}${w.html}${audioHTML( w.audio )}]]></description>
       <Point><coordinates>${w.coords[0].toFixed( 6 )},${w.coords[1].toFixed( 6 )}</coordinates></Point>
     </Placemark>
 ` ).join( '' );
