@@ -43,6 +43,17 @@ branch for the Apache servers to copy.
   on a wall above a pond.
 - The routes are drawn on the art map (colours in `_includes/custom-head.html`)
   and listed above the artworks, with GPX and KML downloads (`art.mjs`).
+- **Audio trail.** Each artwork links to its two SoundCloud tracks (a talk and
+  an audio description), from the `audio` property in its JSON. They are
+  links, not an embedded player, because the player sets cookies. On
+  SoundCloud the tracks are "all rights reserved" and not downloadable.
+  Hosting them in Spacefinder, as downloads with an RSS feed, depends on:
+  - the original files from the Galleries (produced by Pamela Glintenkamp),
+    with intact ID3 metadata and clear rights information;
+  - everyone in the recordings agreeing to them being downloadable;
+  - their quality: 64 kbps mono for spoken word only, higher if any track
+    has music (SoundCloud flags them all as containing music, which may
+    only be its default).
 
 ## The theme
 
