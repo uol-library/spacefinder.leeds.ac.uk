@@ -52,6 +52,21 @@
                 "longitude": "-1.5540245785993685"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Eduardo Paolozzi's 'Master of the Universe', with Brian Caster",
+                "url": "https://soundcloud.com/lulgalleries/20-eduardo-paolozzis-master-of-the-universe-with-brian-caster",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826152698"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Eduardo Paolozzi's 'Master Of The Universe' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/20-master-of-the-universe-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1855731819",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 18
     }
 }

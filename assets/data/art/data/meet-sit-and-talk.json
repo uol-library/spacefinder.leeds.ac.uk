@@ -51,6 +51,21 @@
                 "longitude": "-1.5556566684320894"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Lorna Green on 'Meet, Sit and Talk'",
+                "url": "https://soundcloud.com/lulgalleries/08-lorna-greens-meet-sit-and-talk",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824256491"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Lorna Green's 'Meet, Sit & Talk' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/08-meet-sit-talk-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857040140",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 6
     }
 }

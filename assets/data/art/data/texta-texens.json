@@ -51,6 +51,21 @@
                 "longitude": "-1.5564092217780485"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Sue Lawty on 'Texta Texens'",
+                "url": "https://soundcloud.com/lulgalleries/16-sue-lawtys-texta-texens",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826104149"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Sue Lawty's 'Texta Texens' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/16-texta-texens-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857083913",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 9
     }
 }

@@ -39,6 +39,21 @@
                 "longitude": "-1.5490120797785778"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Liliane Lijn on 'Converse Column'",
+                "url": "https://soundcloud.com/lulgalleries/15-liliane-lijns-converse-column",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826098974"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Liliane Lijn's 'Converse Column' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/15-converse-column-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857073005",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 2
     }
 }

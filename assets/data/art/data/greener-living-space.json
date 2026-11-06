@@ -34,6 +34,21 @@
                 "longitude": "-1.56134043130815"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "David Mayne on 'Greener Living Space'",
+                "url": "https://soundcloud.com/lulgalleries/11-david-mayne-on-greener-living-space",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826022159"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "David Mayne's 'Greener Living Space' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/11-greener-living-space-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857058164",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 12
     }
 }

@@ -48,6 +48,21 @@
                 "longitude": "-1.555314891493527"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Barbara Hepworth's 'Dual Form', with Clare Nadal",
+                "url": "https://soundcloud.com/lulgalleries/14-barbara-hepworths-dual-form",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826091423"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Barbara Hepworth's 'Dual Form' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/14-dual-form-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857063735",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 7
     }
 }

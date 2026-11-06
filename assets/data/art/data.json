@@ -43,6 +43,21 @@
                     "longitude": "-1.5553355102399058"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Allan Johnson's 'A Celebration Of Engineering Sciences', with Ann Sumner",
+                    "url": "https://soundcloud.com/lulgalleries/allan-johnsons-a-celebration-of-engineering-sciences-with-ann-sumner",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826033292"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Allan Johnson's 'A Celebration Of Engineering Sciences' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/13-celebration-of-engineering-sciences-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857061527",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 14
         }
     },
@@ -109,6 +124,21 @@
                     "longitude": "-1.5514923847726263"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Simon Fujiwara's 'A Spire', with Jordan Kaplan",
+                    "url": "https://soundcloud.com/lulgalleries/01-simon-fujiwaras-a-spire",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824152451"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Simon Fujiwara's 'A Spire' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/01-a-spire-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856575947",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 1
         }
     },
@@ -149,6 +179,21 @@
                     "longitude": "-1.5535764611647243"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Eric Gill's 'Christ Driving the Moneychangers from the Temple', with Dr Ruth Cribb",
+                    "url": "https://soundcloud.com/lulgalleries/04-eric-gills-christ-driving-the-moneychangers-from-the-temple",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824184170"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Eric Gill's 'Christ Driving the Moneychangers from the Temple' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/04-christ-driving-moneychangers-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856582448",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 19
         }
     },
@@ -200,6 +245,21 @@
                     "longitude": "-1.5551731775365771"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Lorna Green on 'Conversation'",
+                    "url": "https://soundcloud.com/lulgalleries/08-lorna-green-on-conversation",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824269877"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Lorna Green's 'Conversation' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/08-conversation-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857041190",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 5
         }
     },
@@ -244,6 +304,21 @@
                     "longitude": "-1.5490120797785778"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Liliane Lijn on 'Converse Column'",
+                    "url": "https://soundcloud.com/lulgalleries/15-liliane-lijns-converse-column",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826098974"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Liliane Lijn's 'Converse Column' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/15-converse-column-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857073005",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 2
         }
     },
@@ -285,6 +360,21 @@
                     "longitude": "-1.5601477932547008"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Juanjo Novella on 'Curtain'",
+                    "url": "https://soundcloud.com/lulgalleries/19-juanjo-novellas-curtain",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826128863"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Juanjo Novella's 'Curtain' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/19-curtain-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857088356",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 11
         }
     },
@@ -337,6 +427,21 @@
                     "longitude": "-1.555314891493527"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Barbara Hepworth's 'Dual Form', with Clare Nadal",
+                    "url": "https://soundcloud.com/lulgalleries/14-barbara-hepworths-dual-form",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826091423"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Barbara Hepworth's 'Dual Form' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/14-dual-form-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857063735",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 7
         }
     },
@@ -376,6 +481,21 @@
                     "longitude": "-1.56134043130815"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "David Mayne on 'Greener Living Space'",
+                    "url": "https://soundcloud.com/lulgalleries/11-david-mayne-on-greener-living-space",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826022159"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "David Mayne's 'Greener Living Space' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/11-greener-living-space-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857058164",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 12
         }
     },
@@ -423,6 +543,21 @@
                     "longitude": "-1.5543317668285812"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "William Chattaway's 'Hermes' / 'Spirit of Enterprise', with Thomas Chattaway",
+                    "url": "https://soundcloud.com/lulgalleries/07-william-chattaways-hermes",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824246297"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "William Chattaway's 'Hermes' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/07-hermes-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856679480",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 3
         }
     },
@@ -463,6 +598,21 @@
                     "longitude": "-1.5619942197379162"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Michael Lyons' 'Lenten Cover', with Julia Kelly",
+                    "url": "https://soundcloud.com/lulgalleries/michael-lyons-lenten-cover",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826004648"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Michael Lyons' 'Lenten Cover' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/10-lenten-cover-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857042966",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 13
         }
     },
@@ -510,6 +660,21 @@
                     "longitude": "-1.5550047375113125"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Quentin Bell's 'Levitating Figure' (The Dreamer), with Darren Clarke",
+                    "url": "https://soundcloud.com/lulgalleries/05-quentin-bells-levitating-figure-the-dreamer",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824192357"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Quentin Bell's 'Levitating Figure' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/05-levitating-figure-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856639058",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 16
         }
     },
@@ -557,6 +722,21 @@
                     "longitude": "-1.5542740993437314"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Austin Wright's 'Limbo', with Crispin Wright",
+                    "url": "https://soundcloud.com/lulgalleries/09-austin-wrights-limbo-with-crispin-wright",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1825969242"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Austin Wright's 'Limbo' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/09-austin-wrights-limbo-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857042051",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 20
         }
     },
@@ -597,6 +777,21 @@
                     "longitude": "-1.556360594135395"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Mitzi Cunliffe's 'Man-Made Fibres', with Ann Sumner",
+                    "url": "https://soundcloud.com/lulgalleries/06-mitzi-cunliffes-man-made-fibres-with-ann-sumner",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824215340"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Mitzi Cunliffe's 'Man-Made Fibres' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/06-man-made-fibres-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856671107",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 10
         }
     },
@@ -654,6 +849,21 @@
                     "longitude": "-1.5540245785993685"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Eduardo Paolozzi's 'Master of the Universe', with Brian Caster",
+                    "url": "https://soundcloud.com/lulgalleries/20-eduardo-paolozzis-master-of-the-universe-with-brian-caster",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826152698"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Eduardo Paolozzi's 'Master Of The Universe' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/20-master-of-the-universe-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1855731819",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 18
         }
     },
@@ -710,6 +920,21 @@
                     "longitude": "-1.5556566684320894"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Lorna Green on 'Meet, Sit and Talk'",
+                    "url": "https://soundcloud.com/lulgalleries/08-lorna-greens-meet-sit-and-talk",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824256491"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Lorna Green's 'Meet, Sit & Talk' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/08-meet-sit-talk-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857040140",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 6
         }
     },
@@ -771,6 +996,21 @@
                     "longitude": "-1.5543315030180733"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Keith Wilson on 'Sign For Art'",
+                    "url": "https://soundcloud.com/lulgalleries/03-keith-wilson-on-sign-for-art",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824167061"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Keith Wilson's 'Sign For Art' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/03-sign-for-art-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856578794",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 17
         }
     },
@@ -827,6 +1067,21 @@
                     "longitude": "-1.5564092217780485"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Sue Lawty on 'Texta Texens'",
+                    "url": "https://soundcloud.com/lulgalleries/16-sue-lawtys-texta-texens",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826104149"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Sue Lawty's 'Texta Texens' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/16-texta-texens-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857083913",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 9
         }
     },
@@ -866,6 +1121,21 @@
                     "longitude": "-1.554276195104834"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Sara Barker on 'The Worlds Of If'",
+                    "url": "https://soundcloud.com/lulgalleries/18-sara-barkers-the-worlds-of-if",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826122509"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Sara Barker's 'The Worlds Of If' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/18-sara-barkers-the-worlds-of-if-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857090657",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 15
         }
     },
@@ -918,6 +1188,21 @@
                     "longitude": "-1.5547719170315863"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Henry Moore's 'Three Piece Reclining Figure No 2: Bridge Prop'",
+                    "url": "https://soundcloud.com/lulgalleries/17-henry-moores-three-piece-reclining-figure-no-2-bridge-prop",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826118666"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Henry Moore's 'Three Piece Reclining Figure No. 2: Bridge Prop' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/17-henry-moores-three-piece-reclining-figure-no-2-bridge-prop-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857086916",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 4
         }
     },
@@ -1004,6 +1289,21 @@
                     "longitude": "-1.5553355102766848"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "Hubert Dalwood's Untitled Bas Relief, with Alison Dalwood",
+                    "url": "https://soundcloud.com/lulgalleries/12-hubert-dalwoods-untitled-bas-relief-with-alison-dalwood",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826026785"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "Hubert Dalwood's Untitled Bas-Relief - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/12-untitled-bas-relief-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1855736934",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 8
         }
     },
@@ -1067,6 +1367,21 @@
                     "longitude": "-1.5526256180943054"
                 }
             },
+            "audio": [
+                {
+                    "@type": "AudioObject",
+                    "name": "William Chattaway's 'Walking Figure', with Thomas Chattaway",
+                    "url": "https://soundcloud.com/lulgalleries/02-william-chattaway-walking-figure",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1810456977"
+                },
+                {
+                    "@type": "AudioObject",
+                    "name": "William Chattaway's 'Walking Figure' - Audio Description",
+                    "url": "https://soundcloud.com/lulgalleries/02-walking-figure-audio-description",
+                    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856577999",
+                    "accessibilityFeature": "audioDescription"
+                }
+            ],
             "identifier": 21
         }
     }

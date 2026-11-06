@@ -35,6 +35,21 @@
                 "longitude": "-1.556360594135395"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Mitzi Cunliffe's 'Man-Made Fibres', with Ann Sumner",
+                "url": "https://soundcloud.com/lulgalleries/06-mitzi-cunliffes-man-made-fibres-with-ann-sumner",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824215340"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Mitzi Cunliffe's 'Man-Made Fibres' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/06-man-made-fibres-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856671107",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 10
     }
 }

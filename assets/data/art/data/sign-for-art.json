@@ -56,6 +56,21 @@
                 "longitude": "-1.5543315030180733"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Keith Wilson on 'Sign For Art'",
+                "url": "https://soundcloud.com/lulgalleries/03-keith-wilson-on-sign-for-art",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824167061"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Keith Wilson's 'Sign For Art' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/03-sign-for-art-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856578794",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 17
     }
 }

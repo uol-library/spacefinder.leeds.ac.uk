@@ -61,6 +61,21 @@
                 "longitude": "-1.5514923847726263"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Simon Fujiwara's 'A Spire', with Jordan Kaplan",
+                "url": "https://soundcloud.com/lulgalleries/01-simon-fujiwaras-a-spire",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824152451"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Simon Fujiwara's 'A Spire' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/01-a-spire-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856575947",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 1
     }
 }

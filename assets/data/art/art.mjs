@@ -123,6 +123,16 @@ export function getAdditionalInfo( artwork ) {
     }
     html += '</ul></section>';
 
+    /* the audio trail: links to the tracks on SoundCloud (not embedded, as the player sets cookies) */
+    let audio = Array.isArray( ld.audio ) ? ld.audio: ( ld.audio ? [ ld.audio ]: [] );
+    if ( audio.length ) {
+        html += '<section class="section-audio"><h4>Audio Trail</h4><ul class="bulleticons">';
+        audio.forEach( track => {
+            html += '<li class="icon-music"><a href="' + track.url + '" target="_blank" rel="noopener">' + track.name + '</a> (SoundCloud)</li>';
+        });
+        html += '</ul></section>';
+    }
+
     html += '<section class="section-about"><h4>About</h4>' + ld.description + '</section>';
 
     if ( artwork.images.length > 1 ) {

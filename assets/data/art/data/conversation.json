@@ -46,6 +46,21 @@
                 "longitude": "-1.5551731775365771"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Lorna Green on 'Conversation'",
+                "url": "https://soundcloud.com/lulgalleries/08-lorna-green-on-conversation",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824269877"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Lorna Green's 'Conversation' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/08-conversation-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857041190",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 5
     }
 }

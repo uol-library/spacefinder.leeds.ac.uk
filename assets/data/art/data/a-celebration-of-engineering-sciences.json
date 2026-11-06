@@ -42,6 +42,21 @@
                 "longitude": "-1.5553355102399058"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Allan Johnson's 'A Celebration Of Engineering Sciences', with Ann Sumner",
+                "url": "https://soundcloud.com/lulgalleries/allan-johnsons-a-celebration-of-engineering-sciences-with-ann-sumner",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826033292"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Allan Johnson's 'A Celebration Of Engineering Sciences' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/13-celebration-of-engineering-sciences-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857061527",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 14
     }
 }

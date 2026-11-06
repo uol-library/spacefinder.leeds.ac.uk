@@ -47,6 +47,21 @@
                 "longitude": "-1.5547719170315863"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Henry Moore's 'Three Piece Reclining Figure No 2: Bridge Prop'",
+                "url": "https://soundcloud.com/lulgalleries/17-henry-moores-three-piece-reclining-figure-no-2-bridge-prop",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826118666"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Henry Moore's 'Three Piece Reclining Figure No. 2: Bridge Prop' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/17-henry-moores-three-piece-reclining-figure-no-2-bridge-prop-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857086916",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 4
     }
 }

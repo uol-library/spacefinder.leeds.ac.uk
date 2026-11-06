@@ -35,6 +35,21 @@
                 "longitude": "-1.5535764611647243"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Eric Gill's 'Christ Driving the Moneychangers from the Temple', with Dr Ruth Cribb",
+                "url": "https://soundcloud.com/lulgalleries/04-eric-gills-christ-driving-the-moneychangers-from-the-temple",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824184170"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Eric Gill's 'Christ Driving the Moneychangers from the Temple' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/04-christ-driving-moneychangers-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856582448",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 19
     }
 }

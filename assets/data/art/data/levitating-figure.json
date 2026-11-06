@@ -42,6 +42,21 @@
                 "longitude": "-1.5550047375113125"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Quentin Bell's 'Levitating Figure' (The Dreamer), with Darren Clarke",
+                "url": "https://soundcloud.com/lulgalleries/05-quentin-bells-levitating-figure-the-dreamer",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1824192357"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Quentin Bell's 'Levitating Figure' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/05-levitating-figure-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856639058",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 16
     }
 }

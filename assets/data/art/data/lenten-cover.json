@@ -35,6 +35,21 @@
                 "longitude": "-1.5619942197379162"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Michael Lyons' 'Lenten Cover', with Julia Kelly",
+                "url": "https://soundcloud.com/lulgalleries/michael-lyons-lenten-cover",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826004648"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Michael Lyons' 'Lenten Cover' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/10-lenten-cover-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857042966",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 13
     }
 }

@@ -34,6 +34,21 @@
                 "longitude": "-1.554276195104834"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Sara Barker on 'The Worlds Of If'",
+                "url": "https://soundcloud.com/lulgalleries/18-sara-barkers-the-worlds-of-if",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826122509"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Sara Barker's 'The Worlds Of If' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/18-sara-barkers-the-worlds-of-if-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857090657",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 15
     }
 }

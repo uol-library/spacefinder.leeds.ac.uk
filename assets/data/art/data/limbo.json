@@ -42,6 +42,21 @@
                 "longitude": "-1.5542740993437314"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Austin Wright's 'Limbo', with Crispin Wright",
+                "url": "https://soundcloud.com/lulgalleries/09-austin-wrights-limbo-with-crispin-wright",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1825969242"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Austin Wright's 'Limbo' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/09-austin-wrights-limbo-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857042051",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 20
     }
 }

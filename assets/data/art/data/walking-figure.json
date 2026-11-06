@@ -58,6 +58,21 @@
                 "longitude": "-1.5526256180943054"
             }
         },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "William Chattaway's 'Walking Figure', with Thomas Chattaway",
+                "url": "https://soundcloud.com/lulgalleries/02-william-chattaway-walking-figure",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1810456977"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "William Chattaway's 'Walking Figure' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/02-walking-figure-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1856577999",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
         "identifier": 21
     }
 }
