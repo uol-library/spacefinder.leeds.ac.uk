@@ -1,0 +1,1930 @@
+{
+    "type": "FeatureCollection",
+    "title": "Cycling",
+    "description": "Cycle parking, repairs and bike hire, from the <a href=\"https://www.google.com/maps/d/viewer?mid=1-8z7E-07p6NCXwpV3dJHHyMKArmHLXo\">Sustainable Travel Map</a>",
+    "style": {
+        "color": "#097138"
+    },
+    "markers": {
+        "property": "category",
+        "categories": {
+            "parking-public": {
+                "icon": "icon-bike-rack",
+                "colour": "#097138",
+                "label": "Cycle parking"
+            },
+            "parking-staff": {
+                "icon": "icon-bike-rack",
+                "colour": "#A52714",
+                "label": "Cycle parking for staff and postgraduates"
+            },
+            "parking-hooplr": {
+                "icon": "icon-bike-rack",
+                "colour": "#0288D1",
+                "label": "Weatherproof cycle storage (book with Hooplr)"
+            },
+            "maintenance": {
+                "icon": "icon-bike-rack",
+                "colour": "#424242",
+                "label": "Repairs and maintenance"
+            },
+            "hire": {
+                "icon": "icon-bike-rack",
+                "colour": "#F9A825",
+                "label": "Bike hire"
+            }
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The University of Leeds Bike Hub",
+                "description": "Drop-in to get your bike fixed, take maintenance classes, or get active travel advice and guidance.<br>Contact: bikehub@leeds.ac.uk<br>Opening Times: Mon-Thurs, 12pm - 4pm",
+                "category": "maintenance"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5543998,
+                    53.8052889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Roger Stevens Building",
+                "description": "Bike Maintenance Point",
+                "category": "maintenance"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55492,
+                    53.805072
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Social Sciences Building",
+                "description": "Bike Maintenance Point",
+                "category": "maintenance"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554382,
+                    53.806919
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Western Lecture Theatre",
+                "description": "Bike Maintenance Point",
+                "category": "maintenance"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.562292,
+                    53.80747
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cemetery Road",
+                "description": "",
+                "category": "maintenance"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5575553,
+                    53.8096794
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Precinct",
+                "description": "",
+                "category": "maintenance"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5569245,
+                    53.8071275
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Central Village I",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.54878,
+                    53.804806
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Central Village II",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.549898,
+                    53.80405
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Converse Column",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.549096,
+                    53.805184
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Gryphon Sports Centre",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.562835,
+                    53.807122
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Hyde Terrace",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.560966,
+                    53.804647
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Roger Stephens Entrance",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.555018,
+                    53.805121
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - The Edge Sports Centre",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552024,
+                    53.804345
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - The Parkinson Building",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552178,
+                    53.807575
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Beryl Bikes - Woodhouse Ln / Raglan Rd",
+                "description": "",
+                "category": "hire"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556268,
+                    53.81084
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Baines Wing I",
+                "description": "30 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553139,
+                    53.807305
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bike Hub",
+                "description": "42 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553891,
+                    53.80526
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Business Change",
+                "description": "4 spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557485,
+                    53.80492
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Central Village I",
+                "description": "10 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.549639,
+                    53.803993
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Central Village II",
+                "description": "12 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.549806,
+                    53.803868
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Central Village III",
+                "description": "4 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.550165,
+                    53.804443
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Chancellor's Court",
+                "description": "24 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.555042,
+                    53.805176
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Charles Morris Hall",
+                "description": "12 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556964,
+                    53.805683
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Charles Thackrah Building I",
+                "description": "6 spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.560826,
+                    53.80722
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Charles Thackrah Building II - Restricted Access",
+                "description": "42 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.560409,
+                    53.807007
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Chemistry",
+                "description": "22 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552606,
+                    53.80852
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Chemistry West Block",
+                "description": "8 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554193,
+                    53.808734
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Clarendon Road - Restricted Access",
+                "description": "12 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557584,
+                    53.809686
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Clothworkers' Building South I",
+                "description": "24 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556576,
+                    53.807178
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Clothworkers' Building South II",
+                "description": "24 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556178,
+                    53.807122
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Clothworkers' Building South III",
+                "description": "24 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55596,
+                    53.807236
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Clothworkers Centenary Concert Hall I",
+                "description": "4 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553696,
+                    53.805664
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Conference Auditorium",
+                "description": "8 spaces-Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553171,
+                    53.803764
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cromer Place",
+                "description": "12 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.559076,
+                    53.806997
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "E C Stoner Building I",
+                "description": "28 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553668,
+                    53.805537
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "E C Stoner Building II - Restricted Access",
+                "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553472,
+                    53.805533
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Edward Boyle Library I",
+                "description": "20 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55413,
+                    53.805953
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Edward Boyle Library II",
+                "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554544,
+                    53.806531
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Edward Boyle Library III",
+                "description": "20 Spaces-Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554297,
+                    53.806439
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ellerslie Global Residence - Restricted Access",
+                "description": "8 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558827,
+                    53.807457
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Energy Research Building (Back Entrance) I",
+                "description": "8 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556608,
+                    53.809803
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Energy Research Building (Back Entrance) II - Restricted Access",
+                "description": "8 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556569,
+                    53.80978
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Energy Research Building (Main Entrance)",
+                "description": "6 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557208,
+                    53.809617
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Engineering",
+                "description": "16 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557688,
+                    53.80996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Esther Simpson Building",
+                "description": "58 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.559957,
+                    53.80632
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Facilities Directorate (Back Entrance) - Restricted Access",
+                "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.559383,
+                    53.80595
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Facilities Directorate (Main Entrance) I",
+                "description": "20 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.559038,
+                    53.806546
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Facilities Directorate (Main Entrance) II",
+                "description": "96 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558629,
+                    53.806376
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Food Science Building I",
+                "description": "10 Spaces- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553713,
+                    53.805092
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Food Science Building II",
+                "description": "5 Spaces- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553039,
+                    53.805087
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Food Science Building III - Restricted Access",
+                "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552812,
+                    53.805044
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Food Science Building IV - Restricted Access",
+                "description": "56 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552602,
+                    53.804961
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Gryphon Sports Centre",
+                "description": "8 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.562782,
+                    53.807178
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Henry Price Residences",
+                "description": "8 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55875,
+                    53.808039
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Institute for Transport Studies",
+                "description": "12 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558564,
+                    53.807959
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Irene Manton Building",
+                "description": "24 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554707,
+                    53.804125
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Laidlaw Library (Back Entrance)",
+                "description": "22 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552509,
+                    53.806596
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Laidlaw Library (Main Entrance)",
+                "description": "10 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.551408,
+                    53.806928
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Leeds University Union",
+                "description": "32 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556033,
+                    53.806954
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Light Laboratories",
+                "description": "Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554516,
+                    53.803582
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Marjorie and Arnold Ziff Building",
+                "description": "20 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554086,
+                    53.806846
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Maurice Keyworth Building (Back Entrance)",
+                "description": "4 Spaces- Public access<br>Uncovered front wheel stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.561756,
+                    53.80845
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Maurice Keyworth Building (Main Entrance)",
+                "description": "12 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.560091,
+                    53.807992
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Michael Sadler Building I",
+                "description": "12 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553514,
+                    53.807221
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Michael Sadler Building II",
+                "description": "32 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55397,
+                    53.807242
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Newlyn Building I",
+                "description": "58 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558472,
+                    53.805644
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Newlyn Building II - Restricted Access",
+                "description": "14 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558347,
+                    53.805697
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Nexus",
+                "description": "10 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.550619,
+                    53.805196
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Old Bar",
+                "description": "10 spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.555176,
+                    53.806657
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Parkinson Building",
+                "description": "36 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552653,
+                    53.807475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Roger Stevens Building I",
+                "description": "40 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554917,
+                    53.805036
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Roger Stevens Building II",
+                "description": "12 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554754,
+                    53.805066
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Roger Stevens Building III",
+                "description": "16 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554505,
+                    53.805065
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Rupert Beckett Lecture Theatre",
+                "description": "10 spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553172,
+                    53.806858
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Chemical and Process Engineering I",
+                "description": "24 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557117,
+                    53.810318
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Chemical and Process Engineering II - Restricted Access",
+                "description": "40 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556636,
+                    53.810214
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment I",
+                "description": "18 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556211,
+                    53.804828
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment II",
+                "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556132,
+                    53.80492
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment III",
+                "description": "36 spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556132,
+                    53.805117
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment IV",
+                "description": "16 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556424,
+                    53.805416
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment V",
+                "description": "10 spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556373,
+                    53.805474
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment VI",
+                "description": "4 Spaces- Public access<br>Uncovered front wheel stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556356,
+                    53.805549
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Earth and Environment VII - Restricted Access",
+                "description": "84 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556427,
+                    53.80506
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Electronic and Electrical Engineering I",
+                "description": "20 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554517,
+                    53.809588
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Electronic and Electrical Engineering II - Restricted Access",
+                "description": "Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554447,
+                    53.809481
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Fine Art, History of Art and Cultural Studies I",
+                "description": "20 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558009,
+                    53.80786
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Fine Art, History of Art and Cultural Studies II",
+                "description": "9 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557946,
+                    53.808061
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Fine Art, History of Art and Cultural Studies III - Restricted Access",
+                "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.557956,
+                    53.807977
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Law",
+                "description": "12 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.561969,
+                    53.808017
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Mechanical Engineering",
+                "description": "44 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55517,
+                    53.809805
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "School of Music",
+                "description": "Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553262,
+                    53.806034
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sir William Henry Bragg Building I",
+                "description": "10 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553658,
+                    53.808853
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sir William Henry Bragg Building II",
+                "description": "16 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553783,
+                    53.809343
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sir William Henry Bragg Building III",
+                "description": "10 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553941,
+                    53.809367
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Social Sciences Building I",
+                "description": "30 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554393,
+                    53.80683
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Social Sciences Building II",
+                "description": "Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554441,
+                    53.806698
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Social Sciences Building III",
+                "description": "10 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554096,
+                    53.806646
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Social Sciences Building IV",
+                "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.554097,
+                    53.806556
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Edge (Car Park) I",
+                "description": "12 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552232,
+                    53.804328
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Edge (Car Park) II",
+                "description": "6 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552249,
+                    53.804127
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Edge (Main Entrance)",
+                "description": "14 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552937,
+                    53.804436
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "University House I",
+                "description": "30 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556941,
+                    53.807072
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "University House II",
+                "description": "36 Spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556647,
+                    53.807027
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "University Road I",
+                "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.558666,
+                    53.80778
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "University Road II - Restricted Access",
+                "description": "10 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55796,
+                    53.807714
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Western Lecture Theatre",
+                "description": "36 Spaces- Public access<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.562409,
+                    53.807501
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Worsley Building II - Restricted Access",
+                "description": "48 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.556344,
+                    53.802974
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Zero Carbon Future Leeds",
+                "description": "6 Spaces- Public access<br>Uncovered front wheel stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55489,
+                    53.806812
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Willow Terrace I",
+                "description": "26 Spaces- Public access<br>Uncovered sheffiled stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.553728,
+                    53.8045337
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Willow Terrace II",
+                "description": "48 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5540156,
+                    53.8045302
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bright Beginnings Childcare Centre",
+                "description": "6 spaces- Public access                                             Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5583613,
+                    53.8061169
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lodge Street",
+                "description": "Covered sheffield stands (cycle parking)<br>Only accessible to staff",
+                "category": "parking-staff"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5504071,
+                    53.8058469
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Clothworkers Centenary Concert Hall II",
+                "description": "10 Spaces-Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.55377,
+                    53.8056498
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Baines Wing II",
+                "description": "6 Spaces- Public access                                             Uncovered Sheffield Stands",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5529561,
+                    53.8073645
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Chemistry West Block II",
+                "description": "10 Spaces-public access                                             Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5541746,
+                    53.8084081
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cavendish Road",
+                "description": "50 spaces- Public access<br>Uncovered sheffield stands (cycle parking)",
+                "category": "parking-public"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.552839,
+                    53.807
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5520895,
+                    53.7986121
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5482957,
+                    53.7990537
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.547403,
+                    53.797782
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5481883,
+                    53.7964544
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5387017,
+                    53.7949437
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5393956,
+                    53.7929937
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5376887,
+                    53.7969857
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5388211,
+                    53.7990932
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.541789,
+                    53.7994446
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Hooplr Cycle Storage",
+                "description": "Weatherproof cycle storage: Book through the Hooplr app",
+                "category": "parking-hooplr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.5450248,
+                    53.8003293
+                ]
+            }
+        }
+    ]
+}
