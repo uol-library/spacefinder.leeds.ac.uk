@@ -1,0 +1,67 @@
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "creativeWorkStatus": "Published",
+    "mainEntity": {
+        "@type": "VisualArtwork",
+        "name": "Three Piece Reclining Figure No.2: Bridge Prop",
+        "description": "<p>Henry Moore was born in Castleford, West Yorkshire. After serving in the First World War he became a student at the Leeds School of Art (now Leeds Arts University), where he met fellow Yorkshire sculptor Barbara Hepworth. Moore also had access to the modernist works in the collection of Sir Michael Sadler, the University&rsquo;s then Vice-Chancellor, which had a profound effect on his development.</p><p>The sculpture consists of three bronze segments positioned to represent a reclining human figure in multiple pieces. According to the artist, the work was inspired by Waterloo Bridge, in which he saw one part of the bridge resting against another, giving the sculpture its subtitle &lsquo;Bridge Prop&rsquo;.",
+        "image": [
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/reclining-figure1.jpg",
+                "description": "Three Piece Reclining Figure No.2: Bridge Prop by Henry Moore, 1963. View of the sculpture on campus."
+            },
+            {
+                "@type": "ImageObject",
+                "contentUrl": "/assets/data/art/images/reclining-figure2.jpg",
+                "description": "Three Piece Reclining Figure No.2: Bridge Prop by Henry Moore, 1963. End-on view of the sculpture on campus looking South."
+            }
+        ],
+        "artform": "Sculpture",
+        "artMedium": "Bronze",
+        "dateCreated": "1963",
+        "creator": {
+            "@type": "Person",
+            "name": "Henry Moore",
+            "birthDate": "1898",
+            "deathDate": "1986"
+        },
+        "contributor": {
+            "@type": "Organization",
+            "name": "Leeds Art Fund",
+            "description": "Lent by Leeds Art Fund (Leeds Museums &amp; Galleries)"
+        },
+        "spatial": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "University of Leeds",
+                "addressRegion": "Leeds, West Yorkshire",
+                "postalCode": "LS2 9JT",
+                "streetAddress": "Chancellor&rsquo;s Court"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "53.805314042338736",
+                "longitude": "-1.5547719170315863"
+            }
+        },
+        "audio": [
+            {
+                "@type": "AudioObject",
+                "name": "Henry Moore's 'Three Piece Reclining Figure No 2: Bridge Prop'",
+                "url": "https://soundcloud.com/lulgalleries/17-henry-moores-three-piece-reclining-figure-no-2-bridge-prop",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1826118666"
+            },
+            {
+                "@type": "AudioObject",
+                "name": "Henry Moore's 'Three Piece Reclining Figure No. 2: Bridge Prop' - Audio Description",
+                "url": "https://soundcloud.com/lulgalleries/17-henry-moores-three-piece-reclining-figure-no-2-bridge-prop-audio-description",
+                "embedUrl": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1857086916",
+                "accessibilityFeature": "audioDescription"
+            }
+        ],
+        "identifier": 4
+    }
+}
