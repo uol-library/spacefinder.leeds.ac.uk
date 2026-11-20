@@ -33,9 +33,9 @@ const CYCLING_FILE = path.resolve(__dirname, '../assets/data/buildings/data/cycl
 // can use it). The first category a point matches is its category.
 const CYCLING = [
     { key: 'parking-public', layer: 'Cycle Parking', icon: '1522', colour: '#097138', marker: { icon: 'icon-bike-rack', colour: '#097138', label: 'Cycle parking' } },
-    { key: 'parking-staff',  layer: 'Cycle Parking', icon: '1522', colour: '#A52714', marker: { icon: 'icon-bike-rack', colour: '#A52714', label: 'Cycle parking for staff and postgraduates' } },
+    { key: 'parking-staff',  layer: 'Cycle Parking', icon: '1522', colour: '#9510af', marker: { icon: 'icon-bike-rack', colour: '#9510af', label: 'Cycle parking for staff and postgraduates' } },
     { key: 'parking-hooplr', layer: 'Cycle Parking', icon: '1522', colour: '#0288D1', marker: { icon: 'icon-bike-rack', colour: '#0288D1', label: 'Weatherproof cycle storage (book with Hooplr)' } },
-    { key: 'maintenance',    layer: 'Cycles: maintenance and/or hire', icon: ['1590', '1603'], marker: { icon: 'icon-bike-rack', colour: '#424242', label: 'Repairs and maintenance' } },
+    { key: 'maintenance',    layer: 'Cycles: maintenance and/or hire', icon: ['1590', '1603'], marker: { icon: 'icon-wrench', colour: '#424242', label: 'Repairs and maintenance' } },
     { key: 'hire',           layer: 'Cycles: maintenance and/or hire', icon: '1632', marker: { icon: 'icon-bike-rack', colour: '#F9A825', label: 'Bike hire' } },
 ];
 

@@ -49,7 +49,7 @@ datasources:
     label: "Study spaces"
     icon: "icon-desk"
   - key: "buildings"
-    label: "Buildings"
+    label: "Campus Map"
     icon: "icon-marker"
   - key: "art"
     label: "Public Art Trail"

@@ -15,7 +15,7 @@
             },
             "parking-staff": {
                 "icon": "icon-bike-rack",
-                "colour": "#A52714",
+                "colour": "#9510af",
                 "label": "Cycle parking for staff and postgraduates"
             },
             "parking-hooplr": {
@@ -24,7 +24,7 @@
                 "label": "Weatherproof cycle storage (book with Hooplr)"
             },
             "maintenance": {
-                "icon": "icon-bike-rack",
+                "icon": "icon-wrench",
                 "colour": "#424242",
                 "label": "Repairs and maintenance"
             },
@@ -401,7 +401,7 @@
             "properties": {
                 "name": "Charles Thackrah Building II - Restricted Access",
                 "description": "42 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -446,7 +446,7 @@
             "properties": {
                 "name": "Clarendon Road - Restricted Access",
                 "description": "12 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -506,7 +506,7 @@
             "properties": {
                 "name": "Clothworkers Centenary Concert Hall I",
                 "description": "4 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -566,7 +566,7 @@
             "properties": {
                 "name": "E C Stoner Building II - Restricted Access",
                 "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -596,7 +596,7 @@
             "properties": {
                 "name": "Edward Boyle Library II",
                 "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -626,7 +626,7 @@
             "properties": {
                 "name": "Ellerslie Global Residence - Restricted Access",
                 "description": "8 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -656,7 +656,7 @@
             "properties": {
                 "name": "Energy Research Building (Back Entrance) II - Restricted Access",
                 "description": "8 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -716,7 +716,7 @@
             "properties": {
                 "name": "Facilities Directorate (Back Entrance) - Restricted Access",
                 "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -761,7 +761,7 @@
             "properties": {
                 "name": "Food Science Building I",
                 "description": "10 Spaces- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -776,7 +776,7 @@
             "properties": {
                 "name": "Food Science Building II",
                 "description": "5 Spaces- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -791,7 +791,7 @@
             "properties": {
                 "name": "Food Science Building III - Restricted Access",
                 "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -806,7 +806,7 @@
             "properties": {
                 "name": "Food Science Building IV - Restricted Access",
                 "description": "56 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1031,7 +1031,7 @@
             "properties": {
                 "name": "Newlyn Building II - Restricted Access",
                 "description": "14 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1166,7 +1166,7 @@
             "properties": {
                 "name": "School of Chemical and Process Engineering II - Restricted Access",
                 "description": "40 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1196,7 +1196,7 @@
             "properties": {
                 "name": "School of Earth and Environment II",
                 "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1271,7 +1271,7 @@
             "properties": {
                 "name": "School of Earth and Environment VII - Restricted Access",
                 "description": "84 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1301,7 +1301,7 @@
             "properties": {
                 "name": "School of Electronic and Electrical Engineering II - Restricted Access",
                 "description": "Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1331,7 +1331,7 @@
             "properties": {
                 "name": "School of Fine Art, History of Art and Cultural Studies II",
                 "description": "9 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1346,7 +1346,7 @@
             "properties": {
                 "name": "School of Fine Art, History of Art and Cultural Studies III - Restricted Access",
                 "description": "20 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1496,7 +1496,7 @@
             "properties": {
                 "name": "Social Sciences Building IV",
                 "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1586,7 +1586,7 @@
             "properties": {
                 "name": "University Road I",
                 "description": "3 Lockers- Only accessible to staff and postgraduates<br>Individual lockers (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1601,7 +1601,7 @@
             "properties": {
                 "name": "University Road II - Restricted Access",
                 "description": "10 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1631,7 +1631,7 @@
             "properties": {
                 "name": "Worsley Building II - Restricted Access",
                 "description": "48 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1676,7 +1676,7 @@
             "properties": {
                 "name": "Willow Terrace II",
                 "description": "48 Spaces- Only accessible to staff and postgraduates<br>Covered sheffield stands (cycle parking)",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
@@ -1706,7 +1706,7 @@
             "properties": {
                 "name": "Lodge Street",
                 "description": "Covered sheffield stands (cycle parking)<br>Only accessible to staff",
-                "category": "parking-staff"
+                "category": null
             },
             "geometry": {
                 "type": "Point",
