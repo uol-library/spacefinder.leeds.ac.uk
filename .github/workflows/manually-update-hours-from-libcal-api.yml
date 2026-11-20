@@ -9,16 +9,15 @@ jobs:
         with:
           path: main
       - uses: actions/setup-node@v7
-      - run: cd main
-      - run: npm run getHours
-      - run: npm run updateHours
-      - run: npm run concat
       - name: Update and commit
         env:
           CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
         
         run: | 
           cd main
+          npm run getHours
+          npm run updateHours
+          npm run concat
           git config --global user.name 'peteredwards'
           git config --global user.email 'p.l.edwards@leeds.ac.uk'
           git add --all
