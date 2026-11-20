@@ -9,6 +9,7 @@ jobs:
         with:
           path: main
       - uses: actions/setup-node@v7
+      - run: pwd
       - run: npm run getHours
       - run: npm run updateHours
       - run: npm run concat
