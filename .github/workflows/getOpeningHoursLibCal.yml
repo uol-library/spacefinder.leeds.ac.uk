@@ -15,7 +15,8 @@ jobs:
           node-version: '18'
       - name: Update and commit
         env:
-          CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
+          LIBCAL_CLIENT_ID: ${{ secrets.LIBCAL_CLIENT_ID }}
+          LIBCAL_CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
         run: | 
           cd main
           npm run getHours

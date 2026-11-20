@@ -11,8 +11,8 @@ jobs:
       - uses: actions/setup-node@v7
       - name: Update and commit
         env:
-          CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
-        
+          LIBCAL_CLIENT_ID: ${{ secrets.LIBCAL_CLIENT_ID }}
+          LIBCAL_CLIENT_SECRET: ${{ secrets.LIBCAL_CLIENT_SECRET }}
         run: | 
           cd main
           npm run getHours
