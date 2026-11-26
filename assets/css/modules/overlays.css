@@ -1,0 +1,94 @@
+/* overlays (overlays.mjs): listed above the places, and shown on the map with their buttons */
+#overlays {
+    padding: 1rem .5rem;
+    border-bottom: 1px solid var(--separator-color);
+    h3 {
+        font-size: 1.4rem;
+        font-weight: normal;
+        padding-bottom: .3rem;
+    }
+    p {
+        padding-bottom: .5rem;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: .25rem .5rem;
+        padding: .5rem 0;
+    }
+    /* the overlay's name shows it on the map; the swatch before it is its colour */
+    .overlay-toggle {
+        position: relative;
+        padding: 0 0 0 1.5rem;
+        border: 0;
+        background: none;
+        color: inherit;
+        font: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover, &:focus-visible {
+            text-decoration: underline;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: calc( 50% - 3px );
+            width: 1.1rem;
+            height: 6px;
+            background: var(--overlay-colour, currentColor);
+        }
+        &[aria-pressed="false"] {
+            font-weight: normal;
+            color: var(--light-text-color);
+            &:before {
+                opacity: .3;
+            }
+        }
+    }
+    .overlay-description {
+        color: var(--light-text-color);
+    }
+    /* the key to an overlay's markers */
+    ul.overlay-key {
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .25rem 1rem;
+        padding-left: 1.5rem;
+        li {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            padding: 0;
+        }
+    }
+}
+/* an overlay's point markers (on the map and in the key): an icon on a circle of the category's colour */
+.overlay-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: var(--overlay-colour, #555);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    &::before {
+        margin: 0;
+    }
+}
+.leaflet-marker-icon.sf-overlay-icon {
+    background: none;
+    border: none;
+}

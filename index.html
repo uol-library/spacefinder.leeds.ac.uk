@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Space Finder - University of Leeds</title>
+    <meta name="description" content="Spacefinder is an application designed for students to locate study spaces at the University of Leeds. It includes detailed descriptions of each space, filters based on space characteristics, and  navigation via a map.">
+    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+    <meta name="DC.Title" content="Space Finder - University of Leeds">
+    <meta name="DC.Description" content="Spacefinder is an application designed for students to locate study spaces at the University of Leeds. It includes detailed descriptions of each space, filters based on space characteristics, and  navigation via a map.">
+    <meta name="DC.Creator" content="University of Leeds">
+    <meta name="DC.Publisher" content="University of Leeds">
+    <meta name="DCTERMS.Created" content="2022-06-06">
+    <meta name="DCTERMS.Modified" content="2022-10-13">
+    <meta name="DC.Type" content="InteractiveResource">
+    <meta name="DC.Subject" scheme="DCTERMS.LCSH" content="Digital mapping">
+    <meta name="DC.Subject" scheme="DCTERMS.LCSH" content="College Campuses">
+    <meta name="DCTERMS.Spatial" content="University of Leeds campus">
+    <meta name="DC.Identifier" content="https://dev-spacefinder.library.leeds.ac.uk">
+    <meta name="DC.Language" content="en">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.css" integrity="sha256-P+hWJNlpL+GBSRYC7cdsDbQH91URmpDeOzLp7DbFRtE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@5.3.3/dist/Control.FullScreen.css" integrity="sha256-00uVBwpUWoFTANYpjnprD2T1iCX7RowwV4hz+XLYpMw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.89.0/dist/L.Control.Locate.css" integrity="sha256-7HwpxrGzvfi5JrqaQUpCYQTxGOsvS93OIxcoGJP64mc=" crossorigin="anonymous">    <script type="text/plain" data-cookiecategory="analytics" src="https://www.googletagmanager.com/gtag/js?id=" defer></script>
+    <script type="text/plain" data-cookiecategory="analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '');
+    </script>
+    <link rel="icon" type="image/png" href="https://dev-spacefinder.library.leeds.ac.uk/assets/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="https://dev-spacefinder.library.leeds.ac.uk/assets/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="https://dev-spacefinder.library.leeds.ac.uk/assets/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://dev-spacefinder.library.leeds.ac.uk/assets/favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Spacefinder" />
+    <link rel="manifest" href="https://dev-spacefinder.library.leeds.ac.uk/assets/favicons/site.webmanifest" />
+
+    
+
+    <meta name="msvalidate.01" content="4288880B3DD312CC564299CE947F000F"><meta name="robots" content="noindex"><style>
+        /* the University of Leeds logo in the top bar (_includes/site-logo.html) */
+        #top-bar nav > ul li.site-logo {
+            flex: 0 0 40px;
+            a { color: var(--topbar-color); }
+            #uol-logo { display: block; width: 40px; height: 40px; }
+            @media screen and (min-width: 1000px) {
+                flex-basis: 286px;
+                #uol-logo { width: 286px; }
+            }
+        }
+        /* artworks in the list (assets/data/art/art.mjs): image full width */
+        #listcontent .list-place.artwork {
+            .place-details .place-image {
+                width: 100%;
+                float: none;
+                margin: 0 0 1rem 0;
+            }
+            /* artworks in the list (assets/data/art/art.mjs): paragraph margins */
+            .section-about p {
+                padding: 0 0 1rem 0;
+            }
+            /* artworks in the list (assets/data/art/art.mjs): paragraph margins */
+            .section-images img {
+                width: 100%;
+                float: none;
+                margin: 0 0 1rem 0;
+            }
+        }
+        /* the selected building's outline (buildings.mjs) */
+        :root { --building-outline: #b0127a; }
+        path.building-outline {
+            stroke: var(--building-outline);
+            stroke-width: 3;
+            fill: var(--building-outline);
+            fill-opacity: .15;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div id="maincontainer">
+        <div id="skip"><a href="#listcontent">Skip to list of <span class="datasource-name">study spaces</span></a></div>
+<header id="top-bar">
+    <h1 class="visuallyhidden">Space finder</h1>
+    <nav aria-label="main navigation">
+        <ul>
+            <li class="spacefinder-logo">
+    <svg version="1.1" viewBox="0 0 184 30" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true" focusable="false" width="184" height="30">
+        <g transform="translate(20.398 1)">
+            <path
+                d="m5.3 3.8c-0.6 0.4-0.9 1-0.9 1.7 0 0.8 0.3 1.4 0.9 1.8s1.9 0.9 3.8 1.3c1.9 0.5 3.4 1.1 4.4 2s1.5 2.1 1.5 3.8-0.6 3-1.9 4.1c-1.3 1-2.9 1.6-4.9 1.6-3 0-5.6-1-7.9-3.1l2-2.4c1.9 1.7 3.9 2.5 6 2.5 1 0 1.9-0.2 2.5-0.7 0.6-0.4 0.9-1 0.9-1.8 0-0.7-0.3-1.3-0.9-1.7s-1.6-0.8-3-1.1-2.5-0.6-3.2-0.9-1.4-0.6-1.9-1.1c-1.1-0.9-1.7-2.2-1.7-3.9s0.6-3.1 1.9-4.1 2.9-1.4 4.7-1.4c1.2 0 2.4 0.2 3.6 0.6s2.2 1 3.1 1.7l-1.7 2.4c-0.6-0.5-1.3-0.9-2.3-1.3-1-0.3-1.9-0.5-2.8-0.5s-1.6 0.1-2.2 0.5zm26 3.3c1.4 1.3 2.1 3.1 2.1 5.4 0 2.2-0.7 4.1-2.1 5.5s-3 2.1-4.8 2.1-3.5-0.8-4.9-2.4v7.5h-3v-19.8h3v2.5c1.2-1.8 2.8-2.8 4.7-2.8s3.6 0.6 5 2zm-8.5 8.8c0.8 0.9 1.8 1.3 3 1.3s2.2-0.4 3.1-1.3 1.3-2 1.3-3.4-0.4-2.5-1.3-3.5-1.9-1.3-3.1-1.3-2.2 0.5-3.1 1.4c-0.8 0.9-1.3 2.1-1.3 3.4 0.2 1.4 0.6 2.6 1.4 3.4zm25.8 3.8h-2.8v-1.9c-1.2 1.4-2.8 2.2-4.8 2.2-1.5 0-2.8-0.4-3.7-1.3s-1.5-2-1.5-3.4 0.5-2.5 1.6-3.2 2.5-1.1 4.3-1.1h3.9v-0.5c0-1.9-1.1-2.9-3.2-2.9-1.3 0-2.7 0.5-4.2 1.5l-1.4-1.9c1.8-1.4 3.8-2.1 6-2.1 1.7 0 3.1 0.4 4.2 1.3s1.6 2.2 1.6 4.1v9.2zm-3.1-5.4v-1.2h-3.4c-2.2 0-3.3 0.7-3.3 2.1 0 0.7 0.3 1.2 0.8 1.6s1.3 0.6 2.3 0.6 1.8-0.3 2.5-0.8c0.8-0.5 1.1-1.3 1.1-2.3zm13.7 5.8c-2 0-3.7-0.7-5.2-2.1s-2.2-3.2-2.2-5.4 0.8-4 2.3-5.4 3.4-2.1 5.5-2.1c2.2 0 4 0.8 5.5 2.3l-1.8 2.2c-1.3-1.1-2.5-1.6-3.8-1.6s-2.4 0.4-3.3 1.3-1.4 1.9-1.4 3.3 0.5 2.5 1.4 3.4 2.1 1.4 3.4 1.4c1.4 0 2.6-0.6 3.8-1.9l1.8 2c-1.6 1.7-3.7 2.6-6 2.6zm22.8-6.3h-11.3c0.1 1.1 0.6 1.9 1.4 2.5 0.9 0.6 1.9 1 3 1 1.8 0 3.2-0.6 4.1-1.7l1.7 1.9c-1.6 1.6-3.6 2.4-6.1 2.4-2 0-3.8-0.7-5.2-2-1.4-1.4-2.1-3.2-2.1-5.5s0.7-4.1 2.2-5.4 3.2-2 5.1-2 3.6 0.6 5 1.8 2.1 2.8 2.1 4.9v2.1h0.1zm-11.4-2.4h8.3c0-1.2-0.4-2.2-1.1-2.8-0.8-0.7-1.7-1-2.8-1s-2.1 0.3-3 1-1.4 1.7-1.4 2.8zm18.3-7.3v1.2h3.8v2.5h-3.8v12.1h-3v-12.1h-1.8v-2.5h1.8v-1.1c0-1.5 0.5-2.7 1.4-3.6s2-1.4 3.3-1.4 2.5 0.5 3.5 1.4l-1.3 2.2c-0.6-0.6-1.2-1-1.9-1s-1.2 0.2-1.5 0.6-0.5 0.9-0.5 1.7zm9.8 15.6h-3v-14.5h3v14.5zm-3.4-18.6c0-0.5 0.2-1 0.6-1.4s0.8-0.6 1.4-0.6c0.5 0 1 0.2 1.4 0.6s0.6 0.8 0.6 1.4-0.2 1-0.6 1.4-0.8 0.6-1.4 0.6c-0.5 0-1-0.2-1.4-0.6s-0.6-0.9-0.6-1.4zm10.9 10.8v7.9h-3v-14.5h3v2.6c0.5-0.9 1.2-1.6 2-2.1s1.8-0.8 2.8-0.8c1.6 0 3 0.5 4 1.5s1.5 2.4 1.5 4.3v8.9h-3v-8c0-2.7-1.1-4-3.3-4-1.1 0-2 0.4-2.7 1.1-0.9 0.8-1.3 1.8-1.3 3.1zm15.6 6.1c-1.4-1.4-2-3.2-2-5.5s0.7-4.1 2.1-5.4 3.1-2 5-2 3.5 0.8 4.7 2.5v-8h3v20.2h-3v-2.2c-1.1 1.6-2.8 2.4-4.9 2.4-1.9 0.1-3.5-0.7-4.9-2zm2.4-2.1c0.9 0.9 1.9 1.3 3.1 1.3s2.2-0.4 3-1.3 1.3-2 1.3-3.4-0.4-2.5-1.3-3.5c-0.8-0.9-1.9-1.4-3.1-1.4s-2.3 0.5-3.1 1.4c-0.9 0.9-1.3 2.1-1.3 3.5s0.5 2.7 1.4 3.4zm28.2-2.1h-11.3c0.1 1.1 0.6 1.9 1.4 2.5 0.9 0.6 1.9 1 3 1 1.8 0 3.2-0.6 4.1-1.7l1.7 1.9c-1.6 1.6-3.6 2.4-6.1 2.4-2 0-3.8-0.7-5.2-2-1.4-1.4-2.1-3.2-2.1-5.5s0.7-4.1 2.2-5.4 3.2-2 5.1-2 3.6 0.6 5 1.8 2.1 2.8 2.1 4.9v2.1h0.1zm-11.3-2.4h8.3c0-1.2-0.4-2.2-1.1-2.8-0.8-0.7-1.7-1-2.8-1s-2.1 0.3-3 1c-0.9 0.8-1.4 1.7-1.4 2.8zm22.3-3.2c-1.5 0-2.6 0.5-3.4 1.5s-1.1 2.3-1.1 4v6.2h-3v-14.5h3v2.9c0.5-0.9 1.2-1.7 2-2.2 0.8-0.6 1.7-0.9 2.7-0.9v3.1h-0.2v-0.1z" />
+        </g>
+        <path d="M16.5,6.3L10.4,17l4.6,7.9L16.5,6.3z" />
+        <path d="M15.7,5.6L9.6,16.3H0.1L15.7,5.6z" />
+    </svg>
+</li>
+
+            
+<li class="site-logo">
+    <a href="https://www.leeds.ac.uk/">
+        <svg id="uol-logo" width="286" height="40" viewBox="0 0 286 40" preserveAspectRatio="xMinYMid slice" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g class="uol-logo-uol-inline__img" transform="translate(-32.000000, -12.000000)" fill="currentColor">
+                    <g transform="translate(32.000000, 12.000000)">
+                        <path d="M29.5,13.85 L30.04,13.85 L30.04,13.38 L29.12,13.38 L29.12,14.85 L29.42,14.85 L29.5,13.85 Z M27.89,13.85 L28.43,13.85 L28.43,13.38 L27.62,13.38 L27.62,14.85 L28,14.85 L28,13.85 L27.89,13.85 Z M0,0 L0,40 L20.77,40 L20.77,28 L24.29,28 L24.29,40 L24.75,40 L24.75,26.85 L31.19,26.85 L31.19,40 L31.62,40 L31.62,28 L35.22,28 L35.22,40 L39.97,40 L39.97,0 L0,0 Z M28,6.81 L31.49,9 L24.49,9 L28,6.81 Z M24.44,9.36 L31.62,9.36 L31.95,12 L24.06,12 L24.44,9.36 Z M34.44,27.54 L31.72,27.54 L31.72,26.38 L24.37,26.38 L24.37,27.54 L21.62,27.54 L21.62,25.07 L22.08,25.07 L22.08,16.71 L22.84,16.71 L22.84,12.38 L33.18,12.38 L33.18,16.71 L33.95,16.71 L33.95,25 L34.41,25 L34.44,27.54 Z M29.69,25.07 L30.3,25.07 L30.3,19.57 L31.62,19.57 L31.62,18.57 L29.73,18.57 L29.69,25.07 Z M23.69,17.64 L32.2,17.64 L32.62,17.1 L23.37,17.1 L23.69,17.64 Z M26.99,25.07 L27.62,25.07 L27.62,19.57 L28.92,19.57 L28.92,18.57 L26.97,18.57 L26.99,25.07 Z M26.22,13.85 L26.76,13.85 L26.76,13.38 L25.92,13.38 L25.92,14.85 L26.22,14.85 L26.22,13.85 Z M24.37,25.07 L24.98,25.07 L24.98,19.57 L26.28,19.57 L26.28,18.57 L24.37,18.57 L24.37,25.07 Z M28.05,28.55 C27.2950895,28.5378224 26.6077131,28.9831944 26.3103442,29.6771757 C26.0129753,30.3711569 26.1646185,31.1760463 26.6941324,31.7142407 C27.2236463,32.2524352 28.0259637,32.4171451 28.7246881,32.131099 C29.4234126,31.8450529 29.8799018,31.1650087 29.88,30.41 C29.874812,29.3965391 29.0632426,28.5716653 28.05,28.55 L28.05,28.55 Z M28.05,31.8 C27.4802734,31.8121976 26.9600047,31.4778532 26.73441,30.954552 C26.5088152,30.4312508 26.6229172,29.8234297 27.0229366,29.4175706 C27.422956,29.0117115 28.0290597,28.888813 28.5555753,29.1068004 C29.0820908,29.3247877 29.4239399,29.8401565 29.42,30.41 L29.42,30.41 C29.4226618,30.7760016 29.279816,31.1280692 29.0228891,31.3887468 C28.7659622,31.6494245 28.4160018,31.7973574 28.05,31.8 Z" fill-rule="nonzero"></path>
+                        <path d="M67.74,21.56 L67.74,12.11 L64.52,12.11 L64.52,21.78 C64.5729285,22.6519371 64.2821511,23.5099099 63.71,24.17 C62.2015798,25.4907365 59.9484202,25.4907365 58.44,24.17 C57.8375091,23.4681634 57.5230989,22.5642339 57.56,21.64 L57.56,12.11 L54.36,12.11 L54.36,21.9 C54.2611083,23.4971923 54.8130316,25.066386 55.89,26.25 C57.3080282,27.4384118 59.1354122,28.0236055 60.98,27.88 C62.8798784,28.0022464 64.7494205,27.3574525 66.17,26.09 C67.2665719,24.8598816 67.8310989,23.2454064 67.74,21.6 L67.74,21.56 Z" fill-rule="nonzero"></path>
+                        <path d="M86.32,27.75 L86.32,12.25 L83.12,12.25 L83.12,20.16 C83.12,20.82 83.12,21.79 83.12,22.61 L83.12,22.61 C82.6700679,21.9172776 82.1826769,21.2496187 81.66,20.61 L75.13,12.28 L71.86,12.28 L71.86,27.78 L75.08,27.78 L75.08,19.26 C75.08,18.56 75.08,17.63 75.02,17.1 L75.08,17.1 C75.53,17.78 75.97,18.38 76.56,19.1 L83.3,27.71 L86.32,27.75 Z"></path>
+                        <polygon fill-rule="nonzero" points="93.91 27.75 93.91 12.24 90.67 12.24 90.67 27.75 93.91 27.75"></polygon>
+                        <path d="M111.16,12.19 L107.89,12.19 L104.39,20.53 C103.973063,21.4323296 103.615632,22.3609812 103.32,23.31 L103.32,23.31 C103,22.44 102.65,21.45 102.25,20.44 L99.08,12.19 L95.54,12.19 L101.91,27.81 L104.31,27.81 L111.16,12.19 Z" fill-rule="nonzero"></path>
+                        <polygon fill-rule="nonzero" points="121.99 27.75 121.99 25.11 116.24 25.11 116.24 21.15 121.18 21.15 121.18 18.5 116.24 18.5 116.24 14.88 121.16 14.88 122.02 12.24 113.02 12.24 113.02 27.75 121.99 27.75"></polygon>
+                        <path d="M137.49,27.75 C135.14,23.8 133.65,21.22 132.86,20.75 L132.86,20.75 C134.52497,20.1129167 135.639353,18.532231 135.68,16.75 C135.68,14.36 134.19,12.27 130.05,12.27 L125.52,12.27 L125.52,27.75 L128.78,27.75 L128.78,21.75 L129.92,21.75 C130.49,21.97 131.43,23.75 133.78,27.75 L137.49,27.75 Z M132.49,17.03 C132.512387,18.2982154 131.50799,19.3472518 130.24,19.38 L128.75,19.38 L128.75,14.92 L130.11,14.92 C130.7095,14.8426398 131.31339,15.0261093 131.768537,15.4238853 C132.223685,15.8216613 132.486376,16.39554 132.49,17 L132.49,17.03 Z"></path>
+                        <path d="M148.78,23.39 C148.78,18.49 142.11,18.76 142.11,16.04 C142.11,15.15 143,14.63 144.11,14.63 C145.425193,14.6783583 146.704585,15.071487 147.82,15.77 L147.82,12.98 C146.617964,12.3388574 145.27211,12.0153018 143.91,12.04 C140.49,12.04 138.63,14.1 138.63,16.47 C138.606448,17.4826835 138.96324,18.4674294 139.63,19.23 C141.53,21.37 145.29,21.72 145.29,23.78 C145.29,24.95 144.03,25.37 142.84,25.37 C141.564416,25.3277619 140.3296,24.9103591 139.29,24.17 L138.04,26.5 C139.513506,27.5085649 141.264687,28.0328708 143.05,28 C146.24,28 148.76,26.24 148.76,23.4 L148.78,23.39 Z" fill-rule="nonzero"></path>
+                        <polygon fill-rule="nonzero" points="154.63 27.75 154.63 12.24 151.4 12.24 151.4 27.75 154.63 27.75"></polygon>
+                        <polygon fill-rule="nonzero" points="169.59 12.24 156.9 12.24 156.9 14.88 161.44 14.88 161.44 27.75 164.7 27.75 164.7 14.88 168.86 14.88 169.59 12.24"></polygon>
+                        <path d="M183.77,12.25 L180.4,12.25 L178.03,16.62 C177.68,17.27 177.21,18.11 176.91,18.81 L176.91,18.81 C176.59,18.11 176.1,17.23 175.77,16.58 L173.36,12.25 L169.81,12.25 L175.18,21.62 L175.18,27.75 L178.38,27.75 L178.38,21.66 L183.77,12.25 Z" fill-rule="nonzero"></path>
+                        <path d="M206.12,20 C206.245834,18.0205657 205.578218,16.0725084 204.264697,14.5863532 C202.951177,13.1001981 201.099898,12.198307 199.12,12.08 L199.12,12.08 C198.786933,12.0611526 198.453067,12.0611526 198.12,12.08 C195.961198,12.0257615 193.874951,12.8609834 192.35,14.39 C190.865298,15.950778 190.059803,18.0364334 190.11,20.19 C190.031444,22.4287273 190.92044,24.5929231 192.55,26.13 C195.937737,28.8012328 200.76331,28.6190558 203.94,25.7 C205.369447,24.1531499 206.131218,22.1049922 206.06,20 L206.12,20 Z M202.7,20.07 C202.7,23.47 200.7,25.41 198.1,25.41 C195.5,25.41 193.46,23.47 193.46,20.07 C193.46,16.67 195.38,14.72 198.07,14.72 C200.76,14.72 202.67,16.72 202.67,20.07 L202.7,20.07 Z"></path>
+                        <polygon fill-rule="nonzero" points="218.11 12.24 209.08 12.24 209.08 27.75 212.32 27.75 212.32 21.2 217.23 21.2 217.22 18.56 212.32 18.56 212.32 14.88 217.28 14.88 218.11 12.24"></polygon>
+                        <polygon fill-rule="nonzero" points="234.6 27.73 234.6 25.07 229.16 25.07 229.16 12.27 225.95 12.27 225.95 27.73 234.6 27.73"></polygon>
+                        <polygon fill-rule="nonzero" points="245.68 27.73 245.68 25.09 239.94 25.09 239.94 21.15 244.86 21.15 244.86 18.5 239.94 18.5 239.94 14.89 244.84 14.89 245.7 12.27 236.71 12.27 236.71 27.73 245.68 27.73"></polygon>
+                        <polygon fill-rule="nonzero" points="257.43 27.73 257.43 25.09 251.69 25.09 251.69 21.15 256.62 21.15 256.62 18.5 251.69 18.5 251.69 14.89 256.59 14.89 257.43 12.27 248.46 12.27 248.46 27.73 257.43 27.73"></polygon>
+                        <path d="M273.98,19.86 C273.98,15.24 270.88,12.27 265.36,12.27 L260.21,12.27 L260.21,27.73 L265.1,27.73 C270.47,27.73 274.01,24.63 274.01,19.87 L273.98,19.86 Z M270.53,19.95 C270.53,22.66 269.03,25.07 265.2,25.07 L263.43,25.07 L263.43,14.93 L265.14,14.93 C268.69,14.93 270.53,16.91 270.53,20 L270.53,19.95 Z"></path>
+                        <path d="M285.62,23.37 C285.62,18.47 278.96,18.73 278.96,16.06 C278.96,15.16 279.85,14.64 281.01,14.64 C282.312256,14.700739 283.578073,15.0894273 284.69,15.77 L284.69,13 C283.499562,12.3319884 282.154998,11.9872284 280.79,12 C277.38,12 275.52,14.07 275.52,16.41 C275.503151,17.4215754 275.859097,18.4039867 276.52,19.17 C278.4,21.31 282.16,21.62 282.16,23.71 C282.16,24.88 280.88,25.34 279.76,25.34 C278.496079,25.2834172 277.277636,24.8517403 276.26,24.1 L275.01,26.42 C276.470725,27.3959037 278.193447,27.9050483 279.95,27.88 C283.15,27.94 285.62,26.18 285.62,23.37 Z" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        <span class="visuallyhidden">University of Leeds</span>
+    </a>
+</li>
+
+        </ul>
+    </nav>
+</header>
+        <main id="spacefinder">
+              <div id="map">
+    <h2 class="visuallyhidden">Map of <span class="datasource-name">study spaces</span></h2>
+  </div>
+  <div id="sfpanel">
+    <div id="filters">
+      <h2 class="visuallyhidden">Search or filter <span class="datasource-name">study spaces</span></h2>
+    </div>
+    <div id="list">
+      <h2 class="visuallyhidden">List of <span class="datasource-name">study spaces</span></h2>
+      <div id="listcontrols" class="top-controls">
+    <button type="button" class="geo-button btn icon-my-location" title="Use my location" aria-label="Use my location" disabled></button>
+    <button id="sortdistance" data-sortdir="" class="btn sortbutton icon-distance" title="Sort by distance (nearest to farthest)" aria-label="Sort by distance (nearest to farthest)" disabled></button>
+    <button id="sortalpha" data-sortdir="asc" class="btn sortbutton icon-sort-name-down" title="Sort alphabetically (descending, z to a)" aria-label="Sort alphabetically (descending, z to a)"></button>
+    <p id="searchResultsSummary" aria-live="polite" aria-atomic="true"></p>
+    <button type="button" id="filter-toggle" class="btn" aria-controls="filter-panel" aria-expanded="false" hidden>Filters<span class="filter-count"></span></button>
+</div>
+<div id="listbody">
+    <div id="listcontainer" class="panel-content">
+        <div id="listfilters" hidden></div>
+        <div id="listcontent"></div>
+    </div>
+</div>
+
+    </div>
+  </div>
+
+        </main>
+        <footer id="footer-bar">
+    <nav aria-label="footer navigation">
+        <ul>
+            <li><button type="button" class="modal-trigger icon-info-circled button-icon" data-dialoghash="about" data-dialogid="about-page" aria-label="About this site"><span class="button-text">About</span></button></li>
+            <li><button type="button" class="modal-trigger icon-universal-access button-icon" data-dialoghash="accessibility" data-dialogid="accessibility-page" aria-label="Accessibility page"><span class="button-text">Accessibility</span></button></li>
+            <li><button type="button" class="modal-trigger" data-dialoghash="privacy" data-dialogid="privacy-page" aria-label="Privacy page">Privacy</button></li><li><a target="external" href="https://www.leeds.ac.uk/termsandconditions"><span class="hide-med">Terms &amp; Conditions</span><span class="show-med">Terms</span></a></li><li><a target="external" href="https://www.leeds.ac.uk/freedom-of-information"><span class="hide-med">Freedom of Information</span><span class="show-med">FOI</span></a></li><li><button type="button" class="modal-trigger" data-dialoghash="about" data-dialogid="about-page" aria-label="Copyright 2026 University of Leeds">&copy;<span class="hide-med"> 2026</span><span class="hide-small"> University of Leeds</span></button></li></ul>
+    </nav>
+</footer>
+
+<div id="about-page" class="dialog-container" aria-labelledby="about-page-title" aria-describedby="accessibility-page-description" aria-hidden="true">
+    <div class="dialog-overlay" data-a11y-dialog-hide></div>
+    <article role="document" class="dialog-content">
+        <header>
+            <button type="button" class="button dialog-close" data-a11y-dialog-hide aria-label="Close dialog">&times;</button>
+            <h2 id="about-page-title">About Spacefinder</h2>
+            <p class="visuallyhidden" id="about-page-description">More information about Spacefinder</p>
+        </header>
+        
+        <p>Spacefinder is a tool which allows students to find study spaces around a University Campus by identifying them on a map, listing them, and providing search and filtering tools to allow students to:</p>
+
+<ul>
+  <li>list spaces which are currently open</li>
+  <li>identify the spaces which are nearest to their current location</li>
+  <li>list spaces which have certain characteristics (noise levels, availability of equipment, etc.)</li>
+</ul>
+
+<h3 id="history">History</h3>
+
+<p>Spacefinder was originally developed by the University of Cambridge in 2015 as part of the futurelib innovation programme, which explored the future role of academic libraries within the University.</p>
+
+<p><a target="external" href="https://spacefinder.lib.cam.ac.uk/">https://spacefinder.lib.cam.ac.uk/</a></p>
+
+<p>The code for the Ruby on Rails application which is used to create the site was released under an Apache 2.0 open source license in February 2022.</p>
+
+<p><a target="external" href="https://github.com/cambridge-collection/spacefinder">https://github.com/cambridge-collection/spacefinder</a></p>
+
+<h3 id="about-this-site">About this site</h3>
+
+<p>This site contains a rewrite of the code in the Cambridge application’s UI to make a single page application fed by JSON files which load data for all spaces (instead of loading them from a Rails API). The project was initiated by the University of Leeds library to explore the possibility of using the Cambridge app in Leeds, but adoption of the full Rails stack was not possible at the time.</p>
+
+<p><a target="external" href="https://github.com/uol-library/spacefinder-ui">https://github.com/uol-library/spacefinder-ui</a></p>
+
+<h3 id="copyright">Copyright</h3>
+
+<p>Except where otherwise noted, content on this site is licensed under a <a target="external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>. The code used to build this site is <a target="external" href="https://github.com/uol-library/spacefinder-ui">hosted in GitHub</a> and released under an <a target="external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 open source license</a>.</p>
+
+<p>The site uses <a target="external" href="https://leafletjs.com/">Leaflet</a>, an open-source JavaScript library for mobile-friendly interactive maps, © 2010–2022 <a target="external" href="http://agafonkin.com/en">Vladimir Agafonkin</a>. Maps are provided by <a target="external" href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © OpenStreetMap contributors. Satellite imagery is provided by <a target="external" href="https://www.esri.com/en-us/home">ESRI</a>, © Esri - Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community.</p>
+
+<h3 id="font-license-information">Font license information</h3>
+
+<p>The main font used on this site is <strong>PT Sans</strong>, designed by <a target="external" href="https://en.wikipedia.org/wiki/Alexandra_Korolkova">Alexandra Korolkova</a>, Olga Umpeleva, and Vladimir Yefimov as part of the <a target="external" href="https://en.wikipedia.org/wiki/PT_Fonts">PT Fonts</a> project, and is released under the <a target="external" href="http://scripts.sil.org/OFL">SIL Open Font License</a>. Copyright © 2009 ParaType Ltd.</p>
+
+<p>The icon font used on this site was created using <a target="external" href="https://fontello.com/">Fontello</a> and contains icons from the following icon fonts:</p>
+
+<dl>
+  <dt><a target="external" href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a></dt>
+  <dd>Copyright &copy; 2016 by Dave Gandy (<a target="external" href="http://scripts.sil.org/OFL">SIL Open Font License</a>)</dd>
+  <dt><a target="external" href="http://www.entypo.com">Entypo</a></dt>
+  <dd>Copyright &copy; by Daniel Bruce (<a target="external" href="http://scripts.sil.org/OFL">SIL Open Font License</a>)</dd>
+  <dt><a target="external" href="http://somerandomdude.com/work/iconic/">Iconic</a></dt>
+  <dd>Copyright &copy; 2012 by P.J. Onori (<a target="external" href="http://scripts.sil.org/OFL">SIL Open Font License</a>)</dd>
+  <dt><a target="external" href="http://www.mfglabs.com/">MFG Labs</a></dt>
+  <dd>Copyright &copy; by Daniel Bruce (<a target="external" href="http://scripts.sil.org/OFL">SIL Open Font License</a>)</dd>
+</dl>
+
+    </article>
+</div>
+
+<div id="accessibility-page" class="dialog-container" aria-labelledby="accessibility-page-title" aria-describedby="accessibility-page-description" aria-hidden="true">
+    <div class="dialog-overlay" data-a11y-dialog-hide></div>
+    <article role="document" class="dialog-content">
+        <header>
+            <button type="button" class="button dialog-close" data-a11y-dialog-hide aria-label="Close dialog">&times;</button>
+            <h2 id="accessibility-page-title">Accessibility</h2>
+            <p class="visuallyhidden" id="accessibility-page-description">Accessibility statement for Spacefinder</p>
+        </header>
+        
+        <p>This website is run by the University of Leeds. We want as many people as possible to be able to use this website. For example, that means you should be able to:</p>
+
+<ul>
+  <li>change colours, contrast levels and fonts</li>
+  <li>zoom in up to 300% without the text spilling off the screen</li>
+  <li>navigate most of the website using just a keyboard</li>
+  <li>navigate most of the website using speech recognition software</li>
+  <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
+</ul>
+
+<p>We’ve also made the website text as simple as possible to understand. <a target="external" href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> has advice on making your device easier to use if you have a disability.</p>
+
+<h3 id="how-accessible-this-website-is">How accessible this website is</h3>
+
+<p>We know some parts of this website are not fully accessible:</p>
+
+<ul>
+  <li>this site uses interactive maps, which assistive technologies may not be able to navigate</li>
+</ul>
+
+<h3 id="feedback-and-contact-information">Feedback and contact information</h3>
+
+<p>If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille, please contact IT Services:</p>
+
+<ul>
+  <li>Phone: <a href="tel:+441133433333" title="Call IT Services">0113 343 3333</a></li>
+  <li>Web: <a target="external" href="https://it.leeds.ac.uk/it?id=contact_form">‘Contact us’ form for people who cannot log in</a> to the IT site or <a href="https://it.leeds.ac.uk/nav_to.do?uri=it?id=contact_form">choose to ‘Log an incident’ if you can log in</a>.</li>
+</ul>
+
+<h3 id="reporting-accessibility-problems-with-this-website">Reporting accessibility problems with this website</h3>
+
+<p>We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, <a target="external" href="https://library.leeds.ac.uk/contact">contact the University Library</a>.</p>
+
+<h3 id="enforcement-procedure">Enforcement procedure</h3>
+
+<p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, contact the <a target="external" href="https://www.equalityadvisoryservice.com/">Equality Advisory and Support Service</a> (EASS).</p>
+
+<h3 id="technical-information-about-this-websites-accessibility">Technical information about this website’s accessibility</h3>
+
+<p>This website is partially compliant with the Web Content Accessibility Guidelines version 2.1 AA standard, due to the non-compliances listed below.</p>
+
+<p>This site includes interactive maps, and while maps are exempt from the scope of the regulations, every attempt has been made to make the maps accessible to assistive technologies. However, there remain some features within the map which may be difficult to use.</p>
+
+<p>This statement was prepared on 25th March 2022. It was last updated on 4th October 2022.</p>
+
+
+    </article>
+</div>
+
+<div id="privacy-page" class="dialog-container" aria-labelledby="privacy-page-title" aria-describedby="privacy-page-description" aria-hidden="true">
+    <div class="dialog-overlay" data-a11y-dialog-hide></div>
+    <article role="document" class="dialog-content">
+        <header>
+            <button type="button" class="button dialog-close" data-a11y-dialog-hide aria-label="Close dialog">&times;</button>
+            <h2 id="privacy-page-title">Privacy &amp; Cookies</h2>
+            <p class="visuallyhidden" id="privacy-page-description">Privacy and cookies statement for Spacefinder</p>
+        </header>
+        
+        <p>Privacy notice for https://dev-spacefinder.library.leeds.ac.uk</p>
+
+<p>This privacy notice has been updated in line with the General Data Protection Regulation.</p>
+
+<h3 id="purpose-of-this-notice">Purpose of this Notice</h3>
+
+<p>This Notice tells you how the University of Leeds (University) will collect and use your personal data when you access this website. The University is a “controller” of this personal data for the purposes of the data protection legislation.</p>
+
+<p>Note that additional information will be provided where you are requested to enter personal information and this will vary between our various websites</p>
+
+<p>It is important that you read this Notice together with any other privacy notice we provide on specific occasions when we are collecting or processing personal data about you so that you are fully aware of how and why we are using your data. This Notice supplements the other notices and is not intended to override them.</p>
+
+<h3 id="changes-to-this-notice">Changes to this Notice</h3>
+
+<p>We keep the information provided in this Notice under review. This Notice may be updated from time to time. If we make any substantial updates, we will draw these to your attention.</p>
+
+<p>We will not use your personal data in any manner that is incompatible with the purpose for which the data were collected originally, unless we have obtained your consent to that additional use.</p>
+
+<h3 id="anything-you-are-not-clear-about">Anything you are not clear about</h3>
+
+<p>If there is anything you are unclear about, please contact our Data Protection Officer, who shall be happy to answer any queries you may have concerning this Notice or the way in which we process your personal data.</p>
+
+<p>The Data Protection Officer’s contact details are provided at the end of this Notice.</p>
+
+<h3 id="purpose-of-processing-your-data">Purpose of processing your data</h3>
+
+<p>Where we request personal data from you on our website you will be informed at that time of the purpose for which the data will be processed and how it will be processed, its legal basis for processing as well as any transfers to third parties.</p>
+
+<h3 id="purpose-of-processing--automated-collection-of-personal-information">Purpose of processing – automated collection of personal information</h3>
+
+<p>When you access our web pages certain information your browser provides, including your IP address at the time, browser type, and potentially the address of the page you last visited, will be automatically recorded by the University. This data may be used to aid detection in the event of a security breach. The legal basis for this processing is necessity to pursue our legitimate interests to keep our website secure. The University retains this data in a form from which you may be identifiable for a period of up to two months.</p>
+
+<h3 id="third-party-access">Third-party access</h3>
+
+<p>Your personal data that you have provided will not routinely be sent to third parties (unless notified – see above).</p>
+
+<h3 id="data-retention">Data retention</h3>
+
+<p>The University’s policies on retaining data for prospective and current students, staff and job applicants are detailed in our data retention policy.</p>
+
+<p>In other cases, for example, if you subscribe to news or events, any retention of data will be made clear at the point of collection.</p>
+
+<h3 id="cookies">Cookies</h3>
+
+<p>Cookies are small text files that are placed on your device by websites that you visit.</p>
+
+<p>We use cookies for the following purposes:</p>
+
+<ul>
+  <li>To save your cookie preferences between visits (essential)</li>
+  <li>To increase the performance of the site between visits (performance)</li>
+  <li>To track how our website is used and help us make improvements (analytics)</li>
+</ul>
+
+<p><button type="button" class="button" data-cc="show-preferencesModal">Manage cookie preferences</button></p>
+
+<h3 id="performance-and-analytics-cookies">Performance and analytics cookies</h3>
+
+<p>These cookies help our website function</p>
+
+<dl>
+    <dt>Cookie name</dt>
+    <dd>spaces</dd>
+    <dt>Cookie description</dt>
+    <dd>Space data</dd>
+    <dt>Cookie Purpose</dt>
+    <dd>The data used in this application is initially downloaded in a single file - the data can be stored in the browser's <em>localStorage</em>, a type of cookie which remains in the browser between sessions. The data held here expires after 7 days.</dd>
+    <dt>Further Information</dt>
+    <dd>
+        <ul>
+            <li><a target="external" href="https://en.wikipedia.org/wiki/Web_storage">Web storage (Wikipedia)</a></li>
+        </ul>
+    </dd>
+</dl>
+
+<dl>
+    <dt>Cookie name</dt>
+    <dd>__ga, __gat, __gid</dd>
+    <dt>Cookie description</dt>
+    <dd>Google Analytics</dd>
+    <dt>Cookie Purpose</dt>
+    <dd>These cookies are used to collect information about how visitors use our website. We use the information to compile reports and to help us improve the site. These cookies are also used to track users’ interests and then provide targeted advertising on other websites. The cookies collect information in an anonymous form, including the number of visitors to the site, where visitors have come to the site from and the pages they visited.</dd>
+    <dt>Further Information</dt>
+    <dd>
+        <ul>
+            <li><a target="external" href="https://policies.google.com/privacy?hl=en-GB&amp;gl=uk#infocollect">Google privacy policy</a></li>
+            <li><a target="external" href="http://www.google.com/analytics/learn/privacy.html">Google analytics</a></li>
+            <li><a target="external" href="http://www.google.com/intl/en_uk/analytics/tos.html">Google analytics terms of service</a></li>
+            <li><a target="external" href="https://www.google.com/analytics/tag-manager/use-policy/">Google tag manager terms of service</a></li>
+            <li><a target="external" href="https://tools.google.com/dlpage/gaoptout">Universal Analytics opt-out browser add-on</a></li>
+        </ul>
+    </dd>
+</dl>
+
+<p>If you share content from our website through other websites, for example Facebook or Twitter, cookies or a form of tracking may be used by these services and you need to manage your privacy via your account (and not through our site).</p>
+
+<p>You can manage your privacy settings, including cookies, through your browser settings.</p>
+
+<p>Further information about cookies can be found on the <a target="external" href="https://ico.org.uk/">Information Commissioner’s Office website</a>.</p>
+
+<h3 id="anything-you-are-not-clear-about-1">Anything you are not clear about</h3>
+
+<p>It is important that the personal data the University holds about you is accurate and current. Please keep us informed if the personal data you have provided to us needs to be updated.</p>
+
+<h3 id="your-rights-as-a-data-subject">Your rights as a data subject</h3>
+
+<p>Under the GDPR, in certain circumstances, you have the right to:</p>
+
+<ul>
+  <li>withdraw your consent to our processing of your personal data where that is the legal basis for such processing</li>
+  <li>access any of your personal data which we hold</li>
+  <li>have your personal data which we hold corrected if it is inaccurate</li>
+  <li>have any of your personal data which we hold erased</li>
+  <li>restrict the ways in which we process your personal data</li>
+  <li>object to our processing of your personal data</li>
+  <li>receive a copy of any of your personal data which we hold in a structured and commonly used machine-readable format</li>
+  <li>in certain cases not be subject to a decision based solely on automated decision making</li>
+  <li>lodge a complaint with a supervisory authority</li>
+</ul>
+
+<h3 id="queries-and-complaints">Queries and complaints</h3>
+
+<p>If you have any queries or concerns relating to this privacy notice or the way your data is being processed through this website then please contact the University’s Data Protection Officer, David Wardle on <a href="mailto:d.wardle@adm.leeds.ac.uk" title="Email David Wardle">d.wardle@adm.leeds.ac.uk</a> or by post to University of Leeds, 11.72 EC Stoner Building, Leeds LS2 9JT, UK.</p>
+
+<p>The University’s main telephone number is +44 (0) 113 2431751.</p>
+
+<p>The UK’s regulator for the DPA and GDPR is the Information Commissioner’s Office (ICO). The University is registered as a Data Controller with the ICO</p>
+
+<p>Should you be dissatisfied with our handling of your concerns you have the right to complain to a supervisory authority. In the case of the UK this is the Information Commissioner’s Office and details can be found at <a target="external" href="https://ico.org.uk/make-a-complaint/">https://ico.org.uk/make-a-complaint/</a>.</p>
+
+    </article>
+</div>
+
+<div id="sfalertdialog" class="dialog-container" role="alertdialog" aria-labelledby="sfalertdialog-title" aria-describedby="sfalertdialog-description" aria-hidden="true">
+    <div class="dialog-overlay"></div>
+    <article role="document" class="dialog-content alert-dialog">
+        <header>
+            <button type="button" class="button dialog-close" data-a11y-dialog-hide aria-label="Close dialog">&times;</button>
+            <h2 id="sfalertdialog-title">Dialog title</h2>
+        </header>
+        <p id="sfalertdialog-description">Dialog description</p>
+    </article>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.6/dist/cookieconsent.js" integrity="sha256-Vi5A6sS3UMUAdPfetPOj21O4gBdBS/9JEQZMTIn6oEc=" crossorigin="anonymous"></script>
+
+<script type="importmap">
+{
+  "imports": {
+    "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet-src.js",
+    "leaflet.fullscreen": "https://unpkg.com/leaflet.fullscreen@5.3.3/dist/Control.FullScreen.js",
+    "leaflet.locatecontrol": "https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.89.0/dist/L.Control.Locate.esm.js",
+    "a11y-dialog": "https://cdn.jsdelivr.net/npm/a11y-dialog@8.1.5/dist/a11y-dialog.esm.js"
+  }
+}
+</script>
+<script type="module" src="/assets/js/main.js"></script>
+
+
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,596 @@
+/**
+ * Main layout
+ *
+ * The top bar and the footer are always on screen, and the map fills the
+ * space between them:
+ *
+ * +--------------------------------------------+
+ * | #top-bar                                   |
+ * +--------------------------------------------+
+ * | #spacefinder > #map                        |
+ * |  +-----------+-+                           |
+ * |  | #sfpanel  |=| (panel and its toggle,    |
+ * |  |           | |  in the map's top left    |
+ * |  |           | |  corner)                  |
+ * |  +-----------+ |                           |
+ * +--------------------------------------------+
+ * | #footer-bar                                |
+ * +--------------------------------------------+
+ */
+#maincontainer {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    #top-bar {
+        flex: 0 0 var(--topbar-height);
+    }
+    #footer-bar {
+        flex: 0 0 var(--footer-height);
+        padding: var(--footer-padding-y) var(--footer-padding-x);
+    }
+    #spacefinder {
+        flex: 1 1 auto;
+        min-height: 0;
+        width: 100%;
+        overflow: hidden;
+        #map {
+            height: 100%;
+            &:focus {
+                outline:none;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1000px) {
+    .switch-view {
+        display: none;
+    }
+}
+/* Top navigation bar: the Spacefinder logo and the site's logo, at either end (site_logo_position in _config.yml sets which is first) */
+#top-bar {
+    background: var(--topbar-bg);
+    color: var(--topbar-color);
+    z-index: 10;
+    padding: var(--topbar-padding);
+    a {
+        background: var(--topbar-bg);
+        color: var(--topbar-color);
+    }
+    svg {
+        path {
+            fill: var(--topbar-color);
+        }
+    }
+    nav>ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        column-gap: var(--topbar-padding);
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        li {
+            padding: 0;
+            margin: 0;
+            & + li {
+                margin-left: auto;
+            }
+            &.spacefinder-logo {
+                display: flex;
+                align-items: center;
+                svg {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+            &.site-logo {
+                #site-logo {
+                    display: none;
+                }
+                flex: 0 0 53px;
+                a {
+                    display: block;
+                    padding:0;
+                }
+                svg {
+                    display: block;
+                }
+                @media screen and (min-width: 1000px) {
+                    flex: 0 0 183px;
+                    #site-logo-mark {
+                        display:none;
+                    }
+                    #site-logo {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Footer bar styles
+ */
+ #footer-bar {
+    background: var(--footer-bg);
+    color: var(--footer-color);
+    ul {
+        display: flex;
+        padding:0;
+        margin:0;
+        li {
+            margin-right: .5rem;
+            padding-left: .5rem;
+            list-style: none;
+            border-left: 1px solid var(--footer-color);
+            &:last-child {
+                margin-right: 0;
+                margin-left: auto;
+                border-left: none;
+            }
+            &:first-child {
+                border-left: none;
+                padding-left: 0;
+            }
+            button, a, a:hover, a:visited {
+                font-size: .9em;
+                color: var(--footer-color);
+                background: var(--footer-bg);
+                border: none;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+    .button-icon {
+        &:before {
+            display:none;
+        }
+        @media screen and (max-width: 600px) {
+            &:before {
+                display: inline-block;
+            }
+            .button-text {
+                display: none;
+            }
+        }
+    }
+}
+
+/**
+ * The panel
+ *
+ * A Leaflet control in the map's top left corner, which is stretched to
+ * the map's height. The panel is the dataset switcher and the search form
+ * (#filters), then the list controls and the list (#list), with the
+ * filters as an overlay on the list (#filter-panel).
+ */
+#map .leaflet-top.leaflet-left {
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-start;
+    .leaflet-control-panel-toggle {
+        flex: 0 0 auto;
+    }
+}
+#sfpanel {
+    width: min(var(--panel-width), calc(100% - 54px));
+    align-self: stretch;
+    margin: 0;
+    float: none;
+    display: flex;
+    flex-direction: column;
+    background: var(--background-color);
+    color: var(--foreground-color);
+    font: inherit;
+    font-size: 1rem;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, .3);
+    &[hidden] {
+        display: none;
+    }
+    #filters {
+        flex: 0 0 auto;
+    }
+    #list {
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        &:focus,
+        #listcontent:focus {
+            outline: none;
+        }
+    }
+    #listcontrols {
+        flex: 0 0 auto;
+    }
+    #listbody {
+        flex: 1 1 auto;
+        min-height: 0;
+        position: relative;
+    }
+    #listcontainer {
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+/*
+ * When the map is too narrow for the panel and the controls on the right
+ * (the panel's width, plus the toggle and a control, each about 54px), the
+ * controls are hidden while the panel is open. The attribution stays, so
+ * the list leaves room for it.
+ */
+@media screen and (max-width: 740px) {
+    #map.sfpanel-open {
+        .leaflet-top.leaflet-right,
+        .leaflet-bottom.leaflet-right .leaflet-control:not(.leaflet-control-attribution) {
+            display: none;
+        }
+        #listcontent {
+            padding-bottom: 1.5rem;
+        }
+    }
+}
+.panel-toggle {
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 4px;
+    background: var(--background-color);
+    color: var(--foreground-color);
+    cursor: pointer;
+    &::before {
+        margin: 0;
+    }
+}
+/* while the panel is open, the toggle (an X) is a tab on its top right corner */
+#map.sfpanel-open .leaflet-control-panel-toggle {
+    margin: 0;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 1px 4px rgba(0, 0, 0, .3);
+    .panel-toggle {
+        border-radius: 0 4px 4px 0;
+        background: var(--filter-bg);
+    }
+}
+
+/* Top of the panel: the dataset switcher and the search form */
+#filters {
+    background: var(--filter-bg);
+    color: var(--filter-color);
+    #datasources {
+        flex: 0 0 auto;
+        padding: .4em .4em 0;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            flex: 1 1 auto;
+            margin: 0;
+        }
+        a {
+            display: block;
+            padding: .5rem;
+            text-align: center;
+            text-decoration: none;
+            background: var(--filter-button-bg);
+            color: var(--filter-button-color);
+            border: 1px solid var(--filter-button-border);
+            border-radius: 3px;
+            &:hover {
+                background: var(--filter-button-bg-hover);
+                color: var(--filter-button-color-hover);
+                text-decoration: underline;
+            }
+            &:focus-visible {
+                outline: 2px solid var(--filter-button-border-focus);
+                outline-offset: 2px;
+            }
+            &::before {
+                margin-right: .4em;
+            }
+            &[aria-current] {
+                background: var(--filter-button-bg-active);
+                color: var(--filter-button-color-active);
+            }
+        }
+    }
+    #datasources select {
+        width: 100%;
+        padding: .5rem;
+        font-size: 1rem;
+        border: 1px solid var(--filter-button-border-focus);
+        border-radius: 3px;
+        background: var(--filter-label-bg);
+        color: var(--filter-label-color);
+    }
+    /* the search box and its buttons, on one row */
+    #filter-options-form {
+        display: flex;
+        gap: .4rem;
+        padding: .4em;
+        input[type=search] {
+            flex: 1 1 auto;
+            min-width: 0;
+            padding: .5rem;
+            border: 1px solid var(--filter-button-border-focus);
+            border-radius: 3px;
+        }
+        .btn {
+            flex: 0 0 auto;
+            width: auto;
+            margin: 0;
+            padding: .5rem .8rem;
+        }
+    }
+}
+/* the filters, as an overlay on the list */
+#filter-panel {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background: color-mix(in srgb, var(--filter-bg) 90%, transparent);
+    color: var(--filter-color);
+    &[hidden] {
+        display: none;
+    }
+    .top-controls {
+        flex: 0 0 auto;
+        padding: .4em;
+        .btn {
+            margin: 0;
+            font-size: 1rem;
+            background: var(--filter-button-bg-active);
+            color: var(--filter-button-color-active);
+        }
+    }
+    .panel-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        padding: .4em;
+    }
+    fieldset.filter-options {
+        border: 0;
+        padding: 0;
+        legend {
+            width: 100%;
+            padding: 0;
+            button {
+                width: 100%;
+                padding: .8rem;
+                text-transform: uppercase;
+                text-align: left;
+                border: none;
+            }
+        }
+        ul {
+            padding: 0;
+            margin:0;
+            li.filter-option {
+                position: relative;
+                margin: 0;
+                
+                list-style: none;
+                background: var(--filter-label-bg);
+                color: var(--filter-label-color);
+                margin-bottom: .4rem;
+                border-radius: 3px;
+                border: 1px solid var(--filter-button-border);
+                &.focus {
+                    border: 1px solid var(--filter-button-border-focus);
+                }
+                label {
+                    position: relative;
+                    user-select: none;
+                    cursor: pointer;
+                    display: block;
+                    padding:.8rem .5rem .8rem 2.3rem;
+                }
+                span {
+                    position: absolute;
+                    opacity: 0.2;
+                    font-size: 1rem;
+                    top: .8rem;
+                    width: 1.8rem;
+                    text-align: center;
+                }
+                input[type=checkbox] {
+                    position: absolute;
+                    clip: rect(1px, 1px, 1px, 1px);
+                    padding: 0;
+                    border: 0;
+                    height: 1px;
+                    width: 1px;
+                    overflow: hidden;
+                    &:checked~span {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+/**
+ * List panel
+ */
+/* the geolocation and sort buttons, the number of places shown, and the Filters button */
+#listcontrols {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .3rem .4rem;
+    border-bottom: 1px solid var(--filter-bg);
+    p {
+        flex: 1;
+        margin: 0;
+        padding: 0 .3rem;
+    }
+}
+#listfilters {
+    padding: .5rem;
+    border-bottom: 1px solid var(--filter-bg);
+    .noresults {
+        padding: .5rem 0 .5rem 1rem;
+        position:relative;
+        &:before {
+            content: "!";
+            color: red;
+            position:absolute;
+            top: .5rem;
+            font-weight: bold;
+            left: 0;
+        }
+    }
+}
+#listcontent {
+    .list-place {
+        padding: 1rem .5rem;
+        border-bottom: 1px solid var(--separator-color);
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        &.hidden {
+            display: none;
+        }
+        &.active {
+            background: var(--active-place-bg);
+            .place-details {
+                .place-image {
+                    width: 100%;
+                    height: auto;
+                    float: none;
+                    margin: 0 0 1rem 0;
+                }
+            }
+        }
+        .place-details {
+            &:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .place-image {
+                width: 50%;
+                height: auto;
+                float: left;
+                margin: 0 1rem 1rem 0;
+            }
+        }
+        h3 {
+            font-size: 1.4rem;
+            font-weight: normal;
+            padding-bottom: .3rem;
+            &:focus {
+                outline: 1px dotted var(--place-subhead-border);
+            }
+        }
+        p.place-info {
+            font-weight: normal;
+            padding-bottom: .3rem;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            gap: 1rem;
+            > span {
+                flex: 1;
+                &.place-type {
+                    font-size: 1.2rem;
+                    display: block;
+                    color: var(--highlight-text-color);
+                    span.distance {
+                        display: block;
+                        color: var(--light-text-color);
+                        font-size: .9rem;
+                    }
+                }
+                &.address {
+                    max-width: 70%;
+                    color: var(--light-text-color);
+                    text-align: right;
+                    font-size: .9rem;
+                }
+            }
+        }
+        &[data-sortdistance=""] p.place-info > span.place-type span.distance {
+            display: none;
+        }
+        h4 {
+            font-size: 1.1rem;
+            font-weight: normal;
+            padding-bottom: .5rem 0;
+            background: var(--place-subhead-bg);
+            margin: .5rem 0;
+            border-top: 1px dotted var(--place-subhead-border);
+            border-bottom: 1px dotted var(--place-subhead-border);
+        }
+        ul.bulleticons {
+            list-style: none;
+            padding: 0;
+            li {
+                position: relative;
+                padding: .1rem 0 .1rem 2.5rem;
+                &:before {
+                    position: absolute;
+                    top: .25rem;
+                    left: 0.5rem;
+                }
+                &.icon-link {
+                    word-break: break-all;
+                }
+            }
+        }
+        &[data-openclass="open"] {
+            [data-openmsg-id],
+            li.today {
+                color: var(--open-color);
+            }
+        }
+        &[data-openclass="opening-later"] {
+            [data-openmsg-id],
+            li.today {
+                color: var(--opening-color);
+            }
+        }
+        &[data-openclass="open"] {
+            [data-openmsg-id],
+            li.today {
+                color: var(--closed-color);
+            }
+        }
+        ul.opening-times {
+            list-style: none;
+            padding: 0;
+            li {
+                display: flex;
+                span.dayname {
+                    font-weight: bold;
+                    width: 25%;
+                    border-bottom: 1px solid var(--place-subhead-border);
+                }
+                span.opening {
+                    width: 25%;
+                    text-align: right;
+                    border-bottom: 1px solid var(--place-subhead-border);
+                }
+            }
+        }
+    }
+}
