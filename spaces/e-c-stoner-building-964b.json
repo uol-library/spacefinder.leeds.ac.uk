@@ -81,6 +81,11 @@
     "contacts": [],
     "links": [
         {
+            "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202627!location!AECF29AAE3D6233AD5D55B21751D489A",
+            "link_text": "View timetable for E C Stoner Building - 9.64B",
+            "class": "icon-link"
+        },
+        {
             "url": "https://www.leeds.ac.uk/campusmap?location=17406",
             "link_text": "View on the University campus map (map reference 73)",
             "class": "icon-uol-logo-mark"

@@ -90,6 +90,11 @@
     ],
     "links": [
         {
+            "url": "https://mytimetable.leeds.ac.uk/link?timetable.id=202627!location!AECF29AAE3D6233AD5D55B21751D47AA",
+            "link_text": "View timetable for Mechanical Engineering - 5.34d",
+            "class": "icon-link"
+        },
+        {
             "url": "https://www.leeds.ac.uk/campusmap?location=17507",
             "link_text": "View on the University campus map (map reference 50)",
             "class": "icon-uol-logo-mark"
