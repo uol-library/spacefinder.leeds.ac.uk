@@ -206,13 +206,13 @@
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": "https://schema.org/Saturday",
                 "opens": "10:00:00",
-                "closes": "16:30:00"
+                "closes": "19:00:00"
             },
             {
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": "https://schema.org/Sunday",
                 "opens": "10:00:00",
-                "closes": "20:00:00"
+                "closes": "19:00:00"
             }
         ]
     }

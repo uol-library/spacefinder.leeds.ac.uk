@@ -170,31 +170,31 @@
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
@@ -373,31 +373,31 @@
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
@@ -2721,31 +2721,31 @@
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "17:00:00"
                 },
                 {
@@ -3188,13 +3188,13 @@
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Saturday",
                     "opens": "10:00:00",
-                    "closes": "16:30:00"
+                    "closes": "19:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Sunday",
                     "opens": "10:00:00",
-                    "closes": "20:00:00"
+                    "closes": "19:00:00"
                 }
             ]
         }
@@ -8385,32 +8385,32 @@
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
-                    "opens": "08:30:00",
-                    "closes": "15:00:00"
+                    "opens": "08:00:00",
+                    "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
-                    "opens": "08:30:00",
-                    "closes": "15:00:00"
+                    "opens": "08:00:00",
+                    "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
-                    "opens": "08:30:00",
-                    "closes": "15:00:00"
+                    "opens": "08:00:00",
+                    "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
-                    "opens": "08:30:00",
-                    "closes": "15:00:00"
+                    "opens": "08:00:00",
+                    "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
-                    "opens": "08:30:00",
-                    "closes": "15:00:00"
+                    "opens": "08:00:00",
+                    "closes": "17:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
@@ -9622,31 +9622,31 @@
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
                     "opens": "08:00:00",
-                    "closes": "15:00:00"
+                    "closes": "14:30:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
                     "opens": "08:00:00",
-                    "closes": "15:00:00"
+                    "closes": "14:30:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
                     "opens": "08:00:00",
-                    "closes": "15:00:00"
+                    "closes": "14:30:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
                     "opens": "08:00:00",
-                    "closes": "15:00:00"
+                    "closes": "14:30:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
                     "opens": "08:00:00",
-                    "closes": "15:00:00"
+                    "closes": "14:30:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
@@ -12446,31 +12446,31 @@
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "16:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "16:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "16:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "16:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
-                    "opens": "08:30:00",
+                    "opens": "08:00:00",
                     "closes": "16:00:00"
                 },
                 {
@@ -12661,31 +12661,31 @@
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Monday",
-                    "opens": "08:00:00",
+                    "opens": "08:30:00",
                     "closes": "14:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Tuesday",
-                    "opens": "08:00:00",
+                    "opens": "08:30:00",
                     "closes": "14:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Wednesday",
-                    "opens": "08:00:00",
+                    "opens": "08:30:00",
                     "closes": "14:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Thursday",
-                    "opens": "08:00:00",
+                    "opens": "08:30:00",
                     "closes": "14:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": "https://schema.org/Friday",
-                    "opens": "08:00:00",
+                    "opens": "08:30:00",
                     "closes": "14:00:00"
                 },
                 {
@@ -17131,11 +17131,15 @@
                 },
                 {
                     "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "https://schema.org/Saturday"
+                    "dayOfWeek": "https://schema.org/Saturday",
+                    "opens": "10:00:00",
+                    "closes": "14:00:00"
                 },
                 {
                     "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "https://schema.org/Sunday"
+                    "dayOfWeek": "https://schema.org/Sunday",
+                    "opens": "10:00:00",
+                    "closes": "14:00:00"
                 }
             ]
         }
